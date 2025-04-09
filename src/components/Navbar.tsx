@@ -27,25 +27,25 @@ const Navbar = () => {
         <div className="hidden md:flex items-center space-x-8">
           <Link
             to="/"
-            className="text-hero-dark hover:text-hero transition-colors"
+            className="text-hero-dark hover:text-hero transition-colors font-bold"
           >
             Home
           </Link>
           <Link
             to="/about"
-            className="text-hero-dark hover:text-hero transition-colors"
+            className="text-hero-dark hover:text-hero transition-colors font-bold"
           >
             About
           </Link>
           <Link
             to="/products"
-            className="text-hero-dark hover:text-hero transition-colors"
+            className="text-hero-dark hover:text-hero transition-colors font-bold"
           >
             Products
           </Link>
           <Button
             variant="outline"
-            className="flex items-center gap-2 text-hero border-hero hover:bg-hero hover:text-white"
+            className="flex items-center gap-2 text-hero border-hero hover:bg-hero hover:text-white font-bold"
           >
             <ShoppingCart size={18} />
             <span>Cart (0)</span>
@@ -71,28 +71,28 @@ const Navbar = () => {
           <div className="flex flex-col space-y-4">
             <Link
               to="/"
-              className="text-hero-dark hover:text-hero transition-colors py-2"
+              className="text-hero-dark hover:text-hero transition-colors py-2 font-bold"
               onClick={toggleMenu}
             >
               Home
             </Link>
             <Link
               to="/about"
-              className="text-hero-dark hover:text-hero transition-colors py-2"
+              className="text-hero-dark hover:text-hero transition-colors py-2 font-bold"
               onClick={toggleMenu}
             >
               About
             </Link>
             <Link
               to="/products"
-              className="text-hero-dark hover:text-hero transition-colors py-2"
+              className="text-hero-dark hover:text-hero transition-colors py-2 font-bold"
               onClick={toggleMenu}
             >
               Products
             </Link>
             <Button
               variant="outline"
-              className="flex items-center justify-center gap-2 text-hero border-hero hover:bg-hero hover:text-white w-full"
+              className="flex items-center justify-center gap-2 text-hero border-hero hover:bg-hero hover:text-white w-full font-bold"
               onClick={toggleMenu}
             >
               <ShoppingCart size={18} />
