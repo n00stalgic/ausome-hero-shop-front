@@ -334,7 +334,7 @@ const HeroSection = () => {
               
               <Button
                 variant="outline"
-                className="border-cosmic-light text-cosmic-light hover:bg-cosmic-light/10 hover:text-white font-bold text-lg px-8 py-6"
+                className="border-cosmic-purple text-cosmic-purple hover:bg-cosmic-purple/10 hover:text-white font-bold text-lg px-8 py-6"
                 size="lg"
               >
                 <Link to="/about">Learn More</Link>
