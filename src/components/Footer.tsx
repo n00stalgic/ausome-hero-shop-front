@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-white">AusomeHero's</h3>
+            <h3 className="text-xl font-bold text-white">AusomeHeroes</h3>
             <p className="text-gray-300">
               Empowering autistic children with products they love.
             </p>
@@ -99,7 +99,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-          <p>© {new Date().getFullYear()} AusomeHero's. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} AusomeHeroes. All rights reserved.</p>
         </div>
       </div>
     </footer>

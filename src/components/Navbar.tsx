@@ -16,7 +16,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="flex items-center">
           <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-hero to-hero-blue">
-            AusomeHero's
+            AusomeHeroes
           </span>
         </Link>
 

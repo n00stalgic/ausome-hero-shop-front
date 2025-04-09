@@ -54,7 +54,7 @@ const HeroSection = () => {
           <div className="relative">
             <div className="bg-white p-8 rounded-xl shadow-lg hero-card animate-float max-w-md mx-auto">
               <img
-                src="https://placehold.co/600x400/9b87f5/FFFFFF/png?text=AusomeHero's"
+                src="https://placehold.co/600x400/9b87f5/FFFFFF/png?text=AusomeHeroes"
                 alt="Happy children playing with toys"
                 className="w-full h-auto rounded-lg mb-6"
               />
