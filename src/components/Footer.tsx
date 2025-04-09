@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Twitter } from "lucide-react";
+import { Facebook, Instagram, Twitter, MapPin } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -81,6 +81,19 @@ const Footer = () => {
               <button className="bg-hero-orange text-white p-2 rounded-r hover:bg-opacity-90 transition-colors">
                 Subscribe
               </button>
+            </div>
+            
+            {/* Local Services Section */}
+            <div className="mt-6 pt-6 border-t border-gray-700">
+              <h3 className="text-lg font-bold mb-3">Local Services</h3>
+              <ul className="space-y-2">
+                <li className="flex items-center gap-2">
+                  <MapPin size={16} className="text-hero-orange" />
+                  <Link to="/los-angeles" className="text-gray-300 hover:text-white transition-colors flex items-center">
+                    <span className="border-b border-dotted border-gray-500">Los Angeles Area</span>
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
