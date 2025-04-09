@@ -24,7 +24,7 @@ const LosAngeles = () => {
           
           {/* Hero Content */}
           <div className="relative z-10 container mx-auto px-6 pt-16 pb-24">
-            <div className="max-w-2xl mx-auto text-center backdrop-blur-sm bg-black/20 rounded-xl p-8 border border-white/10">
+            <div className="max-w-2xl mx-auto text-center backdrop-blur-sm bg-black/40 rounded-xl p-8 border border-white/10">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
                 Supporting Autistic{" "}
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FFD700] to-[#00BFFF]">
@@ -38,7 +38,7 @@ const LosAngeles = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button
-                  className="bg-[#FFD700] hover:bg-[#FFC400] text-[#4B0082] transition-colors"
+                  className="bg-[#FFD700] hover:bg-[#FFC400] text-[#4B0082] font-bold transition-colors"
                   size="lg"
                 >
                   <Link to="/products" className="flex items-center gap-2">
@@ -46,8 +46,7 @@ const LosAngeles = () => {
                   </Link>
                 </Button>
                 <Button
-                  variant="outline"
-                  className="border-white text-white hover:bg-white/10 transition-colors"
+                  className="bg-cosmic-coral hover:bg-cosmic-coral/90 text-white font-bold transition-colors"
                   size="lg"
                 >
                   <Link to="#resources">Local Resources</Link>
@@ -70,7 +69,7 @@ const LosAngeles = () => {
         <SvgBackgroundSection />
 
         {/* Local Resources Section - Improved for better readability */}
-        <div id="resources" className="py-16 px-6 bg-white">
+        <div id="resources" className="py-16 px-6 bg-cosmic-light">
           <div className="container mx-auto">
             <h2 className="text-3xl font-bold text-center mb-12 text-cosmic-dark">Local Resources in Los Angeles</h2>
             
@@ -121,7 +120,7 @@ const LosAngeles = () => {
         </div>
         
         {/* LA Community Section */}
-        <div className="py-16 px-6 bg-gray-50">
+        <div className="py-16 px-6 bg-white">
           <div className="container mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
@@ -155,7 +154,9 @@ const LosAngeles = () => {
                     <span>Torrance</span>
                   </div>
                 </div>
-                <Button variant="outline" className="border-cosmic-purple text-cosmic-purple hover:bg-cosmic-purple hover:text-white">
+                <Button 
+                  className="bg-cosmic-purple hover:bg-cosmic-purple/90 text-white"
+                >
                   <HeartHandshake className="mr-2" size={18} />
                   Partner With Us
                 </Button>
@@ -180,14 +181,13 @@ const LosAngeles = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
-                className="bg-cosmic-coral hover:bg-opacity-90 text-white"
+                className="bg-cosmic-gold hover:bg-cosmic-gold/90 text-cosmic-dark font-bold"
                 size="lg"
               >
                 <Link to="/products">Shop Our Products</Link>
               </Button>
               <Button 
-                variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-cosmic-dark"
+                className="bg-cosmic-blue hover:bg-cosmic-blue/90 text-white font-bold"
                 size="lg"
               >
                 <Link to="/about">Learn More About Us</Link>

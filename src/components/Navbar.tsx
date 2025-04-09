@@ -15,8 +15,11 @@ const Navbar = () => {
     <nav className="bg-white shadow-sm py-4 px-6 fixed w-full z-50">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="flex items-center">
-          <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-hero to-hero-blue">
-            AusomeHeroes
+          <span className="text-2xl font-bold">
+            <span className="text-cosmic-dark">Ausome</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#FFD700] to-[#00BFFF]">
+              Heroes
+            </span>
           </span>
         </Link>
 
