@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <div className="cosmic-hero-gradient relative overflow-hidden pt-24 pb-12 px-6">
-      {/* SVG Background */}
+    <section className="relative overflow-hidden">
+      {/* Background SVG */}
       <div className="absolute inset-0 z-0">
         <svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
           {/* Definitions */}
@@ -305,87 +305,68 @@ const HeroSection = () => {
         </svg>
       </div>
       
-      {/* Content */}
-      <div className="container mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6 cosmic-text">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
+      {/* Semi-transparent overlay to improve text readability */}
+      <div className="absolute inset-0 bg-cosmic-navy opacity-50 z-1"></div>
+
+      {/* Main Hero Content */}
+      <div className="relative z-10 container mx-auto px-6 pt-32 pb-20">
+        <div className="flex flex-col items-start max-w-3xl">
+          <div className="bg-cosmic-navy/60 backdrop-blur-md p-8 rounded-xl shadow-cosmic">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white drop-shadow-md">
               Every Child Deserves To Be A{" "}
-              <span className="bg-clip-text text-transparent cosmic-gradient">
-                Hero
-              </span>
+              <span className="text-cosmic-gold">Hero</span>
             </h1>
-            <p className="text-lg md:text-xl text-cosmic-light max-w-lg">
+            
+            <p className="text-xl text-white mb-8 max-w-2xl leading-relaxed drop-shadow-sm">
               Empowering autistic children with toys and tools that inspire,
               comfort, and bring joy to their everyday adventures.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
               <Button
-                className="bg-cosmic-teal hover:bg-cosmic-coral text-white transition-colors"
+                className="bg-cosmic-gold hover:bg-cosmic-gold/80 text-cosmic-navy font-bold text-lg px-8 py-6"
                 size="lg"
               >
                 <Link to="/products" className="flex items-center gap-2">
-                  Shop Now <ChevronRight size={16} />
+                  Shop Now <ChevronRight size={18} />
                 </Link>
               </Button>
+              
               <Button
                 variant="outline"
-                className="border-cosmic-gold text-cosmic-gold hover:bg-cosmic-gold/20 hover:text-white transition-colors"
+                className="border-cosmic-light text-cosmic-light hover:bg-cosmic-light/10 hover:text-white font-bold text-lg px-8 py-6"
                 size="lg"
               >
                 <Link to="/about">Learn More</Link>
               </Button>
             </div>
-            <div className="flex flex-wrap gap-6 pt-4">
-              <div className="flex items-center gap-2 text-cosmic-light">
-                <Star className="text-cosmic-gold" size={20} />
-                <span>High-Quality Products</span>
-              </div>
-              <div className="flex items-center gap-2 text-cosmic-light">
-                <Shield className="text-cosmic-teal" size={20} />
-                <span>Safe & Tested</span>
-              </div>
-              <div className="flex items-center gap-2 text-cosmic-light">
-                <Zap className="text-cosmic-coral" size={20} />
-                <span>Fast Delivery</span>
-              </div>
-            </div>
-          </div>
-          <div className="relative flex justify-center">
-            <div className="bg-white/10 backdrop-blur-md p-8 rounded-xl shadow-glow cosmic-card max-w-md mx-auto relative z-10">
-              <div className="absolute top-0 left-0 w-full h-full overflow-hidden rounded-xl">
-                <div className="nebula-effect"></div>
-              </div>
-              <div className="relative z-20">
-                <img
-                  src="https://placehold.co/600x400/9b87f5/FFFFFF/png?text=AusomeHeroes"
-                  alt="Happy children playing with toys"
-                  className="w-full h-auto rounded-lg mb-6"
-                />
-                <h2 className="text-2xl font-bold mb-4 text-white">
-                  Sensory-Friendly Products
-                </h2>
-                <p className="text-cosmic-light mb-6">
-                  Carefully selected items that provide comfort, stimulation, and
-                  support for children with sensory needs.
-                </p>
-                <Button className="w-full bg-cosmic-coral hover:bg-cosmic-purple text-white transition-colors">
-                  <Link to="/products">Explore Products</Link>
-                </Button>
-                
-                {/* Infinity symbol subtle decoration */}
-                <div className="absolute -right-3 top-1/2 transform -translate-y-1/2 opacity-30">
-                  <svg width="40" height="40" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M30,30 C30,10 70,10 70,30 C70,50 30,50 30,30 Z M70,30 C70,10 110,10 110,30 C110,50 70,50 70,30 Z" 
-                      fill="none" stroke="#FFFFFF" strokeWidth="6" />
-                  </svg>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
+              <div className="flex items-center gap-3 text-white">
+                <div className="bg-cosmic-gold/20 p-2 rounded-full">
+                  <Star className="text-cosmic-gold" size={24} />
                 </div>
+                <span className="font-medium">High-Quality Products</span>
+              </div>
+              
+              <div className="flex items-center gap-3 text-white">
+                <div className="bg-cosmic-teal/20 p-2 rounded-full">
+                  <Shield className="text-cosmic-teal" size={24} />
+                </div>
+                <span className="font-medium">Safe & Tested</span>
+              </div>
+              
+              <div className="flex items-center gap-3 text-white">
+                <div className="bg-cosmic-coral/20 p-2 rounded-full">
+                  <Zap className="text-cosmic-coral" size={24} />
+                </div>
+                <span className="font-medium">Fast Delivery</span>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

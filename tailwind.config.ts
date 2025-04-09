@@ -126,6 +126,16 @@ export default {
 						transform: 'translateX(0) translateY(0)',
 						opacity: '0.3'
 					}
+				},
+				'star-twinkle': {
+					'0%, 100%': { 
+						opacity: '0.3',
+						transform: 'scale(0.9)'
+					},
+					'50%': { 
+						opacity: '1',
+						transform: 'scale(1.1)'
+					}
 				}
 			},
 			animation: {
@@ -133,7 +143,8 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'float': 'float 6s ease-in-out infinite',
 				'pulse-light': 'pulse-light 3s ease-in-out infinite',
-				'nebula-move': 'nebula-move 10s ease-in-out infinite'
+				'nebula-move': 'nebula-move 10s ease-in-out infinite',
+				'star-twinkle': 'star-twinkle 4s ease-in-out infinite'
 			}
 		}
 	},
