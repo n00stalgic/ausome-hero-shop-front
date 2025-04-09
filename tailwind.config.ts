@@ -136,6 +136,14 @@ export default {
 						opacity: '1',
 						transform: 'scale(1.1)'
 					}
+				},
+				'spin-slow': {
+					'0%': {
+						transform: 'rotate(0deg)'
+					},
+					'100%': {
+						transform: 'rotate(360deg)'
+					}
 				}
 			},
 			animation: {
@@ -144,7 +152,8 @@ export default {
 				'float': 'float 6s ease-in-out infinite',
 				'pulse-light': 'pulse-light 3s ease-in-out infinite',
 				'nebula-move': 'nebula-move 10s ease-in-out infinite',
-				'star-twinkle': 'star-twinkle 4s ease-in-out infinite'
+				'star-twinkle': 'star-twinkle 4s ease-in-out infinite',
+				'spin-slow': 'spin-slow 30s linear infinite'
 			}
 		}
 	},

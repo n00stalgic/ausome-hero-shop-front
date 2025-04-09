@@ -11,6 +11,7 @@ import { getFeaturedProducts } from "@/services/productService";
 import { ProductType } from "@/types/product";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import SvgBackgroundSection from "@/components/SvgBackgroundSection";
 
 const Index = () => {
   const [featuredProducts, setFeaturedProducts] = useState<ProductType[]>([]);
@@ -75,6 +76,9 @@ const Index = () => {
             </div>
           </div>
         </section>
+        
+        {/* SVG Background Section - Placed between product section and featured products */}
+        <SvgBackgroundSection />
         
         {loading ? (
           <div className="py-16 text-center">
