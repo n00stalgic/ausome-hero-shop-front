@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -68,50 +69,50 @@ const LosAngeles = () => {
         {/* Add the Universe SVG Background Section */}
         <SvgBackgroundSection />
 
-        {/* Local Resources Section */}
+        {/* Local Resources Section - Improved for better readability */}
         <div id="resources" className="py-16 px-6 bg-white">
           <div className="container mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-12">Local Resources in Los Angeles</h2>
+            <h2 className="text-3xl font-bold text-center mb-12 text-cosmic-dark">Local Resources in Los Angeles</h2>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Resource Card 1 */}
               <div className="bg-white rounded-lg shadow-md p-6 border border-gray-100 hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 bg-hero/10 rounded-full flex items-center justify-center mb-4">
-                  <Users className="text-hero" size={24} />
+                <div className="w-12 h-12 bg-cosmic-purple/10 rounded-full flex items-center justify-center mb-4">
+                  <Users className="text-cosmic-purple" size={24} />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Support Groups</h3>
-                <p className="text-gray-600 mb-4">
+                <h3 className="text-xl font-bold mb-2 text-cosmic-dark">Support Groups</h3>
+                <p className="text-gray-700 mb-4">
                   Connect with other parents and caregivers of autistic children in LA through local support groups.
                 </p>
-                <a href="#" className="text-hero hover:text-hero-blue transition-colors font-medium">
+                <a href="#" className="text-cosmic-purple hover:text-cosmic-blue transition-colors font-medium">
                   Find Support Groups →
                 </a>
               </div>
               
               {/* Resource Card 2 */}
               <div className="bg-white rounded-lg shadow-md p-6 border border-gray-100 hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 bg-hero-blue/10 rounded-full flex items-center justify-center mb-4">
-                  <School className="text-hero-blue" size={24} />
+                <div className="w-12 h-12 bg-cosmic-blue/10 rounded-full flex items-center justify-center mb-4">
+                  <School className="text-cosmic-blue" size={24} />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Educational Programs</h3>
-                <p className="text-gray-600 mb-4">
+                <h3 className="text-xl font-bold mb-2 text-cosmic-dark">Educational Programs</h3>
+                <p className="text-gray-700 mb-4">
                   Explore specialized educational programs and schools in Los Angeles for autistic children.
                 </p>
-                <a href="#" className="text-hero hover:text-hero-blue transition-colors font-medium">
+                <a href="#" className="text-cosmic-purple hover:text-cosmic-blue transition-colors font-medium">
                   Browse Programs →
                 </a>
               </div>
               
               {/* Resource Card 3 */}
               <div className="bg-white rounded-lg shadow-md p-6 border border-gray-100 hover:shadow-lg transition-shadow">
-                <div className="w-12 h-12 bg-hero-orange/10 rounded-full flex items-center justify-center mb-4">
-                  <Calendar className="text-hero-orange" size={24} />
+                <div className="w-12 h-12 bg-cosmic-coral/10 rounded-full flex items-center justify-center mb-4">
+                  <Calendar className="text-cosmic-coral" size={24} />
                 </div>
-                <h3 className="text-xl font-bold mb-2">Events & Workshops</h3>
-                <p className="text-gray-600 mb-4">
+                <h3 className="text-xl font-bold mb-2 text-cosmic-dark">Events & Workshops</h3>
+                <p className="text-gray-700 mb-4">
                   Stay updated on upcoming events, workshops, and activities for autistic children in LA.
                 </p>
-                <a href="#" className="text-hero hover:text-hero-blue transition-colors font-medium">
+                <a href="#" className="text-cosmic-purple hover:text-cosmic-blue transition-colors font-medium">
                   View Calendar →
                 </a>
               </div>
@@ -124,37 +125,37 @@ const LosAngeles = () => {
           <div className="container mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-3xl font-bold mb-6">Serving the Los Angeles Community</h2>
+                <h2 className="text-3xl font-bold mb-6 text-cosmic-dark">Serving the Los Angeles Community</h2>
                 <p className="text-gray-700 mb-4">
                   At AusomeHeroes, we're proud to support autistic children and their families throughout Los Angeles County, including:
                 </p>
                 <div className="grid grid-cols-2 gap-2 mb-6">
                   <div className="flex items-center gap-2">
-                    <MapPin size={16} className="text-hero-orange" />
+                    <MapPin size={16} className="text-cosmic-coral" />
                     <span>Santa Monica</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <MapPin size={16} className="text-hero-orange" />
+                    <MapPin size={16} className="text-cosmic-coral" />
                     <span>Pasadena</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <MapPin size={16} className="text-hero-orange" />
+                    <MapPin size={16} className="text-cosmic-coral" />
                     <span>Long Beach</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <MapPin size={16} className="text-hero-orange" />
+                    <MapPin size={16} className="text-cosmic-coral" />
                     <span>Burbank</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <MapPin size={16} className="text-hero-orange" />
+                    <MapPin size={16} className="text-cosmic-coral" />
                     <span>Glendale</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <MapPin size={16} className="text-hero-orange" />
+                    <MapPin size={16} className="text-cosmic-coral" />
                     <span>Torrance</span>
                   </div>
                 </div>
-                <Button variant="outline" className="border-hero text-hero hover:bg-hero hover:text-white">
+                <Button variant="outline" className="border-cosmic-purple text-cosmic-purple hover:bg-cosmic-purple hover:text-white">
                   <HeartHandshake className="mr-2" size={18} />
                   Partner With Us
                 </Button>
@@ -171,7 +172,7 @@ const LosAngeles = () => {
         </div>
         
         {/* CTA Section */}
-        <div className="py-16 px-6 bg-hero-dark text-white">
+        <div className="py-16 px-6 bg-cosmic-dark text-white">
           <div className="container mx-auto text-center">
             <h2 className="text-3xl font-bold mb-4">Ready to Discover Products for Your Child?</h2>
             <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -179,14 +180,14 @@ const LosAngeles = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
-                className="bg-hero-orange hover:bg-opacity-90 text-white"
+                className="bg-cosmic-coral hover:bg-opacity-90 text-white"
                 size="lg"
               >
                 <Link to="/products">Shop Our Products</Link>
               </Button>
               <Button 
                 variant="outline" 
-                className="border-white text-white hover:bg-white hover:text-hero-dark"
+                className="border-white text-white hover:bg-white hover:text-cosmic-dark"
                 size="lg"
               >
                 <Link to="/about">Learn More About Us</Link>
