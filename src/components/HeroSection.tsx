@@ -5,8 +5,15 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <div className="hero-gradient pt-24 pb-12 px-6">
-      <div className="container mx-auto">
+    <div className="hero-gradient relative overflow-hidden pt-24 pb-12 px-6">
+      {/* Background Stars Effect */}
+      <div className="absolute inset-0 overflow-hidden opacity-30">
+        <div className="stars-small"></div>
+        <div className="stars-medium"></div>
+        <div className="stars-large"></div>
+      </div>
+      
+      <div className="container mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
@@ -52,7 +59,11 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="relative">
-            <div className="bg-white p-8 rounded-xl shadow-lg hero-card animate-float max-w-md mx-auto">
+            {/* Decorative elements */}
+            <div className="absolute -top-4 -left-4 w-24 h-24 bg-hero-blue rounded-full opacity-20 blur-xl animate-pulse"></div>
+            <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-hero rounded-full opacity-20 blur-xl animate-pulse"></div>
+            
+            <div className="bg-white p-8 rounded-xl shadow-lg hero-card max-w-md mx-auto relative z-10">
               <img
                 src="https://placehold.co/600x400/9b87f5/FFFFFF/png?text=AusomeHeroes"
                 alt="Happy children playing with toys"
@@ -68,9 +79,15 @@ const HeroSection = () => {
               <Button className="w-full bg-hero-orange hover:bg-hero text-white transition-colors">
                 <Link to="/products">Explore Products</Link>
               </Button>
+              
+              {/* Infinity symbol subtle decoration */}
+              <div className="absolute -right-3 top-1/2 transform -translate-y-1/2 opacity-10">
+                <svg width="40" height="40" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M30,30 C30,10 70,10 70,30 C70,50 30,50 30,30 Z M70,30 C70,10 110,10 110,30 C110,50 70,50 70,30 Z" 
+                    fill="none" stroke="#9b87f5" strokeWidth="6" />
+                </svg>
+              </div>
             </div>
-            <div className="absolute -top-4 -left-4 w-24 h-24 bg-hero-blue rounded-full opacity-20 blur-xl"></div>
-            <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-hero rounded-full opacity-20 blur-xl"></div>
           </div>
         </div>
       </div>
