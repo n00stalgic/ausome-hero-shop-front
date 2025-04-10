@@ -99,6 +99,18 @@ export const products: ProductType[] = [
     inStock: true,
     featured: true,
   },
+  {
+    id: "p9",
+    name: "Ausome Daily Planner",
+    description: "A visual daily planner with space-themed illustrations to help children organize their day, track emotions, and celebrate achievements in the Mindverse!",
+    price: 24.99,
+    imageUrl: "/lovable-uploads/11f73234-9c04-4b42-9698-867d0e582b95.png",
+    category: "Organization",
+    rating: 4.9,
+    reviews: 42,
+    inStock: true,
+    featured: true,
+  },
 ];
 
 // Function to get all products
