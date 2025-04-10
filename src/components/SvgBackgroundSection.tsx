@@ -3,17 +3,17 @@ import React from 'react';
 
 const SvgBackgroundSection = () => {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden bg-cosmic-dark">
+    <div className="relative py-24 md:py-32 overflow-hidden bg-cosmic-dark h-full">
       {/* Nebula effect */}
-      <div className="nebula-effect"></div>
+      <div className="nebula-effect absolute inset-0"></div>
       
       {/* Stars animation */}
-      <div className="stars-small"></div>
-      <div className="stars-medium"></div>
-      <div className="stars-large"></div>
+      <div className="stars-small absolute inset-0"></div>
+      <div className="stars-medium absolute inset-0"></div>
+      <div className="stars-large absolute inset-0"></div>
       
       {/* SVG Background */}
-      <div className="absolute inset-0 w-full h-full opacity-25 z-0">
+      <div className="absolute inset-0 w-full h-full opacity-25">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 2000 1500"
@@ -63,31 +63,7 @@ const SvgBackgroundSection = () => {
           </g>
         </svg>
       </div>
-      
-      {/* Content */}
-      <div className="container mx-auto px-6 relative z-10 flex justify-center items-center">
-        <div className="text-center max-w-4xl mx-auto">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight cosmic-shadow">
-            A Universe of Support
-          </h2>
-          <p className="text-xl md:text-2xl text-cosmic-light mb-8 leading-relaxed">
-            Guiding children through their unique cosmic journey
-          </p>
-          <div className="animate-float mb-12">
-            <svg width="160" height="160" viewBox="0 0 160 160" className="mx-auto">
-              <circle cx="80" cy="80" r="70" fill="none" stroke="#FFD700" strokeWidth="2" strokeDasharray="10 5" />
-              <circle cx="80" cy="80" r="50" fill="rgba(148, 0, 211, 0.3)" />
-              <g className="animate-spin-slow">
-                <circle cx="80" cy="20" r="8" fill="#FF6B6B" />
-                <circle cx="140" cy="80" r="6" fill="#00BFFF" />
-                <circle cx="80" cy="140" r="10" fill="#E5DEFF" />
-                <circle cx="20" cy="80" r="7" fill="#FFD700" />
-              </g>
-            </svg>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
   );
 };
 

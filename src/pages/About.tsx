@@ -5,6 +5,7 @@ import SubscriptionSection from "@/components/SubscriptionSection";
 import { Card, CardContent } from "@/components/ui/card";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Heart, ShieldCheck, Clock, Users } from "lucide-react";
+import SvgBackgroundSection from "@/components/SvgBackgroundSection";
 
 const About = () => {
   return (
@@ -12,15 +13,24 @@ const About = () => {
       <Navbar />
       
       <main className="flex-grow pt-20">
-        {/* Hero Section */}
-        <section className="py-16 px-6 bg-hero-gradient">
-          <div className="container mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Mission</h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              We believe that every child deserves to feel like a hero in their own story.
-              AusomeHero's was created to empower autistic children with products that
-              inspire joy, comfort, and confidence.
-            </p>
+        {/* Hero Section with Galaxy Background */}
+        <section className="relative overflow-hidden">
+          <div className="absolute inset-0 w-full h-full">
+            {/* Using the SvgBackgroundSection as a background */}
+            <div className="h-full">
+              <SvgBackgroundSection />
+            </div>
+          </div>
+          
+          <div className="relative py-16 px-6 z-10">
+            <div className="container mx-auto text-center">
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white cosmic-shadow">Our Mission</h1>
+              <p className="text-xl text-white max-w-3xl mx-auto">
+                We believe that every child deserves to feel like a hero in their own story.
+                AusomeHero's was created to empower autistic children with products that
+                inspire joy, comfort, and confidence.
+              </p>
+            </div>
           </div>
         </section>
         
