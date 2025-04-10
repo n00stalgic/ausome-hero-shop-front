@@ -1,0 +1,14 @@
+
+/* Original styles */
+.hero-gradient {
+  background: linear-gradient(90deg, rgba(255,191,57,0.15) 0%, rgba(79,151,199,0.1) 100%);
+}
+
+.hero-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255, 191, 57, 0.2);
+}
