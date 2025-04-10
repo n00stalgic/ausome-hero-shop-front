@@ -52,22 +52,18 @@ const About = () => {
             
             <div className="max-w-4xl mx-auto">
               <p className="text-gray-700 mb-4">
-                AusomeHero's was founded in 2023 by parents who understand the unique 
-                challenges and joys of raising autistic children. After struggling to 
-                find products that truly met their children's needs, they decided to 
-                create a store that would offer carefully curated items specifically 
-                designed for children on the autism spectrum.
+                I launched AusomeHero's in 2023 after struggling to find sensory-friendly products for my autistic son, 
+                Kadence, a playful 5-year-old whose needs inspired every detail. What started as a quest for softer 
+                clothes and calmer toys grew into a shop curated with therapists, offering items that empower kids like him.
               </p>
               <p className="text-gray-700 mb-4">
-                What began as a small passion project has grown into a community 
-                of parents, educators, and therapists who share a common goal: 
-                to help autistic children thrive and feel empowered.
+                Our superhero theme reflects Kadence's resilience and creativity—traits I see in every autistic child. 
+                Today, we're a community hub where parents and professionals share resources and celebrate neurodiverse joy. 
+                Kadence taught me that "different" is brilliant, and our mission is simple: help kids embrace their strengths, 
+                one sensory swing or communication card at a time.
               </p>
               <p className="text-gray-700">
-                Our superhero theme represents the incredible strength, unique 
-                abilities, and special perspectives that autistic children bring 
-                to the world. Every child has their own superpowers, and we're 
-                here to celebrate them!
+                This isn't just a store—it's our way of cheering on the superhero in every child.
               </p>
             </div>
           </div>
