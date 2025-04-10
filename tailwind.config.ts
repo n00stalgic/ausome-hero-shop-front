@@ -54,21 +54,22 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				hero: {
-					DEFAULT: '#9b87f5',
-					orange: '#F97316',
-					blue: '#0EA5E9',
-					dark: '#1A1F2C',
+					DEFAULT: '#FFBF39', // Vibrant gold from the image
+					orange: '#FF8C42', // Orange from the heroes
+					blue: '#4F97C7',   // Light blue from Cosmo
+					purple: '#8A4FBC', // Purple from Nova's outfit
+					dark: '#1A1E3A',   // Deep space blue from the background
 				},
 				cosmic: {
-					purple: '#9400D3',
-					navy: '#000080',
-					indigo: '#4B0082',
-					teal: '#008080',
-					coral: '#FF6B6B',
-					gold: '#FFD700',
-					light: '#E5DEFF',
-					blue: '#00BFFF',
-					dark: '#1A1F2C',
+					purple: '#8A4FBC', // Purple from Nova
+					navy: '#1A1E3A',   // Deep space blue from the background
+					indigo: '#32246B', // Darker purple/indigo from the background
+					teal: '#5ABED5',   // Light blue from Cosmo
+					coral: '#FF8C42',  // Orange from Zeke
+					gold: '#FFBF39',   // Vibrant gold from the title
+					light: '#E5DEFF',  // Light purple for text on dark backgrounds
+					blue: '#4F97C7',   // Light blue from Cosmo
+					dark: '#121638',   // Darkest blue from the background
 				}
 			},
 			borderRadius: {
@@ -77,8 +78,8 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			boxShadow: {
-				'glow': '0 0 15px rgba(155, 135, 245, 0.5)',
-				'cosmic': '0 0 20px rgba(148, 0, 211, 0.6)',
+				'glow': '0 0 15px rgba(255, 191, 57, 0.5)',
+				'cosmic': '0 0 20px rgba(138, 79, 188, 0.6)',
 			},
 			keyframes: {
 				'accordion-down': {

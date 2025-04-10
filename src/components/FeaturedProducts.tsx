@@ -24,10 +24,10 @@ const FeaturedProducts = ({ products }: FeaturedProductsProps) => {
   };
 
   return (
-    <section className="py-16 px-6">
+    <section className="py-16 px-6 bg-gradient-to-b from-white to-cosmic-light/20">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-cosmic-navy">
             Featured Products
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -40,7 +40,7 @@ const FeaturedProducts = ({ products }: FeaturedProductsProps) => {
           {products.map((product) => (
             <Link key={product.id} to={`/products/${product.id}`}>
               <Card
-                className="overflow-hidden hero-card border border-gray-200 h-full hover:shadow-md transition-shadow"
+                className="overflow-hidden hero-card border border-gray-200 h-full hover:shadow-md transition-shadow bg-white"
                 onMouseEnter={() => setHoveredProduct(product.id)}
                 onMouseLeave={() => setHoveredProduct(null)}
               >
@@ -55,7 +55,7 @@ const FeaturedProducts = ({ products }: FeaturedProductsProps) => {
                     }}
                   />
                   {product.category && (
-                    <span className="absolute top-2 left-2 bg-hero-blue text-white text-xs font-semibold px-2 py-1 rounded">
+                    <span className="absolute top-2 left-2 bg-cosmic-blue text-white text-xs font-semibold px-2 py-1 rounded">
                       {product.category}
                     </span>
                   )}
@@ -71,7 +71,7 @@ const FeaturedProducts = ({ products }: FeaturedProductsProps) => {
                           size={16}
                           className={
                             i < Math.floor(product.rating)
-                              ? "fill-hero-orange text-hero-orange"
+                              ? "fill-cosmic-gold text-cosmic-gold"
                               : "text-gray-300"
                           }
                         />
@@ -80,15 +80,15 @@ const FeaturedProducts = ({ products }: FeaturedProductsProps) => {
                       ({product.reviews})
                     </span>
                   </div>
-                  <h3 className="font-semibold text-lg mb-2 line-clamp-2">
+                  <h3 className="font-semibold text-lg mb-2 line-clamp-2 text-cosmic-navy">
                     {product.name}
                   </h3>
-                  <p className="text-hero font-bold text-lg">${product.price}</p>
+                  <p className="text-cosmic-coral font-bold text-lg">${product.price}</p>
                 </CardContent>
 
                 <CardFooter className="p-4 pt-0">
                   <Button
-                    className="w-full bg-hero hover:bg-hero-blue flex items-center gap-2 transition-colors"
+                    className="w-full bg-cosmic-gold hover:bg-cosmic-coral flex items-center gap-2 transition-colors text-cosmic-navy font-semibold"
                     onClick={(e) => handleAddToCart(product.name, e)}
                   >
                     <ShoppingCart size={16} />
@@ -103,7 +103,7 @@ const FeaturedProducts = ({ products }: FeaturedProductsProps) => {
         <div className="text-center mt-12">
           <Button
             variant="outline"
-            className="border-hero text-hero hover:bg-hero hover:text-white"
+            className="border-cosmic-purple text-cosmic-purple hover:bg-cosmic-purple/10 hover:text-cosmic-navy"
             size="lg"
           >
             <Link to="/products">View All Products</Link>

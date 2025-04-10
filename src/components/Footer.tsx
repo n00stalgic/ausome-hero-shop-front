@@ -4,7 +4,7 @@ import { Facebook, Instagram, Twitter, MapPin } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-hero-dark text-white py-12 px-6">
+    <footer className="bg-cosmic-navy text-white py-12 px-6">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
@@ -13,13 +13,13 @@ const Footer = () => {
               Empowering autistic children with products they love.
             </p>
             <div className="flex space-x-4">
-              <a href="#" aria-label="Facebook" className="text-gray-300 hover:text-hero-orange transition-colors">
+              <a href="#" aria-label="Facebook" className="text-gray-300 hover:text-cosmic-coral transition-colors">
                 <Facebook size={20} />
               </a>
-              <a href="#" aria-label="Instagram" className="text-gray-300 hover:text-hero-orange transition-colors">
+              <a href="#" aria-label="Instagram" className="text-gray-300 hover:text-cosmic-coral transition-colors">
                 <Instagram size={20} />
               </a>
-              <a href="#" aria-label="Twitter" className="text-gray-300 hover:text-hero-orange transition-colors">
+              <a href="#" aria-label="Twitter" className="text-gray-300 hover:text-cosmic-coral transition-colors">
                 <Twitter size={20} />
               </a>
             </div>
@@ -78,7 +78,7 @@ const Footer = () => {
                 placeholder="Enter your email"
                 className="p-2 text-gray-800 rounded-l focus:outline-none flex-grow"
               />
-              <button className="bg-hero-orange text-white p-2 rounded-r hover:bg-opacity-90 transition-colors">
+              <button className="bg-cosmic-gold text-cosmic-navy p-2 rounded-r hover:bg-opacity-90 transition-colors font-semibold">
                 Subscribe
               </button>
             </div>
@@ -88,7 +88,7 @@ const Footer = () => {
               <h3 className="text-lg font-bold mb-3">Local Services</h3>
               <ul className="space-y-2">
                 <li className="flex items-center gap-2">
-                  <MapPin size={16} className="text-hero-orange" />
+                  <MapPin size={16} className="text-cosmic-gold" />
                   <Link to="/los-angeles" className="text-gray-300 hover:text-white transition-colors flex items-center">
                     <span className="border-b border-dotted border-gray-500">Los Angeles Area</span>
                   </Link>

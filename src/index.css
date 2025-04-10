@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 16%;
 
-    --primary: 252 80% 75%;
+    --primary: 40 100% 62%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 240 4.8% 95.9%;
@@ -31,7 +31,7 @@
 
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 252 80% 75%;
+    --ring: 40 100% 62%;
 
     --radius: 0.5rem;
   }
@@ -46,7 +46,7 @@
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 252 80% 75%;
+    --primary: 40 100% 62%;
     --primary-foreground: 240 5.9% 10%;
 
     --secondary: 240 3.7% 15.9%;
@@ -63,7 +63,7 @@
 
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 252 80% 75%;
+    --ring: 40 100% 62%;
   }
 }
 
@@ -84,7 +84,7 @@
 
 /* Original styles */
 .hero-gradient {
-  background: linear-gradient(90deg, rgba(155,135,245,0.15) 0%, rgba(15,163,233,0.1) 100%);
+  background: linear-gradient(90deg, rgba(255,191,57,0.15) 0%, rgba(79,151,199,0.1) 100%);
 }
 
 .hero-card {
@@ -93,12 +93,12 @@
 
 .hero-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(155, 135, 245, 0.2);
+  box-shadow: 0 10px 20px rgba(255, 191, 57, 0.2);
 }
 
-/* New cosmic styles */
+/* Cosmic styles */
 .cosmic-hero-gradient {
-  background: linear-gradient(180deg, rgba(0,0,128,0.95) 0%, rgba(75,0,130,0.9) 50%, rgba(148,0,211,0.85) 100%);
+  background: linear-gradient(180deg, rgba(26,30,58,0.95) 0%, rgba(50,36,107,0.9) 50%, rgba(138,79,188,0.85) 100%);
   min-height: 90vh;
   position: relative;
 }
@@ -113,19 +113,19 @@
 }
 
 .cosmic-gradient {
-  background: linear-gradient(90deg, #00BFFF 0%, #FF6B6B 50%, #FFD700 100%);
+  background: linear-gradient(90deg, #4F97C7 0%, #FF8C42 50%, #FFBF39 100%);
 }
 
 .cosmic-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(148, 0, 211, 0.3);
+  box-shadow: 0 0 20px rgba(138, 79, 188, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .cosmic-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 30px rgba(148, 0, 211, 0.5);
+  box-shadow: 0 0 30px rgba(138, 79, 188, 0.5);
 }
 
 .nebula-effect {
@@ -134,7 +134,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at center, rgba(148,0,211,0.3) 0%, rgba(0,191,255,0.2) 50%, rgba(255,107,107,0.2) 100%);
+  background: radial-gradient(ellipse at center, rgba(138,79,188,0.3) 0%, rgba(79,151,199,0.2) 50%, rgba(255,140,66,0.2) 100%);
   animation: nebula-move 10s ease-in-out infinite;
   z-index: -1;
 }
@@ -219,7 +219,7 @@
 /* Updated text readability styles */
 .readable-text {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
-  background-color: rgba(0, 0, 128, 0.3);
+  background-color: rgba(26, 30, 58, 0.3);
   backdrop-filter: blur(5px);
   padding: 1rem;
   border-radius: 0.5rem;
@@ -230,11 +230,11 @@
 }
 
 .cosmic-button {
-  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(255, 191, 57, 0.3);
   transition: all 0.3s ease;
 }
 
 .cosmic-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(255, 215, 0, 0.5);
+  box-shadow: 0 6px 16px rgba(255, 191, 57, 0.5);
 }

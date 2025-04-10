@@ -48,13 +48,13 @@ const Products = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-white to-cosmic-light/20">
       <Navbar />
       
       <main className="flex-grow pt-24 pb-12 px-6">
         <div className="container mx-auto">
           <div className="mb-8">
-            <h1 className="text-3xl md:text-4xl font-bold mb-2">
+            <h1 className="text-3xl md:text-4xl font-bold mb-2 text-cosmic-navy">
               {category 
                 ? `${category.charAt(0).toUpperCase() + category.slice(1)} Products` 
                 : "All Products"}
@@ -77,7 +77,7 @@ const Products = () => {
               {products.map((product) => (
                 <Link key={product.id} to={`/products/${product.id}`}>
                   <Card
-                    className="overflow-hidden hero-card border border-gray-200 h-full hover:shadow-md transition-shadow"
+                    className="overflow-hidden hero-card border border-gray-200 h-full hover:shadow-md transition-shadow bg-white"
                     onMouseEnter={() => setHoveredProduct(product.id)}
                     onMouseLeave={() => setHoveredProduct(null)}
                   >
@@ -92,7 +92,7 @@ const Products = () => {
                         }}
                       />
                       {product.category && (
-                        <span className="absolute top-2 left-2 bg-hero-blue text-white text-xs font-semibold px-2 py-1 rounded">
+                        <span className="absolute top-2 left-2 bg-cosmic-blue text-white text-xs font-semibold px-2 py-1 rounded">
                           {product.category}
                         </span>
                       )}
@@ -108,7 +108,7 @@ const Products = () => {
                               size={16}
                               className={
                                 i < Math.floor(product.rating)
-                                  ? "fill-hero-orange text-hero-orange"
+                                  ? "fill-cosmic-gold text-cosmic-gold"
                                   : "text-gray-300"
                               }
                             />
@@ -117,18 +117,18 @@ const Products = () => {
                           ({product.reviews})
                         </span>
                       </div>
-                      <h3 className="font-semibold text-lg mb-2 line-clamp-2">
+                      <h3 className="font-semibold text-lg mb-2 line-clamp-2 text-cosmic-navy">
                         {product.name}
                       </h3>
                       <p className="text-sm text-gray-600 mb-2 line-clamp-2">
                         {product.description}
                       </p>
-                      <p className="text-hero font-bold text-lg">${product.price}</p>
+                      <p className="text-cosmic-coral font-bold text-lg">${product.price}</p>
                     </CardContent>
 
                     <CardFooter className="p-4 pt-0">
                       <Button
-                        className="w-full bg-hero hover:bg-hero-blue flex items-center gap-2 transition-colors"
+                        className="w-full bg-cosmic-gold hover:bg-cosmic-coral flex items-center gap-2 transition-colors text-cosmic-navy font-semibold"
                         onClick={(e) => handleAddToCart(product.name, e)}
                       >
                         <ShoppingCart size={16} />

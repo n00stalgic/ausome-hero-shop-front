@@ -12,7 +12,7 @@ const MissionSection = () => {
       
       <div className="relative py-16 px-6 z-10">
         <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white cosmic-shadow">Our Mission</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-cosmic-gold cosmic-shadow">Our Mission</h1>
           <p className="text-xl text-white max-w-3xl mx-auto">
             We believe that every child deserves to feel like a hero in their own story.
             AusomeHero's was created to empower autistic children with products that
