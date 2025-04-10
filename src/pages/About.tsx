@@ -28,36 +28,37 @@ const About = () => {
         <section className="py-16 px-6">
           <div className="container mx-auto">
             <h2 className="text-3xl font-bold mb-10 text-center">Our Story</h2>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-              <div className="col-span-1">
-                <div className="rounded-lg overflow-hidden shadow-lg h-full flex items-center justify-center">
-                  <img
-                    src="/lovable-uploads/f2d84322-71e9-4ca8-8dc3-fb8c4c3255cd.png"
-                    alt="Kadence the Harmonizer"
-                    className="w-full object-contain"
-                  />
-                </div>
+            
+            {/* Image display above the text content */}
+            <div className="mb-12 max-w-2xl mx-auto">
+              <div className="rounded-lg overflow-hidden shadow-lg">
+                <img
+                  src="/lovable-uploads/f2d84322-71e9-4ca8-8dc3-fb8c4c3255cd.png"
+                  alt="Kadence the Harmonizer"
+                  className="w-full h-auto"
+                />
               </div>
-              <div className="col-span-2">
-                <p className="text-gray-700 mb-4">
-                  AusomeHero's was founded in 2023 by parents who understand the unique 
-                  challenges and joys of raising autistic children. After struggling to 
-                  find products that truly met their children's needs, they decided to 
-                  create a store that would offer carefully curated items specifically 
-                  designed for children on the autism spectrum.
-                </p>
-                <p className="text-gray-700 mb-4">
-                  What began as a small passion project has grown into a community 
-                  of parents, educators, and therapists who share a common goal: 
-                  to help autistic children thrive and feel empowered.
-                </p>
-                <p className="text-gray-700">
-                  Our superhero theme represents the incredible strength, unique 
-                  abilities, and special perspectives that autistic children bring 
-                  to the world. Every child has their own superpowers, and we're 
-                  here to celebrate them!
-                </p>
-              </div>
+            </div>
+            
+            <div className="max-w-4xl mx-auto">
+              <p className="text-gray-700 mb-4">
+                AusomeHero's was founded in 2023 by parents who understand the unique 
+                challenges and joys of raising autistic children. After struggling to 
+                find products that truly met their children's needs, they decided to 
+                create a store that would offer carefully curated items specifically 
+                designed for children on the autism spectrum.
+              </p>
+              <p className="text-gray-700 mb-4">
+                What began as a small passion project has grown into a community 
+                of parents, educators, and therapists who share a common goal: 
+                to help autistic children thrive and feel empowered.
+              </p>
+              <p className="text-gray-700">
+                Our superhero theme represents the incredible strength, unique 
+                abilities, and special perspectives that autistic children bring 
+                to the world. Every child has their own superpowers, and we're 
+                here to celebrate them!
+              </p>
             </div>
           </div>
         </section>
