@@ -27,18 +27,18 @@ const About = () => {
         {/* Our Story */}
         <section className="py-16 px-6">
           <div className="container mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <AspectRatio ratio={1/1} className="rounded-lg overflow-hidden shadow-lg">
+            <h2 className="text-3xl font-bold mb-10 text-center">Our Story</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+              <div className="col-span-1">
+                <div className="rounded-lg overflow-hidden shadow-lg h-full flex items-center justify-center">
                   <img
                     src="/lovable-uploads/f2d84322-71e9-4ca8-8dc3-fb8c4c3255cd.png"
                     alt="Kadence the Harmonizer"
-                    className="w-full h-full object-cover"
+                    className="w-full object-contain"
                   />
-                </AspectRatio>
+                </div>
               </div>
-              <div>
-                <h2 className="text-3xl font-bold mb-6">Our Story</h2>
+              <div className="col-span-2">
                 <p className="text-gray-700 mb-4">
                   AusomeHero's was founded in 2023 by parents who understand the unique 
                   challenges and joys of raising autistic children. After struggling to 
