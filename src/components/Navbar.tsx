@@ -43,6 +43,12 @@ const Navbar = () => {
           >
             Products
           </Link>
+          <Link
+            to="/dashboard"
+            className="text-cosmic-navy hover:text-cosmic-coral transition-colors font-bold"
+          >
+            Community
+          </Link>
           <Button
             variant="outline"
             className="flex items-center gap-2 text-cosmic-purple border-cosmic-purple hover:bg-cosmic-purple/10 hover:text-cosmic-navy font-bold"
@@ -89,6 +95,13 @@ const Navbar = () => {
               onClick={toggleMenu}
             >
               Products
+            </Link>
+            <Link
+              to="/dashboard"
+              className="text-cosmic-navy hover:text-cosmic-coral transition-colors py-2 font-bold"
+              onClick={toggleMenu}
+            >
+              Community
             </Link>
             <Button
               variant="outline"
