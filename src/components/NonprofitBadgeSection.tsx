@@ -11,7 +11,7 @@ const NonprofitBadgeSection = () => {
             <img 
               src="/lovable-uploads/8dfe57a3-5d31-4698-bdeb-e64137674ff5.png" 
               alt="Ausome Heroes 501(c)(3) Nonprofit Badge" 
-              className="w-full h-auto drop-shadow-xl"
+              className="w-full h-auto drop-shadow-xl rounded-2xl" 
             />
           </div>
           <div>
