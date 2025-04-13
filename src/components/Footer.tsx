@@ -114,6 +114,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
           <p>© {new Date().getFullYear()} AusomeHeroes. All rights reserved.</p>
+          <p className="mt-2 text-sm">© 2025 Ausome Heroes. 501(c)(3) Nonprofit. EIN: 93-3634596.</p>
         </div>
       </div>
     </footer>
@@ -121,4 +122,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
