@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter, MapPin } from "lucide-react";
 import { useEffect } from "react";
@@ -96,7 +97,6 @@ const Footer = () => {
               </button>
             </div>
             
-            {/* Local Services Section */}
             <div className="mt-6 pt-6 border-t border-gray-700">
               <h3 className="text-lg font-bold mb-3">Local Services</h3>
               <ul className="space-y-2">
@@ -120,3 +120,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
