@@ -13,6 +13,7 @@ import { ProductType } from "@/types/product";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import SvgBackgroundSection from "@/components/SvgBackgroundSection";
+import ProductCarousel from "@/components/ProductCarousel";
 
 const Index = () => {
   const [featuredProducts, setFeaturedProducts] = useState<ProductType[]>([]);
@@ -329,7 +330,7 @@ const Index = () => {
             <p className="text-gray-500">Loading products...</p>
           </div>
         ) : (
-          <FeaturedProducts products={featuredProducts} />
+          <ProductCarousel products={featuredProducts} />
         )}
         
         <CategoriesSection />

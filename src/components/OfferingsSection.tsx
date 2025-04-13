@@ -1,93 +1,124 @@
 
 import { Link } from "react-router-dom";
-import { BookOpen, Package, Brain, Users } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { BookOpen, BrainCircuit, ShieldCheck, Sparkles } from "lucide-react";
 
 const OfferingsSection = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gradient-to-b from-cosmic-light to-white overflow-hidden relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-cosmic-navy">
-            Empowering Every Unique Mind
+            The Ausome Heroes Universe
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Discover our range of storytelling adventures, sensory products, and community events designed to celebrate every child's unique brilliance.
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Discover our suite of products, services, and resources designed to empower 
+            neurodivergent children and their families.
           </p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Storytelling & Characters */}
-          <div className="bg-cosmic-navy/5 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-14 h-14 bg-cosmic-purple/20 rounded-full flex items-center justify-center mb-5">
-              <BookOpen className="text-cosmic-purple" size={28} />
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+          {/* Offering 1: Stories & Characters */}
+          <Link to="/products" className="group">
+            <div className="bg-white rounded-xl shadow-md p-6 h-full flex flex-col hover:shadow-lg transition-all duration-300 hover:translate-y-[-5px] border border-gray-100">
+              <div className="bg-cosmic-gold/10 p-4 rounded-lg inline-block mb-4">
+                <BookOpen className="text-cosmic-gold w-8 h-8" />
+              </div>
+              
+              <h3 className="text-xl font-bold mb-2 text-cosmic-navy group-hover:text-cosmic-gold transition-colors">
+                Stories & Characters
+              </h3>
+              
+              <p className="text-gray-600 mb-4 flex-grow">
+                Interactive comics, trading cards, and games that celebrate neurodiversity through adventure.
+              </p>
+              
+              <span className="text-cosmic-gold font-medium inline-flex items-center">
+                Discover Stories
+                <svg className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
             </div>
-            <h3 className="text-xl font-bold mb-3 text-cosmic-navy">Storytelling & Characters</h3>
-            <ul className="space-y-2 text-gray-600 mb-6">
-              <li>• Ausome Heroes Comic Series</li>
-              <li>• Collectible Trading Cards</li>
-              <li>• Interactive Games & Quizzes</li>
-            </ul>
-            <Link to="/products" className="text-cosmic-purple font-medium hover:underline">
-              Explore Comics →
-            </Link>
-          </div>
-
-          {/* Sensory Products */}
-          <div className="bg-cosmic-navy/5 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-14 h-14 bg-cosmic-coral/20 rounded-full flex items-center justify-center mb-5">
-              <Package className="text-cosmic-coral" size={28} />
+          </Link>
+          
+          {/* Offering 2: Learning Tools - Now links to Ausome Daily Planner product */}
+          <Link to="/products/p9" className="group">
+            <div className="bg-white rounded-xl shadow-md p-6 h-full flex flex-col hover:shadow-lg transition-all duration-300 hover:translate-y-[-5px] border border-gray-100">
+              <div className="bg-cosmic-purple/10 p-4 rounded-lg inline-block mb-4">
+                <BrainCircuit className="text-cosmic-purple w-8 h-8" />
+              </div>
+              
+              <h3 className="text-xl font-bold mb-2 text-cosmic-navy group-hover:text-cosmic-purple transition-colors">
+                Learning Tools
+              </h3>
+              
+              <p className="text-gray-600 mb-4 flex-grow">
+                Daily planners, activity books, and visual aids that make learning engaging and accessible.
+              </p>
+              
+              <span className="text-cosmic-purple font-medium inline-flex items-center">
+                Explore Tools
+                <svg className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
             </div>
-            <h3 className="text-xl font-bold mb-3 text-cosmic-navy">Sensory Products</h3>
-            <ul className="space-y-2 text-gray-600 mb-6">
-              <li>• Space Explorer Sensory Kits</li>
-              <li>• Glow-in-the-Dark Pajamas</li>
-              <li>• Hero Cape Kits</li>
-            </ul>
-            <Link to="/products" className="text-cosmic-coral font-medium hover:underline">
-              Shop Products →
-            </Link>
-          </div>
-
-          {/* Tools for Growth */}
-          <div className="bg-cosmic-navy/5 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-14 h-14 bg-cosmic-teal/20 rounded-full flex items-center justify-center mb-5">
-              <Brain className="text-cosmic-teal" size={28} />
+          </Link>
+          
+          {/* Offering 3: Sensory Products */}
+          <Link to="/products" className="group">
+            <div className="bg-white rounded-xl shadow-md p-6 h-full flex flex-col hover:shadow-lg transition-all duration-300 hover:translate-y-[-5px] border border-gray-100">
+              <div className="bg-cosmic-teal/10 p-4 rounded-lg inline-block mb-4">
+                <Sparkles className="text-cosmic-teal w-8 h-8" />
+              </div>
+              
+              <h3 className="text-xl font-bold mb-2 text-cosmic-navy group-hover:text-cosmic-teal transition-colors">
+                Sensory Products
+              </h3>
+              
+              <p className="text-gray-600 mb-4 flex-grow">
+                Space-themed sensory kits, comfort items, and wearables designed for sensory regulation and joy.
+              </p>
+              
+              <span className="text-cosmic-teal font-medium inline-flex items-center">
+                View Products
+                <svg className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
             </div>
-            <h3 className="text-xl font-bold mb-3 text-cosmic-navy">Tools for Growth</h3>
-            <ul className="space-y-2 text-gray-600 mb-6">
-              <li>• Ausome Daily Planner</li>
-              <li>• Mindverse Activity Book</li>
-              <li>• Parent Resource Guides</li>
-            </ul>
-            <Link to="/products" className="text-cosmic-teal font-medium hover:underline">
-              View Resources →
-            </Link>
-          </div>
-
-          {/* Community Events */}
-          <div className="bg-cosmic-navy/5 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-            <div className="w-14 h-14 bg-cosmic-gold/20 rounded-full flex items-center justify-center mb-5">
-              <Users className="text-cosmic-gold" size={28} />
+          </Link>
+          
+          {/* Offering 4: Parent Resources */}
+          <Link to="/about" className="group">
+            <div className="bg-white rounded-xl shadow-md p-6 h-full flex flex-col hover:shadow-lg transition-all duration-300 hover:translate-y-[-5px] border border-gray-100">
+              <div className="bg-cosmic-coral/10 p-4 rounded-lg inline-block mb-4">
+                <ShieldCheck className="text-cosmic-coral w-8 h-8" />
+              </div>
+              
+              <h3 className="text-xl font-bold mb-2 text-cosmic-navy group-hover:text-cosmic-coral transition-colors">
+                Parent Resources
+              </h3>
+              
+              <p className="text-gray-600 mb-4 flex-grow">
+                Guides, affirmation cards, and community support to empower parents on their journey.
+              </p>
+              
+              <span className="text-cosmic-coral font-medium inline-flex items-center">
+                Get Support
+                <svg className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
             </div>
-            <h3 className="text-xl font-bold mb-3 text-cosmic-navy">Community Events</h3>
-            <ul className="space-y-2 text-gray-600 mb-6">
-              <li>• Sensory-Friendly Parties</li>
-              <li>• Mindverse Adventure Days</li>
-              <li>• Light Up the Galaxy Festival</li>
-            </ul>
-            <Link to="/los-angeles" className="text-cosmic-gold font-medium hover:underline">
-              Join Events →
-            </Link>
-          </div>
-        </div>
-
-        <div className="text-center mt-16">
-          <Button className="bg-cosmic-navy hover:bg-cosmic-navy/80 text-white">
-            <Link to="/about">Learn About Our Mission</Link>
-          </Button>
+          </Link>
         </div>
       </div>
+      
+      {/* Background decorative elements */}
+      <div className="absolute top-0 left-0 w-32 h-32 bg-cosmic-purple/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 right-0 w-48 h-48 bg-cosmic-gold/5 rounded-full translate-x-1/4 translate-y-1/4"></div>
+      <div className="absolute top-1/2 right-10 w-24 h-24 bg-cosmic-coral/5 rounded-full -translate-y-1/2"></div>
     </section>
   );
 };
