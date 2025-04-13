@@ -1,8 +1,22 @@
 
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter, MapPin } from "lucide-react";
+import { useEffect } from "react";
 
 const Footer = () => {
+  useEffect(() => {
+    // Dynamically load the Givebutter script
+    const script = document.createElement('script');
+    script.src = "https://widgets.givebutter.com/latest.umd.cjs?acct=SEcIN0fMhshDZm0k&p=other";
+    script.async = true;
+    document.body.appendChild(script);
+
+    // Cleanup function to remove the script when component unmounts
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <footer className="bg-cosmic-navy text-white py-12 px-6">
       <div className="container mx-auto">
@@ -107,3 +121,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
