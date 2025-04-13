@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter, MapPin } from "lucide-react";
 import { useEffect } from "react";
@@ -113,7 +112,6 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-          <p>© {new Date().getFullYear()} AusomeHeroes. All rights reserved.</p>
           <p className="mt-2 text-sm">© 2025 Ausome Heroes. 501(c)(3) Nonprofit. EIN: 93-3634596.</p>
         </div>
       </div>
