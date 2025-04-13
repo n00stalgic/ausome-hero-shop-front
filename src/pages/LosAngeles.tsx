@@ -1,5 +1,4 @@
-
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -8,19 +7,6 @@ import { CalendarDays, MapPin, Users, PartyPopper } from "lucide-react";
 import SvgBackgroundSection from "@/components/SvgBackgroundSection";
 
 const LosAngeles = () => {
-  useEffect(() => {
-    // Dynamically load the Givebutter script specific to Los Angeles page
-    const script = document.createElement('script');
-    script.src = "https://widgets.givebutter.com/latest.umd.cjs?acct=SEcIN0fMhshDZm0k&p=other";
-    script.async = true;
-    document.body.appendChild(script);
-
-    // Cleanup function to remove the script when component unmounts
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
