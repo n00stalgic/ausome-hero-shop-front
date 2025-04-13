@@ -9,6 +9,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Star } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
+import CategoriesSection from "@/components/CategoriesSection";
 
 const Products = () => {
   const [products, setProducts] = useState<ProductType[]>([]);
@@ -64,6 +65,9 @@ const Products = () => {
             </p>
           </div>
           
+          {/* Add Categories Section at the top of the products page */}
+          <CategoriesSection />
+          
           {loading ? (
             <div className="py-16 text-center">
               <p className="text-gray-500">Loading products...</p>
@@ -73,7 +77,7 @@ const Products = () => {
               <p className="text-gray-500">No products found</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-12">
               {products.map((product) => (
                 <Link key={product.id} to={`/products/${product.id}`}>
                   <Card
