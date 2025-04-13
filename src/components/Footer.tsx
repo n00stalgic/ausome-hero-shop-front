@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter, MapPin } from "lucide-react";
 
@@ -83,7 +82,6 @@ const Footer = () => {
               </button>
             </div>
             
-            {/* Local Services Section */}
             <div className="mt-6 pt-6 border-t border-gray-700">
               <h3 className="text-lg font-bold mb-3">Local Services</h3>
               <ul className="space-y-2">
@@ -98,7 +96,6 @@ const Footer = () => {
           </div>
         </div>
         
-        {/* Givebutter Donation Widget */}
         <div className="mt-8 pt-8 border-t border-gray-700 flex justify-center">
           <givebutter-widget id="gMENbg"></givebutter-widget>
         </div>
