@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { CalendarDays, MapPin, Party, Users } from "lucide-react";
+import { CalendarDays, MapPin, Users, PartyPopper } from "lucide-react";
 import SvgBackgroundSection from "@/components/SvgBackgroundSection";
 
 const LosAngeles = () => {
@@ -48,7 +48,7 @@ const LosAngeles = () => {
             {/* Superhero Parties */}
             <div className="bg-cosmic-navy/5 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               <div className="h-48 bg-gradient-to-r from-cosmic-purple to-cosmic-navy flex items-center justify-center">
-                <Party className="text-white" size={64} />
+                <PartyPopper className="text-white" size={64} />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-3">Sensory-Friendly Superhero Parties</h3>
