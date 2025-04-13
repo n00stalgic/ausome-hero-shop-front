@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import HeroSection from "@/components/HeroSection";
+import HeroSection from "@/components/hero/HeroSection";
 import CategoriesSection from "@/components/CategoriesSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import SubscriptionSection from "@/components/SubscriptionSection";
