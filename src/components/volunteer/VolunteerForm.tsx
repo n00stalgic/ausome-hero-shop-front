@@ -29,6 +29,18 @@ const formSchema = z.object({
 // Create a type from the schema for better type checking
 type VolunteerFormValues = z.infer<typeof formSchema>;
 
+// Define a type that matches the Supabase table structure
+type SupabaseVolunteerInsert = {
+  full_name: string;
+  email: string;
+  phone?: string;
+  address?: string;
+  superhero_name: string;
+  skills: string[];
+  availability: string[];
+  interests: string[];
+};
+
 const VolunteerForm = () => {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -45,10 +57,22 @@ const VolunteerForm = () => {
   const onSubmit = async (values: VolunteerFormValues) => {
     setIsSubmitting(true);
     try {
+      // Prepare the data to match the expected Supabase schema
+      const volunteerData: SupabaseVolunteerInsert = {
+        full_name: values.full_name,
+        email: values.email,
+        phone: values.phone,
+        address: values.address,
+        superhero_name: values.superhero_name,
+        skills: values.skills,
+        availability: values.availability,
+        interests: values.interests,
+      };
+
       // Make sure all required fields are present before inserting
       const { error } = await supabase
         .from("la_volunteers")
-        .insert(values);
+        .insert(volunteerData);
       
       if (error) throw error;
 
