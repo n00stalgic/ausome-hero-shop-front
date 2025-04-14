@@ -14,6 +14,7 @@ import SkillsStep from "./steps/SkillsStep";
 import PreferencesStep from "./steps/PreferencesStep";
 import FormNavigation from "./steps/FormNavigation";
 
+// Define the form schema with required fields matching the database requirements
 const formSchema = z.object({
   full_name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Invalid email address"),
@@ -25,11 +26,14 @@ const formSchema = z.object({
   interests: z.array(z.string()).min(1, "Select at least one interest"),
 });
 
+// Create a type from the schema for better type checking
+type VolunteerFormValues = z.infer<typeof formSchema>;
+
 const VolunteerForm = () => {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const form = useForm<z.infer<typeof formSchema>>({
+  const form = useForm<VolunteerFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       skills: [],
@@ -38,9 +42,10 @@ const VolunteerForm = () => {
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+  const onSubmit = async (values: VolunteerFormValues) => {
     setIsSubmitting(true);
     try {
+      // Make sure all required fields are present before inserting
       const { error } = await supabase
         .from("la_volunteers")
         .insert(values);
@@ -54,6 +59,7 @@ const VolunteerForm = () => {
       form.reset();
       setStep(1);
     } catch (error) {
+      console.error("Submission error:", error);
       toast.error("Oops! Something went wrong", {
         description: "Please try again later.",
       });
@@ -63,7 +69,30 @@ const VolunteerForm = () => {
   };
 
   const nextStep = () => {
-    setStep((prev) => Math.min(prev + 1, 4));
+    // Validate current step before proceeding
+    let fieldsToValidate: (keyof VolunteerFormValues)[] = [];
+    
+    switch (step) {
+      case 1:
+        fieldsToValidate = ["full_name", "superhero_name"];
+        break;
+      case 2:
+        fieldsToValidate = ["email"];
+        break;
+      case 3:
+        fieldsToValidate = ["skills"];
+        break;
+      case 4:
+        fieldsToValidate = ["availability", "interests"];
+        break;
+    }
+
+    // Validate only the fields for the current step
+    form.trigger(fieldsToValidate).then((isValid) => {
+      if (isValid) {
+        setStep((prev) => Math.min(prev + 1, 4));
+      }
+    });
   };
 
   const prevStep = () => {
