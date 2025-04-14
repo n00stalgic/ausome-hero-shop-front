@@ -12,7 +12,7 @@ const StepIndicator = ({ currentStep, totalSteps }: StepIndicatorProps) => {
       {Array.from({ length: totalSteps }).map((_, index) => (
         <div key={index} className="flex items-center">
           <div
-            className={`relative w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+            className={`relative w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
               index < currentStep
                 ? "bg-cosmic-gold text-cosmic-navy"
                 : index === currentStep
@@ -21,13 +21,21 @@ const StepIndicator = ({ currentStep, totalSteps }: StepIndicatorProps) => {
             }`}
           >
             {index < currentStep ? (
-              <Check className="w-5 h-5" />
+              <Check className="w-6 h-6" />
             ) : (
-              <Star className="w-5 h-5" />
+              <Star className="w-6 h-6" />
             )}
-            <div className="absolute -bottom-6 text-sm font-medium text-cosmic-light">
-              Step {index + 1}
-            </div>
+          </div>
+          <div 
+            className={`ml-2 text-sm font-medium transition-all duration-300 ${
+              index < currentStep 
+                ? "text-cosmic-gold" 
+                : index === currentStep 
+                ? "text-cosmic-purple font-bold" 
+                : "text-cosmic-light/50"
+            }`}
+          >
+            Step {index + 1}
           </div>
           {index < totalSteps - 1 && (
             <div

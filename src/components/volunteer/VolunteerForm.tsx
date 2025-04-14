@@ -218,12 +218,12 @@ const VolunteerForm = () => {
                   name="skills"
                   render={() => (
                     <FormItem>
-                      <FormLabel>Select Your Skills</FormLabel>
+                      <FormLabel className="text-cosmic-light text-lg">Select Your Skills</FormLabel>
                       <div className="grid grid-cols-2 gap-4">
                         {skills.map((skill) => (
                           <label
                             key={skill}
-                            className="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-cosmic-navy/10"
+                            className="flex items-center space-x-3 cursor-pointer p-2 rounded-lg hover:bg-cosmic-navy/20 transition-colors"
                           >
                             <Checkbox
                               checked={form.watch("skills")?.includes(skill)}
@@ -235,11 +235,11 @@ const VolunteerForm = () => {
                                 form.setValue("skills", updated);
                               }}
                             />
-                            <span>{skill}</span>
+                            <span className="text-cosmic-light">{skill}</span>
                           </label>
                         ))}
                       </div>
-                      <FormMessage />
+                      <FormMessage className="text-red-400" />
                     </FormItem>
                   )}
                 />
@@ -260,12 +260,12 @@ const VolunteerForm = () => {
                   name="availability"
                   render={() => (
                     <FormItem className="mb-8">
-                      <FormLabel>When Can You Join Missions?</FormLabel>
+                      <FormLabel className="text-cosmic-light text-lg">When Can You Join Missions?</FormLabel>
                       <div className="grid grid-cols-2 gap-4">
                         {availability.map((time) => (
                           <label
                             key={time}
-                            className="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-cosmic-navy/10"
+                            className="flex items-center space-x-3 cursor-pointer p-2 rounded-lg hover:bg-cosmic-navy/20 transition-colors"
                           >
                             <Checkbox
                               checked={form.watch("availability")?.includes(time)}
@@ -277,11 +277,11 @@ const VolunteerForm = () => {
                                 form.setValue("availability", updated);
                               }}
                             />
-                            <span>{time}</span>
+                            <span className="text-cosmic-light">{time}</span>
                           </label>
                         ))}
                       </div>
-                      <FormMessage />
+                      <FormMessage className="text-red-400" />
                     </FormItem>
                   )}
                 />
@@ -291,12 +291,12 @@ const VolunteerForm = () => {
                   name="interests"
                   render={() => (
                     <FormItem>
-                      <FormLabel>Areas of Interest</FormLabel>
+                      <FormLabel className="text-cosmic-light text-lg">Areas of Interest</FormLabel>
                       <div className="grid grid-cols-2 gap-4">
                         {interests.map((interest) => (
                           <label
                             key={interest}
-                            className="flex items-center space-x-2 cursor-pointer p-2 rounded-lg hover:bg-cosmic-navy/10"
+                            className="flex items-center space-x-3 cursor-pointer p-2 rounded-lg hover:bg-cosmic-navy/20 transition-colors"
                           >
                             <Checkbox
                               checked={form.watch("interests")?.includes(interest)}
@@ -308,11 +308,11 @@ const VolunteerForm = () => {
                                 form.setValue("interests", updated);
                               }}
                             />
-                            <span>{interest}</span>
+                            <span className="text-cosmic-light">{interest}</span>
                           </label>
                         ))}
                       </div>
-                      <FormMessage />
+                      <FormMessage className="text-red-400" />
                     </FormItem>
                   )}
                 />
