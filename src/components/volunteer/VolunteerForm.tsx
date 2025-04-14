@@ -71,7 +71,17 @@ const VolunteerForm = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
     try {
-      const { error } = await supabase.from("la_volunteers").insert([values]);
+      // Fix: Pass a single object to insert, not an array, and ensure required fields are present
+      const { error } = await supabase.from("la_volunteers").insert({
+        full_name: values.full_name,
+        email: values.email,
+        phone: values.phone,
+        address: values.address,
+        superhero_name: values.superhero_name,
+        skills: values.skills,
+        availability: values.availability,
+        interests: values.interests
+      });
       
       if (error) throw error;
 
