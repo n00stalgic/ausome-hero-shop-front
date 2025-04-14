@@ -3,15 +3,16 @@ import React, { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
-import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
+import { AnimatePresence } from "framer-motion";
+import { Form } from "@/components/ui/form";
 import { toast } from "sonner";
 import StepIndicator from "./StepIndicator";
 import { supabase } from "@/integrations/supabase/client";
+import BasicInfoStep from "./steps/BasicInfoStep";
+import ContactInfoStep from "./steps/ContactInfoStep";
+import SkillsStep from "./steps/SkillsStep";
+import PreferencesStep from "./steps/PreferencesStep";
+import FormNavigation from "./steps/FormNavigation";
 
 const formSchema = z.object({
   full_name: z.string().min(2, "Name must be at least 2 characters"),
@@ -23,37 +24,6 @@ const formSchema = z.object({
   availability: z.array(z.string()).min(1, "Select at least one availability"),
   interests: z.array(z.string()).min(1, "Select at least one interest"),
 });
-
-const skills = [
-  "Leadership",
-  "Communication",
-  "Problem Solving",
-  "First Aid",
-  "Event Planning",
-  "Teaching",
-  "Technology",
-  "Arts & Crafts",
-];
-
-const availability = [
-  "Weekday Mornings",
-  "Weekday Afternoons",
-  "Weekday Evenings",
-  "Weekend Mornings",
-  "Weekend Afternoons",
-  "Weekend Evenings",
-];
-
-const interests = [
-  "Children's Programs",
-  "Special Events",
-  "Administrative Support",
-  "Fundraising",
-  "Community Outreach",
-  "Social Media",
-  "Photography",
-  "Sports & Recreation",
-];
 
 const VolunteerForm = () => {
   const [step, setStep] = useState(1);
@@ -71,17 +41,9 @@ const VolunteerForm = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
     try {
-      // Fix: Pass a single object to insert, not an array, and ensure required fields are present
-      const { error } = await supabase.from("la_volunteers").insert({
-        full_name: values.full_name,
-        email: values.email,
-        phone: values.phone,
-        address: values.address,
-        superhero_name: values.superhero_name,
-        skills: values.skills,
-        availability: values.availability,
-        interests: values.interests
-      });
+      const { error } = await supabase
+        .from("la_volunteers")
+        .insert(values);
       
       if (error) throw error;
 
@@ -115,232 +77,18 @@ const VolunteerForm = () => {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <AnimatePresence mode="wait">
-            {step === 1 && (
-              <motion.div
-                key="step1"
-                initial={{ x: 50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: -50, opacity: 0 }}
-                className="space-y-4"
-              >
-                <h2 className="text-2xl font-bold text-cosmic-gold mb-6">Begin Your Hero's Journey</h2>
-                <FormField
-                  control={form.control}
-                  name="full_name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Civilian Name</FormLabel>
-                      <FormControl>
-                        <Input placeholder="Enter your full name" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="superhero_name"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Choose Your Hero Name</FormLabel>
-                      <FormControl>
-                        <Input placeholder="What should we call you?" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </motion.div>
-            )}
-
-            {step === 2 && (
-              <motion.div
-                key="step2"
-                initial={{ x: 50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: -50, opacity: 0 }}
-                className="space-y-4"
-              >
-                <h2 className="text-2xl font-bold text-cosmic-gold mb-6">Contact Information</h2>
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Email</FormLabel>
-                      <FormControl>
-                        <Input type="email" placeholder="Enter your email" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="phone"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Phone (Optional)</FormLabel>
-                      <FormControl>
-                        <Input type="tel" placeholder="Enter your phone number" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="address"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Address (Optional)</FormLabel>
-                      <FormControl>
-                        <Textarea placeholder="Enter your address" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </motion.div>
-            )}
-
-            {step === 3 && (
-              <motion.div
-                key="step3"
-                initial={{ x: 50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: -50, opacity: 0 }}
-                className="space-y-4"
-              >
-                <h2 className="text-2xl font-bold text-cosmic-gold mb-6">Your Superpowers</h2>
-                <FormField
-                  control={form.control}
-                  name="skills"
-                  render={() => (
-                    <FormItem>
-                      <FormLabel className="text-cosmic-light text-lg">Select Your Skills</FormLabel>
-                      <div className="grid grid-cols-2 gap-4">
-                        {skills.map((skill) => (
-                          <label
-                            key={skill}
-                            className="flex items-center space-x-3 cursor-pointer p-2 rounded-lg hover:bg-cosmic-navy/20 transition-colors"
-                          >
-                            <Checkbox
-                              checked={form.watch("skills")?.includes(skill)}
-                              onCheckedChange={(checked) => {
-                                const current = form.watch("skills") || [];
-                                const updated = checked
-                                  ? [...current, skill]
-                                  : current.filter((s) => s !== skill);
-                                form.setValue("skills", updated);
-                              }}
-                            />
-                            <span className="text-cosmic-light">{skill}</span>
-                          </label>
-                        ))}
-                      </div>
-                      <FormMessage className="text-red-400" />
-                    </FormItem>
-                  )}
-                />
-              </motion.div>
-            )}
-
-            {step === 4 && (
-              <motion.div
-                key="step4"
-                initial={{ x: 50, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: -50, opacity: 0 }}
-                className="space-y-4"
-              >
-                <h2 className="text-2xl font-bold text-cosmic-gold mb-6">Mission Preferences</h2>
-                <FormField
-                  control={form.control}
-                  name="availability"
-                  render={() => (
-                    <FormItem className="mb-8">
-                      <FormLabel className="text-cosmic-light text-lg">When Can You Join Missions?</FormLabel>
-                      <div className="grid grid-cols-2 gap-4">
-                        {availability.map((time) => (
-                          <label
-                            key={time}
-                            className="flex items-center space-x-3 cursor-pointer p-2 rounded-lg hover:bg-cosmic-navy/20 transition-colors"
-                          >
-                            <Checkbox
-                              checked={form.watch("availability")?.includes(time)}
-                              onCheckedChange={(checked) => {
-                                const current = form.watch("availability") || [];
-                                const updated = checked
-                                  ? [...current, time]
-                                  : current.filter((t) => t !== time);
-                                form.setValue("availability", updated);
-                              }}
-                            />
-                            <span className="text-cosmic-light">{time}</span>
-                          </label>
-                        ))}
-                      </div>
-                      <FormMessage className="text-red-400" />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="interests"
-                  render={() => (
-                    <FormItem>
-                      <FormLabel className="text-cosmic-light text-lg">Areas of Interest</FormLabel>
-                      <div className="grid grid-cols-2 gap-4">
-                        {interests.map((interest) => (
-                          <label
-                            key={interest}
-                            className="flex items-center space-x-3 cursor-pointer p-2 rounded-lg hover:bg-cosmic-navy/20 transition-colors"
-                          >
-                            <Checkbox
-                              checked={form.watch("interests")?.includes(interest)}
-                              onCheckedChange={(checked) => {
-                                const current = form.watch("interests") || [];
-                                const updated = checked
-                                  ? [...current, interest]
-                                  : current.filter((i) => i !== interest);
-                                form.setValue("interests", updated);
-                              }}
-                            />
-                            <span className="text-cosmic-light">{interest}</span>
-                          </label>
-                        ))}
-                      </div>
-                      <FormMessage className="text-red-400" />
-                    </FormItem>
-                  )}
-                />
-              </motion.div>
-            )}
+            {step === 1 && <BasicInfoStep form={form} />}
+            {step === 2 && <ContactInfoStep form={form} />}
+            {step === 3 && <SkillsStep form={form} />}
+            {step === 4 && <PreferencesStep form={form} />}
           </AnimatePresence>
 
-          <div className="flex justify-between pt-8">
-            <Button
-              type="button"
-              variant="outline"
-              onClick={prevStep}
-              disabled={step === 1}
-              className="w-32"
-            >
-              Previous
-            </Button>
-            
-            {step < 4 ? (
-              <Button type="button" onClick={nextStep} className="w-32">
-                Next
-              </Button>
-            ) : (
-              <Button type="submit" disabled={isSubmitting} className="w-32">
-                {isSubmitting ? "Submitting..." : "Join Now"}
-              </Button>
-            )}
-          </div>
+          <FormNavigation
+            step={step}
+            isSubmitting={isSubmitting}
+            onPrevious={prevStep}
+            onNext={nextStep}
+          />
         </form>
       </Form>
     </div>
