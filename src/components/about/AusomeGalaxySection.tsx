@@ -18,7 +18,7 @@ const AusomeGalaxySection = () => {
           <div>
             <AspectRatio ratio={3/4} className="rounded-lg overflow-hidden shadow-cosmic">
               <img
-                src="/lovable-uploads/c560313e-9a17-4ebd-aea6-f028b54dd5ec.png"
+                src="/lovable-uploads/6f2e378f-ffda-46b5-9587-e03643c0b9ac.png"
                 alt="Ausome Galaxy - Every Mind is a Universe"
                 className="w-full h-full object-cover"
               />
