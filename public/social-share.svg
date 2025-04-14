@@ -1,0 +1,144 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background with cosmic navy gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1E3A" />
+      <stop offset="50%" stop-color="#32246B" />
+      <stop offset="100%" stop-color="#1A1E3A" />
+    </linearGradient>
+    
+    <radialGradient id="nebulaGlow" cx="70%" cy="30%" r="70%" fx="70%" fy="30%">
+      <stop offset="0%" stop-color="#8A4FBC" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#8A4FBC" stop-opacity="0" />
+    </radialGradient>
+    
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Main background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)" />
+  
+  <!-- Nebula effect -->
+  <ellipse cx="840" cy="190" rx="500" ry="300" fill="url(#nebulaGlow)" />
+  
+  <!-- Stars -->
+  <g fill="#FFFFFF">
+    <!-- Small stars -->
+    <circle cx="100" cy="100" r="1.5" />
+    <circle cx="300" cy="200" r="1" />
+    <circle cx="500" cy="150" r="1.5" />
+    <circle cx="700" cy="250" r="1" />
+    <circle cx="900" cy="100" r="1.5" />
+    <circle cx="1100" cy="200" r="1" />
+    <circle cx="200" cy="300" r="1.5" />
+    <circle cx="400" cy="350" r="1" />
+    <circle cx="600" cy="400" r="1.5" />
+    <circle cx="800" cy="450" r="1" />
+    <circle cx="1000" cy="500" r="1.5" />
+    <circle cx="150" cy="550" r="1" />
+    <circle cx="350" cy="500" r="1.5" />
+    <circle cx="550" cy="550" r="1" />
+    <circle cx="750" cy="500" r="1.5" />
+    <circle cx="950" cy="550" r="1" />
+    <circle cx="1150" cy="500" r="1.5" />
+    
+    <!-- Twinkling stars with animation -->
+    <circle cx="200" cy="120" r="2.5" opacity="0.8">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="600" cy="180" r="2" opacity="0.8">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="4s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="1000" cy="150" r="2.5" opacity="0.8">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="300" cy="400" r="2" opacity="0.8">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="3.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="800" cy="350" r="2.5" opacity="0.8">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="4.5s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  
+  <!-- Yellow brick road path with cosmic gold -->
+  <path d="M-50,480 C150,450 300,500 450,450 C600,400 750,480 900,430 C1050,380 1200,430 1350,380" 
+        stroke="#FFBF39" stroke-width="15" fill="none" stroke-linecap="round" opacity="0.7" />
+  
+  <!-- Autism Infinity Neural Network Symbol -->
+  <g transform="translate(600, 330) scale(1.2)">
+    <!-- Infinity Symbol -->
+    <path d="M-50,0 C-50,-40 0,-40 0,0 C0,40 50,40 50,0 C50,-40 0,-40 0,0 C0,40 -50,40 -50,0 Z" 
+          fill="none" stroke="#5ABED5" stroke-width="6" opacity="0.9" />
+    
+    <!-- Neural Network Nodes -->
+    <circle cx="-50" cy="0" r="8" fill="#8A4FBC" />
+    <circle cx="-25" cy="-20" r="6" fill="#5ABED5" />
+    <circle cx="-15" cy="20" r="6" fill="#FF8C42" />
+    <circle cx="0" cy="0" r="10" fill="#FFBF39" />
+    <circle cx="15" cy="-20" r="6" fill="#FF8C42" />
+    <circle cx="25" cy="20" r="6" fill="#5ABED5" />
+    <circle cx="50" cy="0" r="8" fill="#8A4FBC" />
+    
+    <!-- Connections -->
+    <line x1="-50" y1="0" x2="-25" y2="-20" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7" />
+    <line x1="-50" y1="0" x2="-15" y2="20" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7" />
+    <line x1="-25" y1="-20" x2="0" y2="0" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7" />
+    <line x1="-15" y1="20" x2="0" y2="0" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7" />
+    <line x1="0" y1="0" x2="15" y2="-20" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7" />
+    <line x1="0" y1="0" x2="25" y2="20" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7" />
+    <line x1="15" y1="-20" x2="50" y2="0" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7" />
+    <line x1="25" y1="20" x2="50" y2="0" stroke="#FFFFFF" stroke-width="1.5" opacity="0.7" />
+  </g>
+  
+  <!-- Superhero silhouettes representing parent and child -->
+  <g transform="translate(300, 450)">
+    <!-- Parent figure -->
+    <path d="M0,0 L0,-60 M-30,-30 L0,-60 L30,-30 M-20,-10 L20,-10" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" />
+    <circle cx="0" cy="-80" r="20" fill="#FFFFFF" />
+    <!-- Cape -->
+    <path d="M0,-60 C-15,-40 -30,-50 -30,-20" stroke="#FF8C42" stroke-width="4" fill="none" />
+    
+    <!-- Child figure -->
+    <g transform="translate(60, 10) scale(0.7)">
+      <path d="M0,0 L0,-60 M-30,-30 L0,-60 L30,-30 M-20,-10 L20,-10" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" />
+      <circle cx="0" cy="-80" r="20" fill="#FFFFFF" />
+      <!-- Cape -->
+      <path d="M0,-60 C-15,-40 -30,-50 -30,-20" stroke="#5ABED5" stroke-width="4" fill="none" />
+    </g>
+  </g>
+  
+  <!-- Child with special abilities -->
+  <g transform="translate(900, 430)">
+    <path d="M0,0 L0,-50 M-25,-25 L0,-50 L25,-25 M-15,-8 L15,-8" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" />
+    <circle cx="0" cy="-70" r="20" fill="#FFFFFF" />
+    <!-- Glowing Emblem -->
+    <circle cx="0" cy="-35" r="10" fill="#FFBF39" opacity="0.9">
+      <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <!-- Cape -->
+    <path d="M-10,-50 C-25,-30 -30,-20 -15,10" stroke="#8A4FBC" stroke-width="4" fill="none" />
+    <path d="M10,-50 C25,-30 30,-20 15,10" stroke="#8A4FBC" stroke-width="4" fill="none" />
+  </g>
+  
+  <!-- AusomeHeroes Logo/Text -->
+  <g transform="translate(600, 140)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="#FFFFFF" text-anchor="middle" filter="url(#subtleGlow)">
+      AusomeHeroes
+    </text>
+    <text x="0" y="50" font-family="Arial, sans-serif" font-size="24" fill="#E5DEFF" text-anchor="middle">
+      Empowering autistic children with products they love
+    </text>
+  </g>
+  
+  <!-- Nonprofit badge -->
+  <g transform="translate(600, 550)">
+    <rect x="-120" y="-20" width="240" height="40" rx="20" ry="20" fill="#FFBF39" />
+    <text x="0" y="8" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1A1E3A" text-anchor="middle">
+      501(c)(3) Nonprofit
+    </text>
+  </g>
+</svg>
