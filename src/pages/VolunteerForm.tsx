@@ -18,7 +18,7 @@ const VolunteerFormPage = () => {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-cosmic-gold mb-4">
-            Join Our Hero Squad
+            Want to join a mission?
           </h1>
           <p className="text-lg text-cosmic-light max-w-2xl mx-auto">
             Become a part of something extraordinary. Los Angeles needs heroes like you
