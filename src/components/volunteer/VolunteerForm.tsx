@@ -57,16 +57,16 @@ const VolunteerForm = () => {
   const onSubmit = async (values: VolunteerFormValues) => {
     setIsSubmitting(true);
     try {
-      // Prepare the data to match the expected Supabase schema
+      // Ensure all required fields are present
       const volunteerData: SupabaseVolunteerInsert = {
         full_name: values.full_name,
         email: values.email,
         phone: values.phone,
         address: values.address,
         superhero_name: values.superhero_name,
-        skills: values.skills,
-        availability: values.availability,
-        interests: values.interests,
+        skills: values.skills || [],
+        availability: values.availability || [],
+        interests: values.interests || [],
       };
 
       // Make sure all required fields are present before inserting

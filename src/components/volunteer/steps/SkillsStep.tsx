@@ -4,6 +4,7 @@ import { FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/for
 import { Checkbox } from "@/components/ui/checkbox";
 import { UseFormReturn } from "react-hook-form";
 import { motion } from "framer-motion";
+import { Controller } from "react-hook-form";
 
 interface SkillsStepProps {
   form: UseFormReturn<any>;
@@ -33,7 +34,7 @@ const SkillsStep = ({ form }: SkillsStepProps) => {
       <FormField
         control={form.control}
         name="skills"
-        render={() => (
+        render={({ field }) => (
           <FormItem>
             <FormLabel className="text-cosmic-light text-lg">Select Your Skills</FormLabel>
             <div className="grid grid-cols-2 gap-4">
@@ -42,15 +43,25 @@ const SkillsStep = ({ form }: SkillsStepProps) => {
                   key={skill}
                   className="flex items-center space-x-3 cursor-pointer p-2 rounded-lg hover:bg-cosmic-navy/20 transition-colors"
                 >
-                  <Checkbox
-                    checked={form.watch("skills")?.includes(skill)}
-                    onCheckedChange={(checked) => {
-                      const current = form.watch("skills") || [];
-                      const updated = checked
-                        ? [...current, skill]
-                        : current.filter((s) => s !== skill);
-                      form.setValue("skills", updated);
-                    }}
+                  <Controller
+                    name="skills"
+                    control={form.control}
+                    render={({ field: skillsField }) => (
+                      <Checkbox
+                        checked={skillsField.value?.includes(skill)}
+                        onCheckedChange={(checked) => {
+                          const currentValue = skillsField.value || [];
+                          const newValue = checked
+                            ? [...currentValue, skill]
+                            : currentValue.filter((s: string) => s !== skill);
+                          form.setValue("skills", newValue, { 
+                            shouldValidate: true,
+                            shouldDirty: true,
+                            shouldTouch: true 
+                          });
+                        }}
+                      />
+                    )}
                   />
                   <span className="text-cosmic-light">{skill}</span>
                 </label>
