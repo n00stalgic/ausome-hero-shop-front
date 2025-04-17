@@ -48,9 +48,25 @@ const LosAngeles = () => {
         </div>
       </div>
       
-      {/* LA Community Events Section */}
+      {/* Volunteer Section - Moved above Community Events */}
       <section className="py-16 px-6 bg-white">
         <div className="container mx-auto">
+          <div className="bg-gradient-to-r from-cosmic-purple/10 to-cosmic-navy/10 rounded-xl p-8 text-center mb-16">
+            <h3 className="text-2xl font-bold mb-4">Become an Ausome Hero Volunteer</h3>
+            <div className="flex items-center justify-center mb-6">
+              <Heart className="text-cosmic-purple mr-2" size={24} />
+              <span className="text-lg text-cosmic-navy">Make a difference in our Los Angeles community</span>
+            </div>
+            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+              We're looking for passionate volunteers to help with our events, programs, and community outreach. Join our team of heroes and make a real impact in the lives of neurodivergent children and their families.
+            </p>
+            <Link to="/volunteer">
+              <Button className="bg-cosmic-purple hover:bg-cosmic-purple/80 text-white font-semibold px-8">
+                Volunteer Application
+              </Button>
+            </Link>
+          </div>
+          
           <h2 className="text-3xl font-bold mb-12 text-center">Community Events</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -127,23 +143,6 @@ const LosAngeles = () => {
                 </div>
               </div>
             </div>
-          </div>
-          
-          {/* Volunteer Section - Added back */}
-          <div className="mt-16 bg-gradient-to-r from-cosmic-purple/10 to-cosmic-navy/10 rounded-xl p-8 text-center">
-            <h3 className="text-2xl font-bold mb-4">Become an Ausome Hero Volunteer</h3>
-            <div className="flex items-center justify-center mb-6">
-              <Heart className="text-cosmic-purple mr-2" size={24} />
-              <span className="text-lg text-cosmic-navy">Make a difference in our Los Angeles community</span>
-            </div>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              We're looking for passionate volunteers to help with our events, programs, and community outreach. Join our team of heroes and make a real impact in the lives of neurodivergent children and their families.
-            </p>
-            <Link to="/volunteer">
-              <Button className="bg-cosmic-purple hover:bg-cosmic-purple/80 text-white font-semibold px-8">
-                Volunteer Application
-              </Button>
-            </Link>
           </div>
           
           {/* Join Community Section */}
