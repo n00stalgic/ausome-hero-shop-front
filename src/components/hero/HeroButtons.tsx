@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import DonateButton from "@/components/DonateButton";
 
 const HeroButtons = () => {
   return (
@@ -23,6 +24,13 @@ const HeroButtons = () => {
       >
         <Link to="/about">Learn More</Link>
       </Button>
+      
+      {/* Add Donation Button */}
+      <DonateButton 
+        variant="purple"
+        size="lg"
+        className="font-bold text-lg px-8 py-6"
+      />
     </div>
   );
 };

@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { CalendarDays, MapPin, Users, PartyPopper } from "lucide-react";
 import SvgBackgroundSection from "@/components/SvgBackgroundSection";
+import DonateButton from '@/components/DonateButton';
 
 const LosAngeles = () => {
   useEffect(() => {
@@ -35,6 +36,11 @@ const LosAngeles = () => {
             <p className="text-xl text-white mb-8">
               Join our inclusive community events for neurodivergent children and families across Los Angeles.
             </p>
+            
+            {/* Add the Donate Button */}
+            <div className="flex justify-center mb-6">
+              <DonateButton variant="blue" size="lg" text="Support Our LA Programs" />
+            </div>
           </div>
         </div>
       </div>
