@@ -37,9 +37,12 @@ const LosAngeles = () => {
               Join our inclusive community events for neurodivergent children and families across Los Angeles.
             </p>
             
-            {/* Add the Donate Button */}
-            <div className="flex justify-center mb-6">
+            {/* Donation Button Section with Instructions */}
+            <div className="flex flex-col items-center mb-6">
               <DonateButton variant="blue" size="lg" text="Support Our LA Programs" />
+              <p className="text-sm text-white/80 text-center italic mt-2">
+                Click "Support Our LA Programs" to open our secure donation form
+              </p>
             </div>
           </div>
         </div>
