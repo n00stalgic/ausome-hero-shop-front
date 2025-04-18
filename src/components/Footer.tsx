@@ -66,6 +66,11 @@ const Footer = () => {
                   Products
                 </Link>
               </li>
+              <li>
+                <Link to="/hero-spotlight" className="text-gray-300 hover:text-white transition-colors">
+                  Hero Spotlight
+                </Link>
+              </li>
             </ul>
           </div>
           
