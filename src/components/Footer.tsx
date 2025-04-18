@@ -27,14 +27,23 @@ const Footer = () => {
               Empowering autistic children with products they love.
             </p>
             <div className="flex space-x-4">
-              <a href="#" aria-label="Facebook" className="text-gray-300 hover:text-cosmic-coral transition-colors">
+              <a 
+                href="http://Facebook.com/ausomeheroes" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Facebook" 
+                className="text-gray-300 hover:text-cosmic-coral transition-colors"
+              >
                 <Facebook size={20} />
               </a>
-              <a href="#" aria-label="Instagram" className="text-gray-300 hover:text-cosmic-coral transition-colors">
+              <a 
+                href="http://Instagram.com/ausomeheroes" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Instagram" 
+                className="text-gray-300 hover:text-cosmic-coral transition-colors"
+              >
                 <Instagram size={20} />
-              </a>
-              <a href="#" aria-label="Twitter" className="text-gray-300 hover:text-cosmic-coral transition-colors">
-                <Twitter size={20} />
               </a>
             </div>
           </div>
@@ -120,4 +129,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

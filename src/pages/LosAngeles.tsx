@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -143,6 +142,19 @@ const LosAngeles = () => {
                 </div>
               </div>
             </div>
+          </div>
+          
+          {/* Hero Spotlight Section */}
+          <div className="bg-gradient-to-r from-cosmic-gold/10 to-cosmic-coral/10 rounded-xl p-8 text-center mb-16">
+            <h3 className="text-2xl font-bold mb-4">Nominate an Ausome Hero</h3>
+            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+              Know an inspiring autistic child or young adult in Los Angeles? Help us celebrate their unique story and achievements by nominating them for our Hero Spotlight!
+            </p>
+            <Link to="/hero-spotlight">
+              <Button className="bg-cosmic-gold hover:bg-cosmic-gold/80 text-cosmic-navy font-semibold px-8">
+                Nominate a Hero
+              </Button>
+            </Link>
           </div>
           
           {/* Join Community Section */}
