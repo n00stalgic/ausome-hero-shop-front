@@ -9,6 +9,60 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      hero_nominations: {
+        Row: {
+          created_at: string
+          has_permission: boolean
+          hero_age: string
+          hero_interests: string
+          hero_location: string
+          hero_name: string
+          hero_story: string
+          id: string
+          nominator_email: string
+          nominator_name: string
+          nominator_phone: string | null
+          photo_url: string | null
+          source: string
+          source_other: string | null
+          status: string | null
+        }
+        Insert: {
+          created_at?: string
+          has_permission?: boolean
+          hero_age: string
+          hero_interests: string
+          hero_location: string
+          hero_name: string
+          hero_story: string
+          id?: string
+          nominator_email: string
+          nominator_name: string
+          nominator_phone?: string | null
+          photo_url?: string | null
+          source: string
+          source_other?: string | null
+          status?: string | null
+        }
+        Update: {
+          created_at?: string
+          has_permission?: boolean
+          hero_age?: string
+          hero_interests?: string
+          hero_location?: string
+          hero_name?: string
+          hero_story?: string
+          id?: string
+          nominator_email?: string
+          nominator_name?: string
+          nominator_phone?: string | null
+          photo_url?: string | null
+          source?: string
+          source_other?: string | null
+          status?: string | null
+        }
+        Relationships: []
+      }
       la_volunteers: {
         Row: {
           address: string | null

@@ -6,6 +6,7 @@ import * as z from "zod";
 import { Form } from "@/components/ui/form";
 import { toast } from "sonner";
 import { AnimatePresence } from "framer-motion";
+import { supabase } from "@/integrations/supabase/client";
 import StepIndicator from "@/components/volunteer/StepIndicator";
 import NominatorInfoStep from "./steps/NominatorInfoStep";
 import HeroInfoStep from "./steps/HeroInfoStep";
@@ -45,8 +46,23 @@ const SpotlightForm = () => {
   const onSubmit = async (values: SpotlightFormValues) => {
     setIsSubmitting(true);
     try {
-      // Here we'll add Supabase integration later
-      console.log("Form submitted:", values);
+      const { error } = await supabase
+        .from('hero_nominations')
+        .insert({
+          nominator_name: values.nominator_name,
+          nominator_email: values.nominator_email,
+          nominator_phone: values.nominator_phone,
+          hero_name: values.hero_name,
+          hero_age: values.hero_age,
+          hero_location: values.hero_location,
+          hero_story: values.hero_story,
+          hero_interests: values.hero_interests,
+          has_permission: values.has_permission,
+          source: values.source,
+          source_other: values.source_other,
+        });
+
+      if (error) throw error;
       
       toast.success("Thank you for your nomination! 🌟", {
         description: "We'll review your submission and be in touch soon.",
