@@ -64,8 +64,9 @@ const SpotlightForm = () => {
 
       if (error) throw error;
       
-      toast.success("Thank you for your nomination! 🌟", {
-        description: "We'll review your submission and be in touch soon.",
+      toast.success("Hero Nomination Submitted! 🌟", {
+        description: `Thank you for nominating ${values.hero_name}. We'll review the submission and be in touch soon.`,
+        duration: 5000,
       });
       
       form.reset();
@@ -73,7 +74,8 @@ const SpotlightForm = () => {
     } catch (error) {
       console.error("Submission error:", error);
       toast.error("Oops! Something went wrong", {
-        description: "Please try again later.",
+        description: "Please try submitting your nomination again.",
+        duration: 5000,
       });
     } finally {
       setIsSubmitting(false);

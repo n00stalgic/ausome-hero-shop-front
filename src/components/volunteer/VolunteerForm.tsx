@@ -57,8 +57,7 @@ const VolunteerForm = () => {
   const onSubmit = async (values: VolunteerFormValues) => {
     setIsSubmitting(true);
     try {
-      // Ensure all required fields are present
-      const volunteerData: SupabaseVolunteerInsert = {
+      const volunteerData = {
         full_name: values.full_name,
         email: values.email,
         phone: values.phone,
@@ -69,15 +68,15 @@ const VolunteerForm = () => {
         interests: values.interests || [],
       };
 
-      // Make sure all required fields are present before inserting
       const { error } = await supabase
         .from("la_volunteers")
         .insert(volunteerData);
       
       if (error) throw error;
 
-      toast.success("Welcome to the team, Hero! 🦸‍♂️", {
-        description: "Your application has been received. Get ready for your journey!",
+      toast.success(`Welcome, ${values.superhero_name}! 🦸‍♂️`, {
+        description: "Your volunteer application has been received. We'll review it soon!",
+        duration: 5000,
       });
       
       form.reset();
@@ -85,7 +84,8 @@ const VolunteerForm = () => {
     } catch (error) {
       console.error("Submission error:", error);
       toast.error("Oops! Something went wrong", {
-        description: "Please try again later.",
+        description: "Please try submitting your application again.",
+        duration: 5000,
       });
     } finally {
       setIsSubmitting(false);
