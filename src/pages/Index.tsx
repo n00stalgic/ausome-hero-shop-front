@@ -1,5 +1,3 @@
-
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
@@ -12,6 +10,7 @@ import SvgBackgroundSection from "@/components/SvgBackgroundSection";
 import ProductsContainer from "@/components/ProductsContainer";
 import NonprofitBadgeSection from "@/components/NonprofitBadgeSection";
 import SensoryProductsSection from "@/components/SensoryProductsSection";
+import CommunityEventsSection from "@/components/CommunityEventsSection";
 
 const Index = () => {
   return (
@@ -49,6 +48,9 @@ const Index = () => {
         
         {/* New Offerings Section */}
         <OfferingsSection />
+        
+        {/* Community Events Section */}
+        <CommunityEventsSection />
         
         {/* Products Carousel */}
         <ProductsContainer />
