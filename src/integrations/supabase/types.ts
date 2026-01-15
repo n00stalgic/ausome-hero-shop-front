@@ -14,6 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
+      event_rsvps: {
+        Row: {
+          created_at: string
+          email: string
+          event_id: string
+          event_title: string
+          full_name: string
+          id: string
+          notes: string | null
+          num_attendees: number
+          phone: string | null
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          event_id: string
+          event_title: string
+          full_name: string
+          id?: string
+          notes?: string | null
+          num_attendees?: number
+          phone?: string | null
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          event_id?: string
+          event_title?: string
+          full_name?: string
+          id?: string
+          notes?: string | null
+          num_attendees?: number
+          phone?: string | null
+        }
+        Relationships: []
+      }
       hero_nominations: {
         Row: {
           created_at: string
