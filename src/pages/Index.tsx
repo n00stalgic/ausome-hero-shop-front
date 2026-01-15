@@ -7,7 +7,6 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import SubscriptionSection from "@/components/SubscriptionSection";
 import OfferingsSection from "@/components/OfferingsSection";
 import SvgBackgroundSection from "@/components/SvgBackgroundSection";
-import ProductsContainer from "@/components/ProductsContainer";
 import NonprofitBadgeSection from "@/components/NonprofitBadgeSection";
 import SensoryProductsSection from "@/components/SensoryProductsSection";
 import CommunityEventsSection from "@/components/CommunityEventsSection";
@@ -51,9 +50,6 @@ const Index = () => {
         
         {/* Community Events Section */}
         <CommunityEventsSection />
-        
-        {/* Products Carousel */}
-        <ProductsContainer />
         
         <TestimonialsSection />
         <SubscriptionSection />
