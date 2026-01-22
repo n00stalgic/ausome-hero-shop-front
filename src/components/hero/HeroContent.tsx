@@ -12,8 +12,8 @@ const HeroContent = () => {
       </h1>
       
       <p className="text-xl text-white mb-8 max-w-2xl leading-relaxed drop-shadow-sm">
-        Empowering autistic children with toys and tools that inspire,
-        comfort, and bring joy to their everyday adventures.
+        Empowering autistic children and their families through community,
+        resources, and events that inspire confidence and bring joy.
       </p>
       
       <HeroButtons />
