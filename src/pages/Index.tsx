@@ -8,7 +8,6 @@ import SubscriptionSection from "@/components/SubscriptionSection";
 import OfferingsSection from "@/components/OfferingsSection";
 import SvgBackgroundSection from "@/components/SvgBackgroundSection";
 import NonprofitBadgeSection from "@/components/NonprofitBadgeSection";
-import SensoryProductsSection from "@/components/SensoryProductsSection";
 import CommunityEventsSection from "@/components/CommunityEventsSection";
 
 const Index = () => {
@@ -39,10 +38,7 @@ const Index = () => {
         {/* Nonprofit Badge Section */}
         <NonprofitBadgeSection />
         
-        {/* Sensory-Friendly Products Section - Now below the fold */}
-        <SensoryProductsSection />
-        
-        {/* SVG Background Section - Placed between product section and featured products */}
+        {/* SVG Background Section */}
         <SvgBackgroundSection />
         
         {/* New Offerings Section */}
