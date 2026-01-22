@@ -19,6 +19,7 @@ interface Event {
   image?: string;
   donationPercent?: string;
   comingSoon?: boolean;
+  externalLink?: string;
 }
 
 const events: Event[] = [
@@ -61,13 +62,15 @@ const events: Event[] = [
     comingSoon: true,
   },
   {
-    id: "dave-busters-coming-soon",
+    id: "dave-busters-fundraiser",
     title: "Play & Support Fundraiser",
     venue: "Dave & Buster's",
-    date: "Coming Soon",
-    time: "TBA",
-    location: "Los Angeles Area",
-    comingSoon: true,
+    date: "Now through December 31, 2026",
+    time: "All Day",
+    location: "Multiple Locations",
+    image: "/lovable-uploads/dave-busters-fundraiser.heic",
+    donationPercent: "20% of sales donated",
+    externalLink: "https://www.groupraise.com/offer-campaigns/69997-ausome-heroes-dave-busters-fundraising-campaigns?utm_source=sendgrid&utm_medium=email&utm_campaign=o_offers_day_1",
   },
 ];
 
@@ -199,15 +202,28 @@ const CommunityEventsSection = () => {
                 </div>
 
                 {!event.comingSoon && (
-                  <Button 
-                    className="w-full mt-4 bg-cosmic-navy hover:bg-cosmic-navy/90"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setSelectedEvent(event);
-                    }}
-                  >
-                    View Details & RSVP
-                  </Button>
+                  event.externalLink ? (
+                    <a 
+                      href={event.externalLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Button className="w-full mt-4 bg-cosmic-navy hover:bg-cosmic-navy/90">
+                        Get Your Code & Support Us
+                      </Button>
+                    </a>
+                  ) : (
+                    <Button 
+                      className="w-full mt-4 bg-cosmic-navy hover:bg-cosmic-navy/90"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedEvent(event);
+                      }}
+                    >
+                      View Details & RSVP
+                    </Button>
+                  )
                 )}
               </div>
             </div>
