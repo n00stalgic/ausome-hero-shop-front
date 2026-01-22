@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,24 +38,11 @@ const Navbar = () => {
             About
           </Link>
           <Link
-            to="/products"
-            className="text-cosmic-navy hover:text-cosmic-coral transition-colors font-bold"
-          >
-            Products
-          </Link>
-          <Link
             to="/dashboard"
             className="text-cosmic-navy hover:text-cosmic-coral transition-colors font-bold"
           >
             Community
           </Link>
-          <Button
-            variant="outline"
-            className="flex items-center gap-2 text-cosmic-purple border-cosmic-purple hover:bg-cosmic-purple/10 hover:text-cosmic-navy font-bold"
-          >
-            <ShoppingCart size={18} />
-            <span>Cart (0)</span>
-          </Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -90,27 +77,12 @@ const Navbar = () => {
               About
             </Link>
             <Link
-              to="/products"
-              className="text-cosmic-navy hover:text-cosmic-coral transition-colors py-2 font-bold"
-              onClick={toggleMenu}
-            >
-              Products
-            </Link>
-            <Link
               to="/dashboard"
               className="text-cosmic-navy hover:text-cosmic-coral transition-colors py-2 font-bold"
               onClick={toggleMenu}
             >
               Community
             </Link>
-            <Button
-              variant="outline"
-              className="flex items-center justify-center gap-2 text-cosmic-purple border-cosmic-purple hover:bg-cosmic-purple/10 hover:text-cosmic-navy w-full font-bold"
-              onClick={toggleMenu}
-            >
-              <ShoppingCart size={18} />
-              <span>Cart (0)</span>
-            </Button>
           </div>
         </div>
       )}
