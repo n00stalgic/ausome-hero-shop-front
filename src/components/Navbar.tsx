@@ -38,6 +38,12 @@ const Navbar = () => {
             About
           </Link>
           <Link
+            to="/founder"
+            className="text-cosmic-navy hover:text-cosmic-coral transition-colors font-bold"
+          >
+            Our Founder
+          </Link>
+          <Link
             to="/dashboard"
             className="text-cosmic-navy hover:text-cosmic-coral transition-colors font-bold"
           >
@@ -75,6 +81,13 @@ const Navbar = () => {
               onClick={toggleMenu}
             >
               About
+            </Link>
+            <Link
+              to="/founder"
+              className="text-cosmic-navy hover:text-cosmic-coral transition-colors py-2 font-bold"
+              onClick={toggleMenu}
+            >
+              Our Founder
             </Link>
             <Link
               to="/dashboard"
