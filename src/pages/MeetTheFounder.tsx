@@ -33,7 +33,7 @@ const MeetTheFounder = () => {
           <div className="container mx-auto">
             <div className="flex flex-col lg:flex-row items-center gap-12 max-w-6xl mx-auto">
               {/* Founder Image */}
-              <div className="flex-shrink-0 w-full lg:w-1/2">
+              <div className="flex-shrink-0 w-full max-w-sm lg:max-w-md mx-auto lg:mx-0">
                 <div className="rounded-2xl overflow-hidden shadow-2xl">
                   <img
                     src="/lovable-uploads/founder-allie.jpeg"
