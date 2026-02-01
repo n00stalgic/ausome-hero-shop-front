@@ -7,15 +7,15 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 const AppleDelAmoPost = () => (
   <>
     <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-      This past month, we had the incredible opportunity to bring our Ausome Heroes to Apple Del Amo for a special Today at Apple workshop. Watching our kids walk into that space—eyes wide, curiosity sparked—reminded me exactly why we do this work.
+      This past month, we had the incredible opportunity to bring our Ausome Heroes to Apple Del Amo for a special Today at Apple workshop. Watching our kids walk into that space with eyes wide and curiosity sparked reminded me exactly why we do this work.
     </p>
 
     <h2 className="text-2xl font-bold text-cosmic-navy mb-4">Why Apple?</h2>
     <p className="text-gray-700 mb-6 leading-relaxed">
-      When I founded Ausome Heroes, I knew that neurodivergent children often miss out on experiences that other families take for granted. Field trips, tech workshops, creative classes—these spaces aren't always designed with our kids in mind. But Apple's commitment to accessibility and their patient, inclusive approach made them the perfect partner for this adventure.
+      When I founded Ausome Heroes, I knew that neurodivergent children often miss out on experiences that other families take for granted. Field trips, tech workshops, and creative classes aren't always designed with our kids in mind. But Apple's commitment to accessibility and their patient, inclusive approach made them the perfect partner for this adventure.
     </p>
     <p className="text-gray-700 mb-6 leading-relaxed">
-      Technology isn't just about devices—it's about possibility. For many of our kids, iPads and creative apps become communication tools, emotional regulation supports, and windows into worlds they can explore at their own pace.
+      Technology isn't just about devices. It's about possibility. For many of our kids, iPads and creative apps become communication tools, emotional regulation supports, and windows into worlds they can explore at their own pace.
     </p>
 
     <h2 className="text-2xl font-bold text-cosmic-navy mb-4">What Our Heroes Learned</h2>
@@ -28,7 +28,7 @@ const AppleDelAmoPost = () => (
 
     <h2 className="text-2xl font-bold text-cosmic-navy mb-4">A Moment That Stays With Me</h2>
     <p className="text-gray-700 mb-6 leading-relaxed">
-      There was a moment during the workshop when one of our younger heroes—a child who often struggles with transitions—became completely absorbed in creating a digital drawing. His mom looked at me with tears in her eyes and said, "He's never been able to do something like this in public before."
+      There was a moment during the workshop when one of our younger heroes, a child who often struggles with transitions, became completely absorbed in creating a digital drawing. His mom looked at me with tears in her eyes and said, "He's never been able to do something like this in public before."
     </p>
     <p className="text-gray-700 mb-6 leading-relaxed">
       That's what Ausome Heroes is about. Not just events, but <em>possibilities</em>. Not just inclusion, but <em>belonging</em>.
@@ -55,7 +55,7 @@ const AppleDelAmoPost = () => (
 
     <h2 className="text-2xl font-bold text-cosmic-navy mb-4">Thank You</h2>
     <p className="text-gray-700 mb-6 leading-relaxed">
-      To the incredible team at Apple Del Amo—thank you for opening your doors and your hearts to our community. To the families who trusted us with this experience—your courage inspires me every day. And to our volunteers who made this event run smoothly—you are the backbone of everything we do.
+      To the incredible team at Apple Del Amo: thank you for opening your doors and your hearts to our community. To the families who trusted us with this experience: your courage inspires me every day. And to our volunteers who made this event run smoothly: you are the backbone of everything we do.
     </p>
 
     <div className="bg-cosmic-purple/10 rounded-xl p-6 text-center">
