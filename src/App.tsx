@@ -11,6 +11,8 @@ import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 import VolunteerFormPage from "./pages/VolunteerForm";
 import HeroSpotlight from "./pages/HeroSpotlight";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +30,8 @@ const App = () => (
           <Route path="/volunteer" element={<VolunteerFormPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/hero-spotlight" element={<HeroSpotlight />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
