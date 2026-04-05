@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 
+const GIVEBUTTER_URL = "https://givebutter.com/ausome-heroes";
+
 interface DonateButtonProps {
   variant?: 'gold' | 'purple' | 'blue';
   size?: 'default' | 'lg' | 'sm';
@@ -14,6 +16,7 @@ const DonateButton = ({
   text = 'Donate Now'
 }: DonateButtonProps) => {
   const handleClick = () => {
+    // Try to open the Givebutter widget inline
     let widget = document.querySelector('givebutter-widget');
     if (!widget) {
       widget = document.createElement('givebutter-widget');
@@ -21,6 +24,15 @@ const DonateButton = ({
       document.body.appendChild(widget);
     }
     widget.setAttribute('open', 'true');
+
+    // If the script hasn't loaded, the widget won't actually open.
+    // Fall back to the hosted page after a short grace period.
+    setTimeout(() => {
+      const iframe = document.querySelector('givebutter-widget iframe');
+      if (!iframe) {
+        window.open(GIVEBUTTER_URL, '_blank', 'noopener');
+      }
+    }, 1500);
   };
 
   const variantClasses: Record<string, string> = {

@@ -1,25 +1,36 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { usePageTitle } from "@/hooks/usePageTitle";
+import { Button } from "@/components/ui/button";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const NotFound = () => {
   const location = useLocation();
+  usePageTitle("Page Not Found");
 
   useEffect(() => {
-    console.error(
-      "404 Error: User attempted to access non-existent route:",
-      location.pathname
-    );
+    console.error("404 Error: User attempted to access non-existent route:", location.pathname);
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
-        </a>
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <div className="flex-1 flex items-center justify-center bg-gradient-to-b from-cosmic-navy to-cosmic-navy/90 pt-20 px-6">
+        <div className="text-center max-w-md">
+          <p className="text-8xl font-bold text-cosmic-gold mb-4">404</p>
+          <h1 className="text-2xl font-bold text-white mb-3">Page Not Found</h1>
+          <p className="text-gray-300 mb-8">
+            This page doesn't exist, but there's still plenty to explore.
+          </p>
+          <Link to="/">
+            <Button className="bg-cosmic-gold hover:bg-cosmic-gold/80 text-cosmic-navy font-semibold px-8">
+              Back to Home
+            </Button>
+          </Link>
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };

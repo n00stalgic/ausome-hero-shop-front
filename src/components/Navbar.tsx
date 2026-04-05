@@ -50,10 +50,10 @@ const Navbar = () => {
             Blog
           </Link>
           <Link
-            to="/dashboard"
+            to="/los-angeles"
             className="text-cosmic-navy hover:text-cosmic-coral transition-colors font-bold"
           >
-            Community
+            LA Events
           </Link>
         </div>
 
@@ -103,11 +103,11 @@ const Navbar = () => {
               Blog
             </Link>
             <Link
-              to="/dashboard"
+              to="/los-angeles"
               className="text-cosmic-navy hover:text-cosmic-coral transition-colors py-2 font-bold"
               onClick={toggleMenu}
             >
-              Community
+              LA Events
             </Link>
           </div>
         </div>

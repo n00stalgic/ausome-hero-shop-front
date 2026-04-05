@@ -1,7 +1,9 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 const Dashboard = () => {
+  usePageTitle("Community");
   return (
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-white to-cosmic-light/10">
       <Navbar />

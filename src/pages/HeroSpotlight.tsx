@@ -4,8 +4,10 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SpotlightForm from "@/components/spotlight/SpotlightForm";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 const HeroSpotlight = () => {
+  usePageTitle("Nominate an Ausome Hero");
   return (
     <div className="min-h-screen bg-cosmic-navy">
       <Navbar />

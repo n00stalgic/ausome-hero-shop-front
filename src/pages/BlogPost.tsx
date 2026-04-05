@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { Calendar, ArrowLeft, Heart } from "lucide-react";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 const AppleDelAmoPost = () => (
   <>
@@ -69,12 +70,13 @@ const blogPostsData: Record<string, {
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
-  
-  if (!slug || !blogPostsData[slug]) {
+  const post = slug ? blogPostsData[slug] : undefined;
+  usePageTitle(post?.title ?? "Blog");
+
+  if (!slug || !post) {
     return <Navigate to="/blog" replace />;
   }
 
-  const post = blogPostsData[slug];
   const PostContent = post.component;
 
   return (

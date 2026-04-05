@@ -4,8 +4,10 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import VolunteerForm from "@/components/volunteer/VolunteerForm";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 const VolunteerFormPage = () => {
+  usePageTitle("Volunteer Application");
   return (
     <div className="min-h-screen bg-cosmic-navy">
       <Navbar />

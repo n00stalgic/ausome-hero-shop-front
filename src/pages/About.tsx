@@ -6,8 +6,10 @@ import StorySection from "@/components/about/StorySection";
 import ValuesSection from "@/components/about/ValuesSection";
 import AusomeGalaxySection from "@/components/about/AusomeGalaxySection";
 import CommitmentSection from "@/components/about/CommitmentSection";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 const About = () => {
+  usePageTitle("About Us");
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />

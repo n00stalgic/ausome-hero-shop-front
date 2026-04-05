@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
 import { Calendar, ArrowRight } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 const blogPosts = [
   {
@@ -15,6 +16,7 @@ const blogPosts = [
 ];
 
 const Blog = () => {
+  usePageTitle("Blog");
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />

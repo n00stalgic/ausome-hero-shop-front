@@ -5,11 +5,12 @@ import Footer from "@/components/Footer";
 import HeroSection from "@/components/hero/HeroSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import OfferingsSection from "@/components/OfferingsSection";
-import SvgBackgroundSection from "@/components/SvgBackgroundSection";
 import NonprofitBadgeSection from "@/components/NonprofitBadgeSection";
 import CommunityEventsSection from "@/components/CommunityEventsSection";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 const Index = () => {
+  usePageTitle();
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -37,10 +38,7 @@ const Index = () => {
         {/* Nonprofit Badge Section */}
         <NonprofitBadgeSection />
 
-        {/* SVG Background Section */}
-        <SvgBackgroundSection />
-
-        {/* New Offerings Section */}
+        {/* Offerings Section */}
         <OfferingsSection />
 
         {/* Community Events Section */}

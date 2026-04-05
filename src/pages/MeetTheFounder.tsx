@@ -2,8 +2,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SvgBackgroundSection from "@/components/SvgBackgroundSection";
 import { Heart, Users, Sparkles, Shield } from "lucide-react";
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 const MeetTheFounder = () => {
+  usePageTitle("Meet the Founder");
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />

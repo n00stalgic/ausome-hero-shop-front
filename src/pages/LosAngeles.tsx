@@ -6,8 +6,10 @@ import Footer from "@/components/Footer";
 import { CalendarDays, MapPin, Users, PartyPopper, Heart } from "lucide-react";
 import SvgBackgroundSection from "@/components/SvgBackgroundSection";
 import DonateButton from '@/components/DonateButton';
+import { usePageTitle } from "@/hooks/usePageTitle";
 
 const LosAngeles = () => {
+  usePageTitle("Los Angeles Events & Programs");
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
