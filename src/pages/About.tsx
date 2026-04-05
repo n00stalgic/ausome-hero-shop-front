@@ -1,7 +1,6 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import SubscriptionSection from "@/components/SubscriptionSection";
 import MissionSection from "@/components/about/MissionSection";
 import StorySection from "@/components/about/StorySection";
 import ValuesSection from "@/components/about/ValuesSection";
@@ -29,7 +28,6 @@ const About = () => {
         {/* Our Commitment */}
         <CommitmentSection />
         
-        <SubscriptionSection />
       </main>
       
       <Footer />

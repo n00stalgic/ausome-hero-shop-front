@@ -4,7 +4,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/hero/HeroSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import SubscriptionSection from "@/components/SubscriptionSection";
 import OfferingsSection from "@/components/OfferingsSection";
 import SvgBackgroundSection from "@/components/SvgBackgroundSection";
 import NonprofitBadgeSection from "@/components/NonprofitBadgeSection";
@@ -14,10 +13,10 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      
+
       <main className="flex-grow">
         <HeroSection />
-        
+
         {/* Hero Spotlight Section - Added after Hero Section */}
         <section className="py-16 px-6 bg-cosmic-navy/5">
           <div className="container mx-auto">
@@ -34,23 +33,22 @@ const Index = () => {
             </div>
           </div>
         </section>
-        
+
         {/* Nonprofit Badge Section */}
         <NonprofitBadgeSection />
-        
+
         {/* SVG Background Section */}
         <SvgBackgroundSection />
-        
+
         {/* New Offerings Section */}
         <OfferingsSection />
-        
+
         {/* Community Events Section */}
         <CommunityEventsSection />
-        
+
         <TestimonialsSection />
-        <SubscriptionSection />
       </main>
-      
+
       <Footer />
     </div>
   );

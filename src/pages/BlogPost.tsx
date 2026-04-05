@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Link, useParams, Navigate } from "react-router-dom";
 import { Calendar, ArrowLeft, Heart } from "lucide-react";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const AppleDelAmoPost = () => (
   <>
@@ -33,25 +32,6 @@ const AppleDelAmoPost = () => (
     <p className="text-gray-700 mb-6 leading-relaxed">
       That's what Ausome Heroes is about. Not just events, but <em>possibilities</em>. Not just inclusion, but <em>belonging</em>.
     </p>
-
-    <h2 className="text-2xl font-bold text-cosmic-navy mb-4">Watch the Workshop</h2>
-    <p className="text-gray-700 mb-4">
-      Here's a glimpse into our magical morning at Apple Del Amo:
-    </p>
-    
-    <div className="mb-8 rounded-xl overflow-hidden shadow-lg">
-      <AspectRatio ratio={16 / 9}>
-        <video 
-          controls 
-          className="w-full h-full object-cover"
-          poster="/lovable-uploads/apple-ipad-workshop.png"
-        >
-          <source src="/videos/apple-del-amo-workshop.mov" type="video/quicktime" />
-          <source src="/videos/apple-del-amo-workshop.mov" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </AspectRatio>
-    </div>
 
     <h2 className="text-2xl font-bold text-cosmic-navy mb-4">Thank You</h2>
     <p className="text-gray-700 mb-6 leading-relaxed">

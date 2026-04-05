@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import SubscriptionSection from "@/components/SubscriptionSection";
 import SvgBackgroundSection from "@/components/SvgBackgroundSection";
 import { Heart, Users, Sparkles, Shield } from "lucide-react";
 
@@ -127,7 +126,6 @@ const MeetTheFounder = () => {
           </div>
         </section>
 
-        <SubscriptionSection />
       </main>
       
       <Footer />

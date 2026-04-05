@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
 
@@ -8,27 +7,30 @@ const testimonials = [
     name: "Sarah Johnson",
     role: "Parent",
     content:
-      "The weighted blanket we bought from AusomeHero's has been a game changer for my son's sleep routine. It's like they truly understand what our kids need.",
+      "The weighted blanket we bought from Ausome Heroes has been a game changer for my son's sleep routine. It's like they truly understand what our kids need.",
     rating: 5,
-    imageUrl: "https://randomuser.me/api/portraits/women/12.jpg",
+    initials: "SJ",
+    color: "bg-cosmic-purple",
   },
   {
     id: 2,
     name: "Michael Thompson",
     role: "Special Education Teacher",
     content:
-      "I recommend AusomeHero's to all the parents in my class. Their sensory toys are high quality and have made a real difference in helping my students focus during activities.",
+      "I recommend Ausome Heroes to all the parents in my class. Their sensory toys are high quality and have made a real difference in helping my students focus during activities.",
     rating: 5,
-    imageUrl: "https://randomuser.me/api/portraits/men/22.jpg",
+    initials: "MT",
+    color: "bg-cosmic-teal",
   },
   {
     id: 3,
     name: "Emily Wilson",
     role: "Occupational Therapist",
     content:
-      "What sets AusomeHero's apart is their dedication to understanding autism. Their products aren't just toys - they're thoughtfully designed tools that support development.",
+      "What sets Ausome Heroes apart is their dedication to understanding autism. Their products aren't just toys - they're thoughtfully designed tools that support development.",
     rating: 5,
-    imageUrl: "https://randomuser.me/api/portraits/women/33.jpg",
+    initials: "EW",
+    color: "bg-cosmic-coral",
   },
 ];
 
@@ -72,11 +74,9 @@ const TestimonialsSection = () => {
                   "{testimonial.content}"
                 </p>
                 <div className="flex items-center">
-                  <img
-                    src={testimonial.imageUrl}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full mr-4"
-                  />
+                  <div className={`w-12 h-12 rounded-full mr-4 flex items-center justify-center text-white font-semibold ${testimonial.color}`}>
+                    {testimonial.initials}
+                  </div>
                   <div>
                     <h4 className="font-semibold">{testimonial.name}</h4>
                     <p className="text-sm text-gray-500">{testimonial.role}</p>

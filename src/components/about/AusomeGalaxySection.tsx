@@ -8,7 +8,7 @@ const AusomeGalaxySection = () => {
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-white mb-4">The Ausome Galaxy</h2>
           <p className="text-cosmic-light max-w-3xl mx-auto">
-            Every Mind is a Universe - At AusomeHero's, we celebrate the unique 
+            Every Mind is a Universe - At Ausome Heroes, we celebrate the unique 
             ways our children see and experience the world through our Ausome 
             Galaxy universe and characters.
           </p>

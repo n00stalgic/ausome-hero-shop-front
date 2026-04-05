@@ -17,7 +17,7 @@ const StorySection = () => {
         
         <div className="max-w-4xl mx-auto">
           <p className="text-gray-700 mb-4">
-            I launched AusomeHero's in 2023 after struggling to find sensory-friendly products for my autistic son, 
+            I launched Ausome Heroes in 2023 after struggling to find sensory-friendly products for my autistic son, 
             Kadence, a playful 5-year-old whose needs inspired every detail. What started as a quest for softer 
             clothes and calmer toys grew into a shop curated with therapists, offering items that empower kids like him.
           </p>

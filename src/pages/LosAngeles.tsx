@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -8,23 +8,10 @@ import SvgBackgroundSection from "@/components/SvgBackgroundSection";
 import DonateButton from '@/components/DonateButton';
 
 const LosAngeles = () => {
-  useEffect(() => {
-    // Dynamically load the Givebutter script specific to Los Angeles page
-    const script = document.createElement('script');
-    script.src = "https://widgets.givebutter.com/latest.umd.cjs?acct=SEcIN0fMhshDZm0k&p=other";
-    script.async = true;
-    document.body.appendChild(script);
-
-    // Cleanup function to remove the script when component unmounts
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      
+
       <div className="relative bg-cosmic-navy text-white">
         <SvgBackgroundSection />
         <div className="relative z-10 container mx-auto px-6 py-16">
@@ -35,7 +22,7 @@ const LosAngeles = () => {
             <p className="text-xl text-white mb-8">
               Join our inclusive community events for neurodivergent children and families across Los Angeles.
             </p>
-            
+
             {/* Donation Button Section with Instructions */}
             <div className="flex flex-col items-center mb-6">
               <DonateButton variant="blue" size="lg" text="Support Our LA Programs" />
@@ -46,7 +33,7 @@ const LosAngeles = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Volunteer Section - Moved above Community Events */}
       <section className="py-16 px-6 bg-white">
         <div className="container mx-auto">
@@ -65,9 +52,9 @@ const LosAngeles = () => {
               </Button>
             </Link>
           </div>
-          
+
           <h2 className="text-3xl font-bold mb-12 text-center">Community Events</h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Superhero Parties */}
             <div className="bg-cosmic-navy/5 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
@@ -89,7 +76,7 @@ const LosAngeles = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Mindverse Adventure Days */}
             <div className="bg-cosmic-navy/5 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               <div className="h-48 bg-gradient-to-r from-cosmic-teal to-cosmic-purple flex items-center justify-center">
@@ -117,7 +104,7 @@ const LosAngeles = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Light Up the Galaxy Festival */}
             <div className="bg-cosmic-navy/5 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               <div className="h-48 bg-gradient-to-r from-cosmic-gold to-cosmic-coral flex items-center justify-center">
@@ -143,7 +130,7 @@ const LosAngeles = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Hero Spotlight Section */}
           <div className="bg-gradient-to-r from-cosmic-gold/10 to-cosmic-coral/10 rounded-xl p-8 text-center mb-16">
             <h3 className="text-2xl font-bold mb-4">Nominate an Ausome Hero</h3>
@@ -156,28 +143,7 @@ const LosAngeles = () => {
               </Button>
             </Link>
           </div>
-          
-          {/* Join Community Section */}
-          <div className="mt-16 bg-cosmic-navy/10 rounded-xl p-8 text-center">
-            <h3 className="text-2xl font-bold mb-4">Join Our Galactic Guardians Parent Club</h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Connect with other parents and caregivers, receive exclusive content, early access to events, and specialized resources for supporting your neurodivergent child.
-            </p>
-            <div className="flex max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="p-3 text-gray-800 rounded-l-lg focus:outline-none flex-grow border border-r-0 border-gray-300"
-              />
-              <Button className="rounded-l-none bg-cosmic-gold hover:bg-cosmic-gold/80 text-cosmic-navy font-semibold">
-                Join Now
-              </Button>
-            </div>
-            <p className="text-sm text-gray-500 mt-4">
-              We respect your privacy and will never share your information.
-            </p>
-          </div>
-          
+
           {/* Focus Areas Section */}
           <div className="mt-16">
             <h3 className="text-2xl font-bold mb-6 text-center">Los Angeles Focus Areas</h3>
@@ -191,7 +157,7 @@ const LosAngeles = () => {
           </div>
         </div>
       </section>
-      
+
       <Footer />
     </div>
   );
