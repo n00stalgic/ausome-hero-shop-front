@@ -20,7 +20,7 @@ const Navbar = () => {
           <img
             src="/lovable-uploads/ausomelogo.png"
             alt="Ausome Heroes"
-            className="h-40 md:h-52 w-auto -mt-6 md:-mt-10"
+            className="h-40 md:h-52 w-auto -mt-4 md:-mt-10"
           />
         </Link>
 
