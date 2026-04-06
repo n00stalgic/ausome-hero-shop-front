@@ -7,12 +7,12 @@ import { Form } from "@/components/ui/form";
 import { toast } from "sonner";
 import { AnimatePresence } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
-import StepIndicator from "@/components/volunteer/StepIndicator";
+import StepIndicator from "@/components/forms/volunteer/StepIndicator";
 import NominatorInfoStep from "./steps/NominatorInfoStep";
 import HeroInfoStep from "./steps/HeroInfoStep";
 import StoryStep from "./steps/StoryStep";
 import SourceStep from "./steps/SourceStep";
-import FormNavigation from "@/components/volunteer/steps/FormNavigation";
+import FormNavigation from "@/components/forms/volunteer/steps/FormNavigation";
 
 const formSchema = z.object({
   nominator_name: z.string().min(2, "Name must be at least 2 characters"),

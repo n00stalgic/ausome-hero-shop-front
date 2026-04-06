@@ -1,27 +1,22 @@
+import FadeIn from "@/components/motion/FadeIn";
 
-import SvgBackgroundSection from "@/components/SvgBackgroundSection";
-
-const MissionSection = () => {
-  return (
-    <section className="relative overflow-hidden">
-      <div className="absolute inset-0 w-full h-full">
-        <div className="h-full">
-          <SvgBackgroundSection />
-        </div>
-      </div>
-      
-      <div className="relative py-16 px-6 z-10">
-        <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-cosmic-gold cosmic-shadow">Our Mission</h1>
-          <p className="text-xl text-white max-w-3xl mx-auto">
-            We believe that every child deserves to feel like a hero in their own story.
-            Ausome Heroes was created to empower autistic children with products that
-            inspire joy, comfort, and confidence.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-};
+const MissionSection = () => (
+  <section className="py-16 px-6 bg-cosmic-navy/5">
+    <div className="container mx-auto">
+      <FadeIn className="max-w-4xl mx-auto text-center">
+        <h2 className="text-3xl font-bold mb-8 text-cosmic-navy">Our Mission</h2>
+        <p className="text-lg text-gray-700 mb-6">
+          Ausome Heroes exists to empower neurodivergent children and their families by creating inclusive, sensory-friendly experiences, accessible resources, and community-driven support.
+        </p>
+        <p className="text-gray-700 mb-6">
+          We are committed to breaking down barriers that prevent families from accessing safe spaces, meaningful connection, and the tools they need to thrive. Through events, education, advocacy, and partnerships, we work to build a world where neurodivergent children are supported and celebrated.
+        </p>
+        <p className="text-gray-700">
+          Our mission is rooted in dignity, equity, and belonging. We believe every child deserves to feel seen, valued, and capable, and every family deserves to feel supported, not alone.
+        </p>
+      </FadeIn>
+    </div>
+  </section>
+);
 
 export default MissionSection;

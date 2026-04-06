@@ -1,5 +1,5 @@
 
-/* Updated text readability styles */
+/* Text readability on cosmic backgrounds */
 .readable-text {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
   background-color: rgba(26, 30, 58, 0.3);
@@ -7,13 +7,3 @@
   padding: 1rem;
   border-radius: 0.5rem;
 }
-
-/* Dashboard utilities */
-.dashboard-card {
-  @apply border border-cosmic-indigo/20 bg-white shadow-sm hover:shadow-md transition-shadow;
-}
-
-.dashboard-gradient {
-  background: linear-gradient(135deg, rgba(26,30,58,0.02) 0%, rgba(50,36,107,0.05) 50%, rgba(138,79,188,0.08) 100%);
-}
-

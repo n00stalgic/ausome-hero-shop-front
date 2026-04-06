@@ -1,9 +1,9 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import VolunteerForm from "@/components/volunteer/VolunteerForm";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import VolunteerForm from "@/components/forms/volunteer/VolunteerForm";
 import { usePageTitle } from "@/hooks/usePageTitle";
 
 const VolunteerFormPage = () => {

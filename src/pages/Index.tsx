@@ -1,12 +1,17 @@
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import HeroSection from "@/components/hero/HeroSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import OfferingsSection from "@/components/OfferingsSection";
-import NonprofitBadgeSection from "@/components/NonprofitBadgeSection";
-import CommunityEventsSection from "@/components/CommunityEventsSection";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import BackToTop from "@/components/layout/BackToTop";
+import HeroSection from "@/components/home/HeroSection";
+import ImpactSection from "@/components/home/ImpactSection";
+import BadgeSection from "@/components/home/BadgeSection";
+import OfferingsSection from "@/components/home/OfferingsSection";
+import EventsSection from "@/components/events/EventsSection";
+import WaysToHelp from "@/components/home/WaysToHelp";
+import Testimonial from "@/components/home/Testimonial";
+import BlogPreview from "@/components/home/BlogPreview";
+import EmailCapture from "@/components/home/EmailCapture";
+import PartnerLogos from "@/components/home/PartnerLogos";
+import CosmicDivider from "@/components/home/CosmicDivider";
 import { usePageTitle } from "@/hooks/usePageTitle";
 
 const Index = () => {
@@ -17,37 +22,26 @@ const Index = () => {
 
       <main className="flex-grow">
         <HeroSection />
-
-        {/* Hero Spotlight Section - Added after Hero Section */}
-        <section className="py-16 px-6 bg-cosmic-navy/5">
-          <div className="container mx-auto">
-            <div className="bg-gradient-to-r from-cosmic-gold/10 to-cosmic-coral/10 rounded-xl p-8 text-center">
-              <h3 className="text-2xl font-bold mb-4">Nominate Your Ausome Hero</h3>
-              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                Do you know an autistic child or young adult who inspires others through their bravery, creativity, or growth? Help us celebrate their unique story by nominating them for our Hero Spotlight!
-              </p>
-              <Link to="/hero-spotlight">
-                <Button className="bg-cosmic-gold hover:bg-cosmic-gold/80 text-cosmic-navy font-semibold px-8">
-                  Nominate a Hero
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Nonprofit Badge Section */}
-        <NonprofitBadgeSection />
-
-        {/* Offerings Section */}
+        <ImpactSection />
+        {/* IG community gallery — coming soon */}
+        <CosmicDivider />
+        <Testimonial />
+        <CosmicDivider />
+        <BadgeSection />
+        <CosmicDivider />
         <OfferingsSection />
-
-        {/* Community Events Section */}
-        <CommunityEventsSection />
-
-        <TestimonialsSection />
+        <CosmicDivider />
+        <EventsSection />
+        <CosmicDivider />
+        <WaysToHelp />
+        <CosmicDivider />
+        <BlogPreview />
+        <EmailCapture />
+        <PartnerLogos />
       </main>
 
       <Footer />
+      <BackToTop />
     </div>
   );
 };

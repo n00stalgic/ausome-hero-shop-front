@@ -2,8 +2,8 @@ import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { usePageTitle } from "@/hooks/usePageTitle";
 import { Button } from "@/components/ui/button";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 const NotFound = () => {
   const location = useLocation();

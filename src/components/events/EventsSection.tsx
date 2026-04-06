@@ -1,5 +1,7 @@
 import { useState, useMemo } from "react";
+import { motion } from "framer-motion";
 import { Calendar, MapPin, Clock, Users } from "lucide-react";
+import FadeIn from "@/components/motion/FadeIn";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,7 +22,6 @@ interface Event {
   donationPercent?: string;
   comingSoon?: boolean;
   externalLink?: string;
-  /** ISO date string (or end of range) used for sorting and past-event detection */
   endDate: string;
 }
 
@@ -76,7 +77,8 @@ const events: Event[] = [
     location: "Play at Any Dave & Buster's",
     image: "/lovable-uploads/dave-busters-fundraiser.png",
     donationPercent: "50% donated back",
-    externalLink: "https://www.groupraise.com/offer-campaigns/69997-ausome-heroes-dave-busters-fundraising-campaigns?utm_source=sendgrid&utm_medium=email&utm_campaign=o_offers_day_1",
+    externalLink:
+      "https://www.groupraise.com/offer-campaigns/69997-ausome-heroes-dave-busters-fundraising-campaigns?utm_source=sendgrid&utm_medium=email&utm_campaign=o_offers_day_1",
     endDate: "2026-03-31",
   },
 ];
@@ -95,7 +97,7 @@ interface RsvpFormData {
   notes: string;
 }
 
-const CommunityEventsSection = () => {
+const EventsSection = () => {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
   const [showRsvpForm, setShowRsvpForm] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -138,13 +140,7 @@ const CommunityEventsSection = () => {
         duration: 5000,
       });
 
-      setFormData({
-        full_name: "",
-        email: "",
-        phone: "",
-        num_attendees: 1,
-        notes: "",
-      });
+      setFormData({ full_name: "", email: "", phone: "", num_attendees: 1, notes: "" });
       setShowRsvpForm(false);
     } catch (error) {
       console.error("RSVP error:", error);
@@ -160,24 +156,29 @@ const CommunityEventsSection = () => {
   return (
     <section className="py-16 px-6 bg-gradient-to-b from-cosmic-navy/5 to-white">
       <div className="container mx-auto">
-        <div className="text-center mb-12">
+        <FadeIn className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-cosmic-navy mb-4">
             Community Events & Fundraisers
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Your participation helps support neurodivergent kids and families in our community.
           </p>
-        </div>
+        </FadeIn>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sortedEvents.map((event) => {
+          {sortedEvents.map((event, i) => {
             const past = isPast(event.endDate);
             return (
-              <div
+              <motion.div
                 key={event.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                whileHover={!event.comingSoon && !past ? { y: -6, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" } : {}}
                 onClick={() => !event.comingSoon && !past && setSelectedEvent(event)}
-                className={`bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition-all hover:shadow-xl ${
-                  event.comingSoon || past ? "opacity-75" : "cursor-pointer hover:scale-[1.02]"
+                className={`bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 ${
+                  event.comingSoon || past ? "opacity-75" : "cursor-pointer"
                 }`}
               >
                 {event.image ? (
@@ -193,9 +194,7 @@ const CommunityEventsSection = () => {
                       </Badge>
                     )}
                     {past && (
-                      <Badge className="absolute top-3 right-3 bg-gray-500 text-white">
-                        Past Event
-                      </Badge>
+                      <Badge className="absolute top-3 right-3 bg-gray-500 text-white">Past Event</Badge>
                     )}
                   </div>
                 ) : (
@@ -229,8 +228,9 @@ const CommunityEventsSection = () => {
                     </div>
                   </div>
 
-                  {!event.comingSoon && !past && (
-                    event.externalLink ? (
+                  {!event.comingSoon &&
+                    !past &&
+                    (event.externalLink ? (
                       <a
                         href={event.externalLink}
                         target="_blank"
@@ -251,27 +251,27 @@ const CommunityEventsSection = () => {
                       >
                         View Details & RSVP
                       </Button>
-                    )
-                  )}
+                    ))}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
       </div>
 
       {/* Event Detail Modal */}
-      <Dialog open={!!selectedEvent} onOpenChange={() => {
-        setSelectedEvent(null);
-        setShowRsvpForm(false);
-      }}>
+      <Dialog
+        open={!!selectedEvent}
+        onOpenChange={() => {
+          setSelectedEvent(null);
+          setShowRsvpForm(false);
+        }}
+      >
         <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
           {selectedEvent && (
             <>
               <DialogHeader>
-                <DialogTitle className="text-2xl text-cosmic-navy">
-                  {selectedEvent.title}
-                </DialogTitle>
+                <DialogTitle className="text-2xl text-cosmic-navy">{selectedEvent.title}</DialogTitle>
               </DialogHeader>
 
               {selectedEvent.image && (
@@ -332,7 +332,6 @@ const CommunityEventsSection = () => {
                           placeholder="Your full name"
                         />
                       </div>
-
                       <div className="space-y-2">
                         <Label htmlFor="email">Email *</Label>
                         <Input
@@ -344,7 +343,6 @@ const CommunityEventsSection = () => {
                           placeholder="your@email.com"
                         />
                       </div>
-
                       <div className="space-y-2">
                         <Label htmlFor="phone">Phone (Optional)</Label>
                         <Input
@@ -355,7 +353,6 @@ const CommunityEventsSection = () => {
                           placeholder="(555) 123-4567"
                         />
                       </div>
-
                       <div className="space-y-2">
                         <Label htmlFor="num_attendees">Number of Attendees *</Label>
                         <Input
@@ -365,7 +362,9 @@ const CommunityEventsSection = () => {
                           max="20"
                           required
                           value={formData.num_attendees}
-                          onChange={(e) => setFormData({ ...formData, num_attendees: parseInt(e.target.value) || 1 })}
+                          onChange={(e) =>
+                            setFormData({ ...formData, num_attendees: parseInt(e.target.value) || 1 })
+                          }
                         />
                       </div>
                     </div>
@@ -409,4 +408,4 @@ const CommunityEventsSection = () => {
   );
 };
 
-export default CommunityEventsSection;
+export default EventsSection;

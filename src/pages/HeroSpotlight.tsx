@@ -1,9 +1,9 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import SpotlightForm from "@/components/spotlight/SpotlightForm";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import SpotlightForm from "@/components/forms/spotlight/SpotlightForm";
 import { usePageTitle } from "@/hooks/usePageTitle";
 
 const HeroSpotlight = () => {
