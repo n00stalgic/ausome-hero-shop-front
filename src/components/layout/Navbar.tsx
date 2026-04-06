@@ -16,11 +16,11 @@ const Navbar = () => {
   return (
     <nav className="bg-white shadow-sm px-6 fixed w-full z-50">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="relative h-24 overflow-hidden flex items-start mr-8">
+        <Link to="/" className="relative h-16 md:h-24 overflow-hidden flex items-start shrink-0 mr-4 md:mr-8">
           <img
             src="/lovable-uploads/ausomelogo.png"
             alt="Ausome Heroes"
-            className="h-52 w-auto -mt-10"
+            className="h-40 md:h-52 w-auto -mt-6 md:-mt-10"
           />
         </Link>
 
