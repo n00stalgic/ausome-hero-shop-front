@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ausome Heroes — Giving every child wings</title>
+<meta name="description" content="Sensory-friendly events for autistic kids in LA. We tell you exactly what every room will be like before you decide to come.">
+<link rel="icon" href="assets/favicon.svg">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.svg">
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Ausome Heroes — Giving every child wings">
+<meta property="og:description" content="Sensory-friendly events for autistic kids in LA. Every room measured before we publish it.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ausomeheroes.com/">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script>window.AH_ICON_BASE='assets/icons';window.AH_ASSET_BASE='assets';</script>
+<script src="_ds_bundle.js"></script>
+<!-- Givebutter donation widget — real, works. -->
+<script async src="https://widgets.givebutter.com/latest.umd.cjs?acct=SEcIN0fMhshDZm0k&p=other"></script>
+<style>
+#root{min-height:100vh;display:flex;flex-direction:column}
+main{flex:1}
+.ah-container{max-width:var(--container);margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter)}
+.ah-section{padding:var(--section-y) 0}
+.ah-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-6)}
+.ah-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-6)}
+.ah-split{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--space-12);align-items:center}
+@media (max-width:1023px){.ah-nav-links,.ah-nav-actions{display:none!important}.ah-nav-burger{display:inline-flex!important}.ah-grid-4{grid-template-columns:repeat(2,1fr)}.ah-split{grid-template-columns:1fr}.ah-room-row{grid-template-columns:1fr!important}.ah-room-row>div:last-child{border-left:none!important;border-top:1.5px solid var(--cream-200)}}
+@media (max-width:639px){.ah-grid-3,.ah-grid-4{grid-template-columns:1fr}.ah-section{padding:var(--space-16) 0}}
+</style>
+</head>
+<body><div id="root"></div>
+<script src="ui_kits/website/data.js"></script>
+<script type="text/babel" src="ui_kits/website/Shell.jsx"></script>
+<script type="text/babel" src="ui_kits/website/Home.jsx"></script>
+<script type="text/babel" src="ui_kits/website/EventDetail.jsx"></script>
+<script type="text/babel" src="ui_kits/website/KidMode.jsx"></script>
+<script type="text/babel" src="ui_kits/website/HeroIds.jsx"></script>
+<script type="text/babel" src="ui_kits/website/About.jsx"></script>
+<script type="text/babel" src="ui_kits/website/Blog.jsx"></script>
+<script type="text/babel" src="ui_kits/website/Events.jsx"></script>
+<script type="text/babel" src="ui_kits/website/Volunteer.jsx"></script>
+<script type="text/babel" src="ui_kits/website/NotFound.jsx"></script>
+<script type="text/babel">
+const DS = window.AusomeHeroesDesignSystem_0fb09e || {};
+const NEEDED = ['Navbar','MobileNav','Footer','Toast','Button','Icon','Card','Badge','Input','Textarea','Checkbox','Tag','StatCounter','EmailCapture','HeroIdCard','SensoryProfile','ArrivalPlan','StoryStrip','FundARoom'];
+const MISSING = NEEDED.filter(n=>!DS[n]);
+const { Navbar, MobileNav, Footer, Toast, Button, Icon } = DS;
+
+class Boundary extends React.Component{
+  constructor(p){ super(p); this.state={err:null}; }
+  static getDerivedStateFromError(err){ return {err}; }
+  render(){
+    if(!this.state.err) return this.props.children;
+    return (<div style={{background:'var(--cocoa-800)',color:'var(--cream-100)',padding:'32px var(--gutter)',fontFamily:'var(--font-body)'}}>
+      <h2 style={{color:'var(--gold-300)',margin:'0 0 8px'}}>This screen stopped rendering</h2>
+      <p style={{margin:0,maxWidth:'70ch'}}>{String(this.state.err && this.state.err.message)}</p>
+      <button onClick={()=>this.setState({err:null})} style={{marginTop:16,background:'var(--gold-400)',color:'var(--cocoa-800)',border:'none',borderRadius:999,padding:'10px 20px',fontWeight:700,cursor:'pointer',fontFamily:'var(--font-body)'}}>Try again</button>
+    </div>);
+  }
+}
+
+function StaleBundle(){
+  return (<div style={{minHeight:'100vh',background:'var(--cocoa-800)',color:'var(--cream-100)',padding:'64px var(--gutter)',fontFamily:'var(--font-body)',fontSize:17,lineHeight:1.65}}>
+    <h1 style={{color:'var(--gold-300)',fontFamily:'var(--font-display)',margin:'0 0 12px'}}>The design-system bundle is out of date</h1>
+    <p style={{maxWidth:'70ch'}}>Missing exports:</p>
+    <ul style={{maxWidth:'70ch'}}>{MISSING.map(n=><li key={n} style={{fontWeight:700,color:'var(--gold-300)'}}>{n}</li>)}</ul>
+  </div>);
+}
+
+const LINKS = [
+  { label: 'Home', href: '#home' },
+  { label: 'Rooms', href: '#rooms' },
+  { label: 'Ausome IDs', href: '#ids' },
+  { label: 'How we work', href: '#about' },
+  { label: 'The log', href: '#log' },
+];
+
+function App(){
+  const [page,setPage]=React.useState('Home');
+  const [eventId,setEventId]=React.useState(null);
+  const [menu,setMenu]=React.useState(false);
+  const [calm,setCalm]=React.useState(false);
+  const [toast,setToast]=React.useState(null);
+  const go=(label)=>{ setPage(label); setMenu(false); window.scrollTo(0,0); };
+  const donate=()=>{
+    // Prefer the real Givebutter overlay if it's loaded; fall back to toast.
+    if (window.givebutter && typeof window.givebutter.openWidget === 'function') {
+      try { window.givebutter.openWidget(); return; } catch(e){}
+    }
+    setToast({tone:'info',title:'Givebutter opens here.',description:'The overlay opens on this page — you never leave the site.'});
+  };
+  React.useEffect(()=>{
+    window.AHGo=go;
+    window.AHGoEvent=(id)=>{ setEventId(id); setPage('Event'); window.scrollTo(0,0); };
+    window.AHDonate=donate; window.AHToast=setToast;
+  },[]);
+  React.useEffect(()=>{
+    if(calm) document.documentElement.classList.add('sensory-calm');
+    else document.documentElement.classList.remove('sensory-calm');
+  },[calm]);
+  React.useEffect(()=>{ if(!toast) return; const t=setTimeout(()=>setToast(null),6000); return ()=>clearTimeout(t); },[toast]);
+  const links = LINKS.map(l=>({...l, onClick:(e)=>{e.preventDefault();go(l.label==='Rooms'?'Rooms':l.label);}}));
+
+  let screen;
+  if(page==='Home') screen=<window.AHHome/>;
+  else if(page==='Rooms') screen=<window.AHEvents/>;
+  else if(page==='Event') screen=<window.AHEventDetail id={eventId}/>;
+  else if(page==='Kid mode') screen=<window.AHKidMode/>;
+  else if(page==='Ausome IDs') screen=<window.AHHeroIds/>;
+  else if(page==='How we work') screen=<window.AHAbout/>;
+  else if(page==='The log') screen=<window.AHBlog/>;
+  else if(page==='Volunteer') screen=<window.AHVolunteer/>;
+  else screen=<window.AHNotFound/>;
+
+  const kidBar = page!=='Kid mode' ? (
+    <div style={{background:'var(--sky-100)',borderBottom:'1.5px solid var(--sky-200)'}}>
+      <div className="ah-container" style={{display:'flex',alignItems:'center',gap:'var(--space-4)',padding:'10px var(--gutter)',flexWrap:'wrap'}}>
+        <Icon name="mic" size={18} color="var(--sky-700)"/>
+        <span style={{fontSize:'var(--text-sm)',fontWeight:600}}>Reading this with your child? There's a version written for them.</span>
+        <button onClick={()=>go('Kid mode')} style={{marginLeft:'auto',background:'none',border:'none',padding:0,cursor:'pointer',color:'var(--sky-800)',fontWeight:700,fontFamily:'var(--font-body)',fontSize:'var(--text-sm)'}}>Open the kid's version →</button>
+      </div>
+    </div>
+  ) : null;
+
+  return (<React.Fragment>
+    <Navbar links={links} active={page==='Event'?'Rooms':page} calm={calm} onCalmChange={setCalm} onDonate={donate} onMenu={()=>setMenu(true)}/>
+    {kidBar}
+    <MobileNav open={menu} links={links} active={page} calm={calm} onCalmChange={setCalm} onClose={()=>setMenu(false)} onDonate={donate}/>
+    <main><Boundary key={page}>{screen}</Boundary></main>
+    <Footer onDonate={donate}/>
+    {toast ? <div style={{position:'fixed',right:24,bottom:24,zIndex:80}}><Toast {...toast} onDismiss={()=>setToast(null)}/></div> : null}
+  </React.Fragment>);
+}
+ReactDOM.createRoot(document.getElementById('root')).render(MISSING.length ? <StaleBundle/> : <Boundary><App/></Boundary>);
+</script>
+</body>
+</html>

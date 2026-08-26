@@ -1,0 +1,32 @@
+:root{
+--font-display:"Baloo 2","Trebuchet MS",system-ui,sans-serif;
+--font-body:"Nunito","Segoe UI",system-ui,-apple-system,sans-serif;
+--font-quote:"Newsreader",Georgia,"Times New Roman",serif;
+--font-scale:1;
+
+--text-xs:calc(14px * var(--font-scale));
+--text-sm:calc(15px * var(--font-scale));
+--text-base:calc(17px * var(--font-scale));
+--text-lg:calc(19px * var(--font-scale));
+--text-xl:calc(21px * var(--font-scale));
+--text-2xl:calc(25px * var(--font-scale));
+--text-3xl:calc(31px * var(--font-scale));
+--text-4xl:calc(39px * var(--font-scale));
+--text-5xl:calc(49px * var(--font-scale));
+--text-6xl:calc(61px * var(--font-scale));
+
+--leading-display:1.12;
+--leading-heading:1.24;
+--leading-body:1.65;
+--leading-loose:1.8;
+
+--tracking-display:-0.015em;
+--tracking-body:0;
+--tracking-label:0.04em;
+
+--weight-regular:400;
+--weight-medium:500;
+--weight-semibold:600;
+--weight-bold:700;
+--weight-display:800;
+}
