@@ -1,0 +1,31 @@
+/* Patterns that need a media/container query, so they cannot live in a component's
+   inline styles. Components set only a custom property (--ah-cols / --ah-tiers). */
+
+.ah-sensory-row{display:grid;grid-template-columns:30px 116px 98px 1fr;gap:var(--space-3);align-items:center;grid-template-areas:"icon label meter note"}
+.ah-sensory-row>.ah-s-icon{grid-area:icon}
+.ah-sensory-row>.ah-s-label{grid-area:label}
+.ah-sensory-row>.ah-s-meter{grid-area:meter}
+.ah-sensory-row>.ah-s-note{grid-area:note}
+
+.ah-story-frames{display:grid;grid-template-columns:repeat(var(--ah-cols,4),1fr);gap:var(--space-4);list-style:none;margin:0;padding:0}
+
+.ah-fund-tiers{display:grid;grid-template-columns:repeat(var(--ah-tiers,3),1fr);gap:var(--space-4)}
+
+.ah-sensory,.ah-story,.ah-fund{container-type:inline-size}
+
+@container (max-width:600px){
+.ah-sensory-row{grid-template-columns:26px 1fr auto;grid-template-areas:"icon label meter" "note note note";row-gap:8px;align-items:center}
+.ah-sensory-row>.ah-s-meter{flex-direction:row!important;align-items:center;gap:10px!important}
+.ah-story-frames{grid-template-columns:1fr}
+.ah-fund-tiers{grid-template-columns:1fr}
+}
+
+@supports not (container-type:inline-size){
+@media (max-width:760px){
+.ah-sensory-row{grid-template-columns:26px 1fr auto;grid-template-areas:"icon label meter" "note note note";row-gap:8px}
+.ah-sensory-row>.ah-s-meter{flex-direction:row!important;align-items:center;gap:10px!important}
+.ah-story-frames{grid-template-columns:1fr}
+.ah-fund-tiers{grid-template-columns:1fr}
+}}
+
+@media (max-width:480px){.ah-arrival-step{grid-template-columns:36px 1fr!important;gap:var(--space-3)!important}}

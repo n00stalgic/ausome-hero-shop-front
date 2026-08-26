@@ -1,0 +1,71 @@
+:root{
+/* ---- Base ramps: "Dawn of a Hero" ---- */
+/* Sunrise gold — the primary brand accent */
+--gold-50:#FEF9F0;--gold-100:#FDF1DC;--gold-200:#FAE0B4;--gold-300:#F7CC8B;--gold-400:#F4B860;--gold-500:#E39C33;--gold-600:#C07A18;--gold-700:#94590F;--gold-800:#6B400B;
+/* Cape red — one-line highlights, hero moments. Use sparingly. */
+--cape-50:#FDF1EE;--cape-100:#F9DDD6;--cape-200:#F0B6A7;--cape-300:#E58165;--cape-400:#D9553A;--cape-500:#C0432B;--cape-600:#A2331D;--cape-700:#7C2615;
+/* Morning sky — panels and generous fields */
+--sky-50:#F2FAFD;--sky-100:#E4F3F9;--sky-200:#CDE9F3;--sky-300:#B4DBEA;--sky-400:#8CC5DC;--sky-500:#5FA8C6;--sky-600:#3B84A4;--sky-700:#276781;--sky-800:#1B4B5F;
+/* Meadow green — growth and success */
+--meadow-50:#F1F7F2;--meadow-100:#E0EEE2;--meadow-200:#BFDCC4;--meadow-300:#9CC6A4;--meadow-400:#7CA982;--meadow-500:#5E8C65;--meadow-600:#456E4C;--meadow-700:#33553A;
+/* Cream & cocoa — grounds and ink. Never pure white, never pure black. */
+--cream-50:#FFFDF9;--cream-100:#FBF5EC;--cream-200:#F6EBDA;--cream-300:#EFDFC8;--cream-400:#E3CFB4;
+--cocoa-100:#EDE7E3;--cocoa-200:#D7CCC5;--cocoa-300:#B2A29A;--cocoa-400:#8A7369;--cocoa-500:#6B5A50;--cocoa-600:#4F3F38;--cocoa-700:#3B2E28;--cocoa-800:#2A201C;--cocoa-900:#1C1512;
+
+/* ---- Semantic aliases ---- */
+--surface-page:var(--cream-100);
+--surface-raised:var(--cream-50);
+--surface-card:#FFFDF9;
+--surface-sunken:var(--cream-200);
+--surface-sky:var(--sky-100);
+--surface-sky-strong:var(--sky-300);
+--surface-gold-soft:var(--gold-100);
+--surface-meadow-soft:var(--meadow-100);
+--surface-inverse:var(--cocoa-800);
+
+--text-body:var(--cocoa-700);
+--text-heading:var(--cocoa-800);
+--text-muted:var(--cocoa-500);
+--text-on-gold:var(--cocoa-800);
+--text-on-dark:var(--cream-100);
+--text-link:var(--sky-700);
+--text-link-hover:var(--cape-600);
+--text-accent:var(--gold-700);
+--text-highlight:var(--cape-600);
+
+--border-soft:var(--cream-300);
+--border-strong:var(--cocoa-200);
+--border-focus:var(--sky-600);
+
+--action-primary:var(--gold-400);
+--action-primary-hover:var(--gold-500);
+--action-primary-active:var(--gold-600);
+--action-secondary:var(--sky-700);
+--action-danger:var(--cape-500);
+
+--state-success:var(--meadow-600);
+--state-success-soft:var(--meadow-100);
+--state-error:var(--cape-600);
+--state-error-soft:var(--cape-50);
+--state-info:var(--sky-700);
+--state-info-soft:var(--sky-100);
+
+--focus-ring:0 0 0 3px var(--cream-100),0 0 0 6px var(--sky-600);
+
+/* Dawn gradients — always soft, always light. */
+--gradient-dawn:linear-gradient(180deg,#FFF6E4 0%,#FDEBD2 42%,#F6E7DC 72%,var(--cream-100) 100%);
+--gradient-sky-field:linear-gradient(180deg,var(--sky-100) 0%,var(--cream-100) 100%);
+--gradient-first-light:radial-gradient(120% 90% at 50% 108%,rgba(244,184,96,.55) 0%,rgba(250,224,180,.35) 38%,rgba(251,245,236,0) 70%);
+}
+
+.sensory-calm{
+--surface-page:#FCF8F1;
+--surface-card:#FFFFFF;
+--surface-sky:#EEF6FA;
+--action-primary:#F0C689;
+--action-primary-hover:#E7B978;
+--text-highlight:var(--cocoa-700);
+--font-scale:1.125;
+--shadow-card:none;--shadow-raised:none;--shadow-lifted:none;--shadow-gold:none;
+--duration-fast:1ms;--duration-base:1ms;--duration-slow:1ms;
+}

@@ -1,0 +1,13 @@
+:root{
+--duration-fast:160ms;
+--duration-base:320ms;
+--duration-slow:560ms;
+--ease-gentle:cubic-bezier(.22,.61,.36,1);
+--ease-settle:cubic-bezier(.33,1,.68,1);
+--lift-hover:-3px;
+--press-scale:.985;
+}
+@media (prefers-reduced-motion:reduce){
+:root{--duration-fast:1ms;--duration-base:1ms;--duration-slow:1ms;--lift-hover:0px;--press-scale:1}
+*,*::before,*::after{animation-duration:1ms!important;animation-iteration-count:1!important;transition-duration:1ms!important;scroll-behavior:auto!important}
+}

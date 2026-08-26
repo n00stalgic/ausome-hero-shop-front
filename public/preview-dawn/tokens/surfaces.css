@@ -1,0 +1,14 @@
+:root{
+--radius-xs:6px;--radius-sm:10px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px;--radius-2xl:36px;--radius-pill:999px;
+
+--shadow-hairline:0 1px 2px rgba(59,46,40,.06);
+--shadow-card:0 4px 14px rgba(59,46,40,.07);
+--shadow-raised:0 8px 24px rgba(59,46,40,.09);
+--shadow-lifted:0 18px 40px rgba(59,46,40,.13);
+--shadow-gold:0 6px 20px rgba(227,156,51,.28);
+--shadow-inset-soft:inset 0 1px 0 rgba(255,255,255,.7);
+
+--border-width:1.5px;
+--border-width-strong:2px;
+--icon-stroke:1.75;
+}
