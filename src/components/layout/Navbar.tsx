@@ -36,21 +36,15 @@ const Navbar = () => {
       <div className="relative container mx-auto flex justify-between items-center">
         <Link
           to="/"
-          className="relative h-20 md:h-24 overflow-hidden flex items-start shrink-0 mr-4 md:mr-8"
+          className="flex items-center h-20 md:h-24 shrink-0 mr-4 md:mr-8"
         >
-          <span
-            className="absolute inset-0"
-            aria-hidden="true"
-            style={{
-              background:
-                "radial-gradient(ellipse 75% 85% at 50% 45%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.55) 45%, transparent 72%)",
-            }}
-          />
-          <img
-            src="/lovable-uploads/ausomelogo.webp"
-            alt="Ausome Heroes"
-            className="relative h-40 md:h-52 w-auto -mt-6 md:-mt-10"
-          />
+          <span className="inline-flex items-center rounded-full bg-white pl-3 pr-5 py-1 md:py-1.5 shadow-lg shadow-black/40 ring-1 ring-cosmic-gold/60">
+            <img
+              src="/lovable-uploads/ausomelogo-cropped.webp"
+              alt="Ausome Heroes"
+              className="h-10 md:h-12 w-auto"
+            />
+          </span>
         </Link>
 
         {/* Desktop */}
