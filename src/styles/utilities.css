@@ -82,3 +82,8 @@
   text-decoration: underline;
   text-underline-offset: 3px;
 }
+
+/* Logo wordmark */
+.font-logo {
+  font-family: "Baloo 2", "Nunito", system-ui, sans-serif;
+}
