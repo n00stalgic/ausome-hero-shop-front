@@ -4,17 +4,20 @@ import { ArrowLeft, ArrowRight, RotateCcw, Share2, Sparkles, VolumeX } from "luc
 import { usePageTitle } from "@/hooks/usePageTitle";
 import "./SampleHeroCard.css";
 
-const hero = {
-  name: "Mariposa",
-  epithet: "Keeper of the Quiet Garden",
-  story: "Mariposa knows that every explorer has their own pace. When the garden feels too bright or too loud, she lights a softer path. She notices the tiny things others miss: a new leaf, a shy visitor, a friend who needs a little space. Her greatest power is making room for everyone to bloom.",
-  powers: ["Gentle glow", "Pattern finder", "Space maker"],
-};
-
-const shareUrl = () => `${window.location.origin}/heroes/sample/`;
+type Hero = { name: string; epithet: string; image: string; alt: string; story: string; powers: string[] };
+const heroes: Hero[] = [
+  { name: "Mariposa", epithet: "Keeper of the Quiet Garden", image: "mariposa", alt: "A teal moth hero with a lantern in a moonlit garden", story: "Mariposa knows that every explorer has their own pace. When the garden feels too bright or too loud, she lights a softer path. She notices the tiny things others miss: a new leaf, a shy visitor, a friend who needs a little space. Her greatest power is making room for everyone to bloom.", powers: ["Gentle glow", "Pattern finder", "Space maker"] },
+  { name: "Echo", epithet: "Sound Sorter", image: "echo-bat", alt: "A curious indigo bat among flowers and gentle golden sound waves", story: "Echo hears the whole garden at once. Wings, water, wind: so many sounds arrive together. She closes her eyes, takes her time, and finds the one small sound that matters: a friend calling softly from across the path. Her way of listening helps everyone find one another.", powers: ["Sound sorter", "Deep listener", "Quiet finder"] },
+  { name: "Wren", epithet: "First Light", image: "wren-dawn-bird", alt: "A rust-and-blue bird greeting the sunrise from a flowering branch", story: "Every morning, Wren watches the sky change in the same familiar order. First blue, then peach, then gold. She shares her little sunrise song when she is ready, and the garden knows a new day has begun. Her steady rhythm gives friends a place to start.", powers: ["First light", "Morning rhythm", "Steady song"] },
+  { name: "Spindle", epithet: "Web of Order", image: "spindle-spider", alt: "A gentle lavender spider weaving a starry geometric web", story: "Where others see tangled threads, Spindle sees a pattern waiting to be found. She traces one line, then another, until her web becomes a map of the stars. Friends come to her when things feel jumbled, because she can help them see how the pieces fit.", powers: ["Web of order", "Pattern maker", "Patient eyes"] },
+  { name: "Fenn", epithet: "Why Collector", image: "fenn-fox", alt: "A curious copper fox kit exploring glowing fireflies and a garden notebook", story: "Fenn has questions about everything. Why do fireflies glow? Where do seeds sleep? He keeps each answer in his little explorer's notebook, and asks another. His curiosity opens doors in the garden that nobody knew were there.", powers: ["Why collector", "Wonder keeper", "Question finder"] },
+  { name: "Sage", epithet: "Own Pace", image: "sage-snail", alt: "A smiling teal snail with an intricate glowing shell on a mossy path", story: "Sage carries a cozy home wherever they go. They stop to notice dew on the ferns and the shape of each pebble. The path never tells Sage to hurry. They always arrive with a story about something beautiful everyone else walked past.", powers: ["Own pace", "Little details", "Home anywhere"] },
+  { name: "Ash", epithet: "Team Lifter", image: "ash-ant", alt: "A terracotta ant and friends carrying a glowing seed through the garden", story: "Ash found a seed too big to carry alone. So they asked two friends to walk beside them. One steadied it, one led the way, and Ash kept everyone together. By moonrise, they had planted something wonderful. Ash knows that asking for help is a power too.", powers: ["Team lifter", "Friend finder", "Growing together"] },
+];
 
 export default function SampleHeroCard() {
-  usePageTitle("Mariposa | Pocket Heroes");
+  usePageTitle("The Quiet Garden | Pocket Heroes");
+  const [selected, setSelected] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [flipped, setFlipped] = useState(false);
   const [motion, setMotion] = useState(false);
@@ -23,7 +26,9 @@ export default function SampleHeroCard() {
   const [shared, setShared] = useState("");
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const prefersReduced = useRef(false);
-  const cardRef = useRef<HTMLButtonElement>(null);
+  const hero = heroes[selected];
+  const number = String(selected + 1).padStart(3, "0");
+  const shareUrl = () => `${window.location.origin}/heroes/sample/`;
 
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -50,25 +55,31 @@ export default function SampleHeroCard() {
   async function enableMotion() {
     if (prefersReduced.current || typeof DeviceOrientationEvent === "undefined") { setPermission("denied"); return; }
     try {
-      // iOS requires this call inside a user gesture.
       const orientation = DeviceOrientationEvent as typeof DeviceOrientationEvent & { requestPermission?: () => Promise<string> };
-      if (typeof orientation.requestPermission === "function") {
-        const result = await orientation.requestPermission();
-        if (result !== "granted") { setPermission("denied"); return; }
+      if (typeof orientation.requestPermission === "function" && await orientation.requestPermission() !== "granted") {
+        setPermission("denied"); return;
       }
       setPermission("granted");
       setMotion(true);
     } catch { setPermission("denied"); }
   }
 
+  function chooseHero(index: number) {
+    setSelected(index);
+    setRevealed(false);
+    setFlipped(false);
+    setTilt({ x: 0, y: 0 });
+    setShared("");
+  }
+
   async function share() {
     const url = shareUrl();
     try {
       if (navigator.share) {
-        await navigator.share({ title: "Meet Mariposa | Pocket Heroes", text: "Meet Mariposa, Keeper of the Quiet Garden.", url });
+        await navigator.share({ title: "The Quiet Garden | Pocket Heroes", text: `Meet ${hero.name}, ${hero.epithet}. Explore the first edition of Pocket Heroes.`, url });
       } else if (navigator.clipboard?.writeText) {
         await navigator.clipboard.writeText(url);
-        setShared("Link copied");
+        setShared("Collection link copied");
       } else {
         setShared("Select and copy the address in your browser");
       }
@@ -83,46 +94,53 @@ export default function SampleHeroCard() {
     <div className="hc-page">
       <header className="hc-header">
         <Link to="/" className="hc-home" aria-label="Ausome Heroes home"><ArrowLeft size={18} /> <span>Ausome Heroes</span></Link>
-        <span className="hc-preview">EXPERIENCE PROTOTYPE <span aria-hidden="true">✦</span> FICTIONAL HERO</span>
+        <span className="hc-preview">EXPERIENCE PROTOTYPE <span aria-hidden="true">✦</span> FICTIONAL HEROES</span>
       </header>
       <main className="hc-layout">
         <div className="hc-intro">
-          <span className="hc-eyebrow"><Sparkles size={14} aria-hidden="true" /> POCKET HEROES · No. 001</span>
+          <span className="hc-eyebrow"><Sparkles size={14} aria-hidden="true" /> POCKET HEROES · THE QUIET GARDEN</span>
           <h1>Every way of seeing<br /><em>is a superpower.</em></h1>
-          <p>Meet Mariposa. One little light, a whole universe of possibility. This is a made-up hero, a first look at Pocket Heroes in your hand.</p>
+          <p>Meet the first edition of Pocket Heroes. Seven made-up garden friends, each with a different way of making the world brighter. Pick one to open their card.</p>
           <div className="hc-rule" aria-hidden="true" />
-          <div className="hc-instructions"><span className="hc-instruction-number">01</span><span>Open your pack</span><ArrowRight size={16} aria-hidden="true"/><span className="hc-instruction-number">02</span><span>Tap to flip</span></div>
-          <p className="hc-note"><VolumeX size={16} aria-hidden="true" /> No sound, flashing or motion until you choose it.</p>
+          <div className="hc-instructions"><span className="hc-instruction-number">01</span><span>Pick a hero</span><ArrowRight size={16} aria-hidden="true"/><span className="hc-instruction-number">02</span><span>Open and flip</span></div>
+          <p className="hc-note"><VolumeX size={16} aria-hidden="true" /> No sound or flashing. Tilt is always your choice.</p>
+          <p className="hc-roster-hint">Choose a hero <span>· Swipe to see all seven →</span></p>
+          <div className="hc-roster" aria-label="Choose a Pocket Hero">
+            {heroes.map((entry, index) => <button key={entry.name} className={`hc-roster-item${selected === index ? " is-selected" : ""}`} onClick={() => chooseHero(index)} aria-pressed={selected === index} type="button">
+              <img src={`/heroes/${entry.image}.webp`} alt="" loading={index < 3 ? "eager" : "lazy"} />
+              <span><strong>{entry.name}</strong><small>{entry.epithet}</small></span>
+            </button>)}
+          </div>
         </div>
 
-        <section className="hc-stage" aria-label="Mariposa digital hero card">
+        <section className="hc-stage" aria-label={`${hero.name} digital hero card`}>
           {!revealed ? (
-            <button className="hc-pack" onClick={() => setRevealed(true)} aria-label="Open Mariposa's hero card pack">
+            <button key={hero.name} className="hc-pack" onClick={() => setRevealed(true)} aria-label={`Open ${hero.name}'s hero card pack`}>
               <span className="hc-pack-star" aria-hidden="true">✦</span>
               <span className="hc-pack-brand">POCKET<br/>HEROES</span>
               <span className="hc-pack-line" aria-hidden="true" />
-              <span className="hc-pack-title">A hero is waiting.</span>
+              <span className="hc-pack-title">{hero.name} is waiting.</span>
               <span className="hc-pack-open">TAP TO OPEN <ArrowRight size={17} aria-hidden="true" /></span>
-              <span className="hc-pack-serial">POCKET HEROES · FIRST EDITION</span>
+              <span className="hc-pack-serial">QUIET GARDEN · {number} / 007</span>
             </button>
           ) : (
             <div className="hc-card-shell">
-              <button ref={cardRef} type="button" className={`hc-card${flipped ? " is-flipped" : ""}${motion ? " has-motion" : ""}`} style={cardStyle} onClick={() => setFlipped((v) => !v)} aria-label={`Mariposa hero card, ${flipped ? "story side" : "portrait side"}. Tap to ${flipped ? "see portrait" : "read story"}`} aria-pressed={flipped}>
+              <button type="button" className={`hc-card${flipped ? " is-flipped" : ""}${motion ? " has-motion" : ""}`} style={cardStyle} onClick={() => setFlipped((v) => !v)} aria-label={`${hero.name} hero card, ${flipped ? "story side" : "portrait side"}. Tap to ${flipped ? "see portrait" : "read story"}`} aria-pressed={flipped}>
                 <span className="hc-card-rotator">
                   <span className="hc-card-face hc-front">
-                    <span className="hc-card-top"><span>POCKET <b>✦</b> HEROES</span><span>NO. 001</span></span>
-                    <img src="/heroes/mariposa.webp" alt="Mariposa, an illustrated teal moth hero with a lantern in a moonlit garden" className="hc-portrait" />
+                    <span className="hc-card-top"><span>POCKET <b>✦</b> HEROES</span><span>NO. {number}</span></span>
+                    <img src={`/heroes/${hero.image}.webp`} alt={hero.alt} className="hc-portrait" />
                     <span className="hc-card-gradient" aria-hidden="true" />
                     <span className="hc-foil" aria-hidden="true" />
-                    <span className="hc-card-bottom"><span className="hc-card-type">THE QUIET GARDEN COLLECTION</span><strong>MARIPOSA</strong><span className="hc-card-subtitle">Keeper of the Quiet Garden</span><span className="hc-card-stats"><span>✦ GENTLE GLOW</span><span>✦ PATTERN FINDER</span></span></span>
+                    <span className="hc-card-bottom"><span className="hc-card-type">THE QUIET GARDEN COLLECTION</span><strong>{hero.name.toUpperCase()}</strong><span className="hc-card-subtitle">{hero.epithet}</span><span className="hc-card-stats"><span>✦ {hero.powers[0].toUpperCase()}</span><span>✦ {hero.powers[1].toUpperCase()}</span></span></span>
                   </span>
                   <span className="hc-card-face hc-back">
-                    <span className="hc-back-top"><span>POCKET ✦ HEROES</span><span>NO. 001</span></span>
+                    <span className="hc-back-top"><span>POCKET ✦ HEROES</span><span>NO. {number}</span></span>
                     <span className="hc-back-emblem" aria-hidden="true">✦</span>
                     <span className="hc-back-kicker">THE STORY BEHIND THE CARD</span>
-                    <strong>MARIPOSA</strong>
+                    <strong>{hero.name.toUpperCase()}</strong>
                     <span className="hc-back-story">{hero.story}</span>
-                    <span className="hc-powers-title">HER POWERS</span>
+                    <span className="hc-powers-title">THEIR POWERS</span>
                     <span className="hc-powers">{hero.powers.map((power) => <span key={power}>{power}</span>)}</span>
                     <span className="hc-back-foot">EVERY HERO BELONGS · FIRST EDITION</span>
                   </span>
@@ -132,12 +150,12 @@ export default function SampleHeroCard() {
             </div>
           )}
           <div className="hc-controls">
-            <button type="button" className="hc-share" onClick={share}><Share2 size={16} aria-hidden="true" /> Share card</button>
+            <button type="button" className="hc-share" onClick={share}><Share2 size={16} aria-hidden="true" /> Share collection</button>
             {revealed && (motion ? <button type="button" className="hc-motion" onClick={() => { setMotion(false); setTilt({ x: 0, y: 0 }); }}>Turn off tilt</button> : <button type="button" className="hc-motion" onClick={enableMotion} disabled={systemReduced} title={systemReduced ? "Your device prefers reduced motion" : undefined}>{systemReduced ? "Tilt off (device setting)" : "Enable gentle tilt"}</button>)}
           </div>
-          {permission === "denied" && <p role="status" className="hc-status">Tilt permission wasn't granted. The card still works with tap.</p>}
+          {permission === "denied" && <p role="status" className="hc-status">Tilt isn't available here. Every card still works with tap.</p>}
           {shared && <p role="status" className="hc-status">{shared}</p>}
-          <p className="hc-footnote">Sample concept only. No child's name, photo, or story is used here.</p>
+          <p className="hc-footnote">Prototype only. No child's name, photo, or story is used here.</p>
         </section>
       </main>
     </div>

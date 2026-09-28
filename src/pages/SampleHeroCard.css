@@ -66,3 +66,14 @@
 @media(max-width:800px) {.hc-layout {display:flex;flex-direction:column;gap:26px;padding:36px 18px 70px; min-height:auto}.hc-intro {text-align:center;padding:0}.hc-intro h1 {font-size:clamp(36px,9vw,50px);margin:13px 0}.hc-intro>p:not(.hc-note) {font-size:15px;max-width:420px}.hc-rule,.hc-instructions,.hc-note {display:none}.hc-stage {width:100%}.hc-card,.hc-pack {width:min(100%,350px)}.hc-card-shell {width:min(100%,350px)}.hc-header {padding:16px 20px}.hc-preview {font-size:9px;max-width:160px}}
 @media(max-width:390px) {.hc-card,.hc-pack,.hc-card-shell {width:min(100%,318px)}.hc-back-story {font-size:12px}.hc-back-emblem {font-size:28px;margin-top:8px}.hc-powers span {font-size:9px}}
 @media(prefers-reduced-motion: reduce) {.hc-card,.hc-card-rotator,.hc-foil {transition:none!important}.hc-card.has-motion .hc-foil {opacity:0}}
+.hc-roster-hint {font-size:12px;color:#d9cba6;margin:25px 0 0;letter-spacing:.04em}.hc-roster-hint span {display:none}
+.hc-roster {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:8px;max-width:495px}
+.hc-roster-item {min-width:0;display:flex;align-items:center;gap:10px;min-height:72px;text-align:left;background:#14243d;color:#f7e7cb;border:1px solid #d5aa6166;border-radius:13px;padding:6px;cursor:pointer;font:inherit;transition:background .15s,border-color .15s}
+.hc-roster-item:hover {background:#1d344f}
+.hc-roster-item.is-selected {border-color:#ffdc91;background:#1e3b4a;box-shadow:0 0 0 2px #ffdc9160}
+.hc-roster-item:focus-visible {outline:3px solid #fff;outline-offset:3px}
+.hc-roster-item img {width:56px;height:56px;border-radius:9px;object-fit:cover;flex-shrink:0}
+.hc-roster-item span {display:flex;flex-direction:column;min-width:0}
+.hc-roster-item strong {font-size:15px;line-height:1.15;color:#ffdc91}
+.hc-roster-item small {font-size:11px;line-height:1.18;color:#e1e5ee}
+@media(max-width:800px) {.hc-roster-hint {margin-top:18px}.hc-roster-hint span {display:inline}.hc-roster {display:flex;width:calc(100vw - 36px);max-width:none;overflow-x:auto;scroll-snap-type:x proximity;gap:9px;padding:4px 3px 11px;margin:4px auto 0;text-align:left;-webkit-overflow-scrolling:touch}.hc-roster-item {flex:0 0 145px;scroll-snap-align:center;min-height:64px}.hc-roster-item img {width:49px;height:49px}.hc-roster-item strong {font-size:14px}.hc-roster-item small {font-size:10px}}
