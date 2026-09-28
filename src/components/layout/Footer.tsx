@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, MapPin } from "lucide-react";
+import { Facebook, Instagram, MapPin, ArrowUpRight } from "lucide-react";
 
 const Footer = () => (
   <footer className="bg-cosmic-navy text-white py-12 px-6">
     <div className="container mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Brand */}
         <div className="space-y-4">
           <h3 className="text-xl font-bold">Ausome Heroes</h3>
@@ -50,6 +50,33 @@ const Footer = () => (
               <Link to="/hero-spotlight" className="text-gray-300 hover:text-white transition-colors">Hero Spotlight</Link>
             </li>
           </ul>
+        </div>
+
+        {/* Our Projects */}
+        <div className="space-y-4">
+          <h3 className="text-lg font-bold">Our Projects</h3>
+          <a
+            href="https://cadencelive.netlify.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block"
+          >
+            <div className="flex items-center gap-2">
+              <span className="text-gray-200 group-hover:text-white font-semibold transition-colors">
+                Cadence
+              </span>
+              <span className="text-[10px] uppercase tracking-widest bg-cosmic-gold/20 text-cosmic-gold px-2 py-0.5 rounded-full font-bold">
+                New
+              </span>
+              <ArrowUpRight
+                size={14}
+                className="text-gray-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all"
+              />
+            </div>
+            <p className="text-sm text-gray-400 mt-2 leading-relaxed">
+              A parent-owned record of your child's ABA journey. Every morning, a short story about the goals they're working on — written in your words, yours to keep.
+            </p>
+          </a>
         </div>
 
         {/* Local Services */}
