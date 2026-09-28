@@ -29,13 +29,13 @@ const StorySection = () => (
           clothes and calmer toys grew into a shop curated with therapists, offering items that empower kids like him.
         </p>
         <p className="text-gray-700 mb-4">
-          Our superhero theme reflects Kadence's resilience and creativity—traits I see in every autistic child.
+          Our superhero theme reflects Kadence's resilience and creativity, traits I see in every autistic child.
           Today, we're a community hub where parents and professionals share resources and celebrate neurodiverse joy.
           Kadence taught me that "different" is brilliant, and our mission is simple: help kids embrace their strengths,
           one sensory swing or communication card at a time.
         </p>
         <p className="text-gray-700">
-          This isn't just a store—it's our way of cheering on the superhero in every child.
+          This isn't just a store. It's our way of cheering on the superhero in every child.
         </p>
       </FadeIn>
     </div>

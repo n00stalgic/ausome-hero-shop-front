@@ -28,7 +28,7 @@ const StoryStep = ({ form }: StoryStepProps) => {
             <FormLabel className="text-cosmic-light text-lg">Share Their Story</FormLabel>
             <FormControl>
               <Textarea 
-                placeholder="Why is this hero amazing? What makes them shine in the Mindverse? (Write 3–5 sentences or more!)" 
+                placeholder="Why is this hero amazing? What makes them shine in the Mindverse? (Write 3-5 sentences or more!)" 
                 className="min-h-[150px]"
                 {...field} 
               />

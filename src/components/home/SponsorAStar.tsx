@@ -26,7 +26,7 @@ const SponsorAStar = () => (
         </h2>
         <p className="mx-auto mb-9 max-w-2xl text-lg leading-relaxed text-white/75">
           Your gift directly funds sensory-friendly events, family resources,
-          and community programs across Los Angeles — helping keep them
+          and community programs across Los Angeles, helping keep them
           accessible to the families who need them most.
         </p>
         <DonateButton

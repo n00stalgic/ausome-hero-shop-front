@@ -52,10 +52,10 @@ const FounderSection = () => (
             I'm the founder of Ausome Heroes, a nonprofit created from my lived experience as a mother to a neurodivergent child.
           </p>
           <p className="text-gray-700 mb-6">
-            I launched Ausome Heroes in 2023 after struggling to find sensory-friendly resources for my autistic son, Kadence — a playful 5-year-old whose needs inspired every detail. After navigating therapy systems, school challenges, and limited community support, I recognized the need for safe, inclusive spaces where families could feel seen and supported.
+            I launched Ausome Heroes in 2023 after struggling to find sensory-friendly resources for my autistic son, Kadence, a playful 5-year-old whose needs inspired every detail. After navigating therapy systems, school challenges, and limited community support, I recognized the need for safe, inclusive spaces where families could feel seen and supported.
           </p>
           <p className="text-gray-700 mb-6">
-            What began as a personal journey quickly became a mission to serve other families who were feeling overlooked, overwhelmed, and unheard. Our superhero theme reflects Kadence's resilience and creativity — traits I see in every autistic child.
+            What began as a personal journey quickly became a mission to serve other families who were feeling overlooked, overwhelmed, and unheard. Our superhero theme reflects Kadence's resilience and creativity, traits I see in every autistic child.
           </p>
           <p className="text-gray-700">
             Today, Ausome Heroes is a community hub where parents and professionals share resources and celebrate neurodiverse joy. My goal is to create spaces where neurodivergent children are celebrated, and families are never made to feel alone.

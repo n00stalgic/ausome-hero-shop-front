@@ -55,7 +55,7 @@ const EmailCapture = () => {
             Join the Galaxy
           </h2>
           <p className="text-white/80 mb-8 text-lg">
-            Monthly updates on events, resources, and hero spotlights — straight to your inbox.
+            Monthly updates on events, resources, and hero spotlights, straight to your inbox.
           </p>
         </FadeIn>
 

@@ -18,7 +18,7 @@ const Testimonial = () => (
           </p>
           <span className="text-6xl text-cosmic-gold/30 font-serif absolute -bottom-10 right-0">"</span>
         </motion.blockquote>
-        <p className="mt-8 text-gray-500 font-medium">— Parent at Ausome Heroes Community Event</p>
+        <p className="mt-8 text-gray-500 font-medium">Parent at Ausome Heroes Community Event</p>
       </FadeIn>
     </div>
   </section>
