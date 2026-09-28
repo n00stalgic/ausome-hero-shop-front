@@ -2,6 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import BackToTop from "@/components/layout/BackToTop";
 import HeroSection from "@/components/home/HeroSection";
+import ImpactSection from "@/components/home/ImpactSection";
 import HomeEvents from "@/components/home/HomeEvents";
 import WaysToHelp from "@/components/home/WaysToHelp";
 import SponsorAStar from "@/components/home/SponsorAStar";
@@ -17,6 +18,7 @@ const Index = () => {
       <Navbar />
       <main className="flex-grow">
         <HeroSection />
+        <ImpactSection />
         <HomeEvents />
         <WaysToHelp />
         <SponsorAStar />
