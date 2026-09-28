@@ -5,17 +5,44 @@ const FounderSection = () => (
   <section className="py-16 px-6">
     <div className="container mx-auto">
       <div className="flex flex-col lg:flex-row items-center gap-12 max-w-6xl mx-auto">
-        <FadeIn direction="left" className="flex-shrink-0 w-full max-w-sm lg:max-w-md mx-auto lg:mx-0">
+        <FadeIn direction="left" className="flex-shrink-0 w-full max-w-sm lg:max-w-md mx-auto lg:mx-0 mb-8">
           <motion.div
-            className="rounded-2xl overflow-hidden shadow-2xl"
-            whileHover={{ scale: 1.03 }}
+            className="relative"
+            whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <img
-              src="/lovable-uploads/founder-allie.webp"
-              alt="Allie, Founder of Ausome Heroes, with her son"
-              className="w-full h-auto object-cover"
-            />
+            <div
+              className="absolute -inset-4 rounded-t-full rounded-b-[2.5rem] rotate-2"
+              style={{
+                background:
+                  "linear-gradient(160deg, #1a1e3a 0%, #32246b 55%, #8a4fbc 130%)",
+              }}
+              aria-hidden="true"
+            >
+              <div className="absolute inset-0 overflow-hidden rounded-t-full rounded-b-[2.5rem]">
+                <div className="stars-small opacity-80" />
+              </div>
+            </div>
+
+            <span className="absolute -top-3 -right-2 z-10 text-2xl text-cosmic-gold animate-twinkle" aria-hidden="true">✦</span>
+            <span className="absolute top-1/3 -left-6 z-10 text-xl text-cosmic-coral animate-twinkle-delayed" aria-hidden="true">✦</span>
+            <span className="absolute bottom-16 -right-5 z-10 text-lg text-cosmic-gold/80 animate-twinkle" aria-hidden="true">✦</span>
+
+            <div className="relative rounded-t-full rounded-b-[2rem] overflow-hidden ring-4 ring-cosmic-gold/70 shadow-2xl shadow-cosmic-purple/30">
+              <img
+                src="/lovable-uploads/founder-allie.webp"
+                alt="Allie, Founder of Ausome Heroes, with her son"
+                className="w-full aspect-[5/6] object-cover"
+              />
+              <div
+                className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#1a1e3a]/70 to-transparent"
+                aria-hidden="true"
+              />
+            </div>
+
+            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-cosmic-navy px-5 py-2 text-sm font-bold text-cosmic-gold shadow-lg ring-1 ring-cosmic-gold/50">
+              Allie with her son Kadence
+            </div>
           </motion.div>
         </FadeIn>
 
