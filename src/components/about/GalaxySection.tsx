@@ -4,16 +4,16 @@ const characters = ["Nova", "Zeke the Zoomer", "Cosmo", "Kadence the Harmonizer"
 
 const pillars = [
   {
-    title: "Meet Our Heroes",
-    text: "The Ausome Hero Squad features characters like Nova, Zeke the Zoomer, Cosmo, and Kadence the Harmonizer — each representing different strengths and abilities that children on the spectrum may identify with.",
+    title: "The heroes",
+    text: "Nova, Zeke the Zoomer, Cosmo, and Kadence the Harmonizer. They show up at our events and in our stories, so a kid can point at one and say: that one is like me.",
   },
   {
-    title: "Educational Support",
-    text: "Our products include educational materials, sensory tools, and comfort items that help children navigate their daily adventures while celebrating their unique superpowers.",
+    title: "Real-world experiences",
+    text: "We build outings designed for neurodivergent kids: iPad workshops at Apple, sensory-friendly adventures, fundraisers with local partners. No sitting still required.",
   },
   {
-    title: "Community Mission",
-    text: "Through initiatives like “Sponsor a Star,” we're building a supportive community that empowers autistic children to shine bright in their own way.",
+    title: "Sponsor a Star",
+    text: "Sponsor a Star covers event costs for families. Every star puts a kid in the room for a day they will not forget.",
   },
 ];
 
@@ -27,8 +27,8 @@ const GalaxySection = () => (
       <FadeIn className="text-center mb-12">
         <h2 className="text-3xl font-bold text-white mb-4">The Ausome Galaxy</h2>
         <p className="text-cosmic-light max-w-3xl mx-auto">
-          Every Mind is a Universe — we celebrate the unique ways our children
-          see and experience the world through the Ausome Galaxy and its characters.
+          Every mind is its own universe. Ours has a name: the Ausome Galaxy.
+          Four heroes live here, each wired a little differently, the way real kids are.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           {characters.map((name) => (
