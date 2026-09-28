@@ -1,98 +1,47 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import DonateButton from "@/components/forms/DonateButton";
 
 const HeroSection = () => (
-  <section
-    className="relative overflow-hidden"
-    style={{
-      background: `
-        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(138,79,188,0.4) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 50% at 75% 30%, rgba(79,151,199,0.35) 0%, transparent 55%),
-        radial-gradient(ellipse 50% 40% at 50% 80%, rgba(255,140,66,0.2) 0%, transparent 50%),
-        linear-gradient(180deg, #121638 0%, #1A1E3A 40%, #32246B 100%)
-      `,
-    }}
-  >
-    {/* Star field */}
-    <div className="absolute inset-0">
-      <div className="stars-small" />
-      <div className="stars-medium" />
-      <div className="stars-large" />
-    </div>
-
-    <div className="relative z-10 container mx-auto px-6 pt-32 pb-20">
-      <div className="flex flex-col lg:flex-row items-center gap-12">
-        {/* Text */}
-        <motion.div
-          className="max-w-2xl lg:w-1/2"
-          initial={{ opacity: 0, x: -60 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <motion.h1
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white drop-shadow-md"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+  <section className="relative bg-[#f8f3e9] pt-24 text-[#18233a]">
+    <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 py-12 md:gap-14 md:py-20 lg:grid-cols-[1.06fr_0.94fr]">
+      <div className="max-w-2xl">
+        <p className="mb-5 text-sm font-bold uppercase tracking-[0.16em] text-[#715292]">
+          A community for neurodivergent families
+        </p>
+        <h1 className="mb-6 text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
+          A place where kids can just be kids.
+        </h1>
+        <p className="mb-7 max-w-xl text-lg leading-relaxed text-[#394356]">
+          Ausome Heroes brings families together through sensory-friendly events,
+          practical resources, and a community that gets it. Founded by a mom who
+          wanted that place for her own son.
+        </p>
+        <div className="flex flex-wrap items-center gap-4">
+          <Link
+            to="/los-angeles"
+            className="inline-flex min-h-12 items-center rounded-md bg-[#18233a] px-6 font-semibold text-white transition-colors hover:bg-[#32416a]"
           >
-            Every Child Deserves To Be A{" "}
-            <motion.span
-              className="text-cosmic-gold inline-block"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.7, ease: "easeOut" }}
-            >
-              Hero
-            </motion.span>
-          </motion.h1>
-
-          <motion.p
-            className="text-xl text-white/90 mb-8 max-w-2xl leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            Explore LA events
+          </Link>
+          <Link
+            to="/about"
+            className="inline-flex min-h-12 items-center border-b-2 border-[#18233a] font-semibold text-[#18233a] hover:text-[#715292]"
           >
-            Empowering autistic children and their families through community,
-            resources, and events that inspire confidence and bring joy.
-          </motion.p>
-
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-          >
-            <Link to="/about">
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-2 border-white bg-white/15 text-white hover:bg-white/25 font-bold text-lg px-8 py-6"
-              >
-                Our Mission
-              </Button>
-            </Link>
-            <DonateButton variant="gold" size="lg" className="font-bold text-lg px-8 py-6" />
-          </motion.div>
-        </motion.div>
-
-        {/* Hero Illustration */}
-        <motion.div
-          className="lg:w-1/2 flex justify-center"
-          initial={{ opacity: 0, x: 60, y: 20 }}
-          animate={{ opacity: 1, x: 0, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
-        >
-          <motion.img
-            src="/lovable-uploads/ausomeheroes.png"
-            alt="Ausome Heroes — empowering neurodivergent children"
-            className="w-full max-w-2xl drop-shadow-2xl"
-            animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </motion.div>
+            Meet Allie and Kadence
+          </Link>
+        </div>
+        <div className="mt-8 border-l-2 border-[#efb944] pl-4 text-sm leading-relaxed text-[#596273]">
+          A 501(c)(3) nonprofit rooted in Los Angeles.
+        </div>
       </div>
+      <figure className="relative">
+        <img
+          src="/lovable-uploads/founder-allie.jpeg"
+          alt="Ausome Heroes founder Allie with her son Kadence"
+          className="aspect-[4/4.5] w-full rounded-[0.5rem] object-cover object-center shadow-[12px_12px_0_#efb944] md:aspect-[5/4] lg:aspect-[4/4.5]"
+          fetchPriority="high"
+        />
+        <figcaption className="mt-5 text-sm text-[#596273]">Allie and Kadence, the family behind Ausome Heroes.</figcaption>
+      </figure>
     </div>
   </section>
 );
