@@ -2,7 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import BackToTop from "@/components/layout/BackToTop";
 import HeroSection from "@/components/home/HeroSection";
-import EventsSection from "@/components/events/EventsSection";
+import HomeEvents from "@/components/home/HomeEvents";
 import WaysToHelp from "@/components/home/WaysToHelp";
 import BlogPreview from "@/components/home/BlogPreview";
 import EmailCapture from "@/components/home/EmailCapture";
@@ -15,7 +15,7 @@ const Index = () => {
       <Navbar />
       <main className="flex-grow">
         <HeroSection />
-        <EventsSection />
+        <HomeEvents />
         <WaysToHelp />
         <BlogPreview />
         <EmailCapture />
