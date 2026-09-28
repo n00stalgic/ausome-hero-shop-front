@@ -4,6 +4,7 @@ import Footer from "@/components/layout/Footer";
 import FounderSection from "@/components/about/FounderSection";
 import ValuesSection from "@/components/about/ValuesSection";
 import GalaxySection from "@/components/about/GalaxySection";
+import FaqSection from "@/components/about/FaqSection";
 import { usePageTitle } from "@/hooks/usePageTitle";
 
 const About = () => {
@@ -15,7 +16,7 @@ const About = () => {
       <main className="flex-grow pt-24">
         {/* Hero banner */}
         <section
-          className="relative py-16 px-6 overflow-hidden"
+          className="relative py-24 md:py-32 px-6 overflow-hidden"
           style={{
             background: `
               radial-gradient(ellipse 80% 60% at 30% 50%, rgba(138,79,188,0.4) 0%, transparent 60%),
@@ -38,28 +39,20 @@ const About = () => {
               About Ausome Heroes
             </motion.h1>
             <motion.p
-              className="text-xl text-white max-w-3xl mx-auto mb-10"
+              className="text-xl text-white max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               We believe that every child deserves to feel like a hero in their own story.
             </motion.p>
-
-            <motion.img
-              src="/lovable-uploads/aboutk.png"
-              alt="About Ausome Heroes"
-              className="max-w-3xl w-full mx-auto rounded-xl shadow-lg"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-            />
           </div>
         </section>
 
         <FounderSection />
         <ValuesSection />
         <GalaxySection />
+        <FaqSection />
       </main>
 
       <Footer />

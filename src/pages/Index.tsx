@@ -4,6 +4,8 @@ import BackToTop from "@/components/layout/BackToTop";
 import HeroSection from "@/components/home/HeroSection";
 import HomeEvents from "@/components/home/HomeEvents";
 import WaysToHelp from "@/components/home/WaysToHelp";
+import SponsorAStar from "@/components/home/SponsorAStar";
+import PartnerLogos from "@/components/home/PartnerLogos";
 import BlogPreview from "@/components/home/BlogPreview";
 import EmailCapture from "@/components/home/EmailCapture";
 import { usePageTitle } from "@/hooks/usePageTitle";
@@ -17,6 +19,8 @@ const Index = () => {
         <HeroSection />
         <HomeEvents />
         <WaysToHelp />
+        <SponsorAStar />
+        <PartnerLogos />
         <BlogPreview />
         <EmailCapture />
       </main>

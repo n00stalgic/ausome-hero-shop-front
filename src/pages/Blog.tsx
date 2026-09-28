@@ -11,7 +11,7 @@ const blogPosts = [
     title: "A Morning of Magic at Apple Del Amo",
     excerpt: "Our Ausome Heroes explored creativity and technology at Apple's Today at Apple session—here's what we learned and why it mattered.",
     date: "January 2025",
-    image: "/lovable-uploads/apple-ipad-workshop.png",
+    image: "/lovable-uploads/apple-del-amo-cover.svg",
   },
 ];
 

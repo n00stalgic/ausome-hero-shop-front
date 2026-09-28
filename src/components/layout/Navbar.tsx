@@ -18,7 +18,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="relative h-20 md:h-24 overflow-hidden flex items-start shrink-0 mr-4 md:mr-8">
           <img
-            src="/lovable-uploads/ausomelogo.png"
+            src="/lovable-uploads/ausomelogo.webp"
             alt="Ausome Heroes"
             className="h-40 md:h-52 w-auto -mt-6 md:-mt-10"
           />
