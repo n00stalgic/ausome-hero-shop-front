@@ -90,42 +90,58 @@ const BlogPost = () => {
 
       <main className="flex-grow">
         {/* Editorial hero */}
-        <div className="relative h-[62vh] min-h-[440px] w-full overflow-hidden">
-          <img
-            src={post.image}
-            alt={post.title}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-cosmic-navy via-cosmic-navy/45 to-cosmic-navy/10" />
-          <div className="absolute inset-0 flex items-end">
-            <div className="container mx-auto px-6 pb-12 max-w-4xl w-full">
-              <FadeIn>
-                <Link
-                  to="/blog"
-                  className="inline-flex items-center gap-2 text-white/75 hover:text-white text-sm font-medium mb-6 transition-colors"
-                >
-                  <ArrowLeft className="w-4 h-4" />
-                  Back to Blog
-                </Link>
-                <div className="flex items-center gap-2 text-sm text-white/70 mb-4">
-                  <Calendar className="w-4 h-4" />
-                  {post.date}
-                </div>
-                <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4 max-w-3xl">
-                  {post.title}
-                </h1>
-                <p className="text-white/75 text-lg">
-                  By Allie, Founder of Ausome Heroes
-                </p>
-              </FadeIn>
-            </div>
+        <div
+          className="relative overflow-hidden"
+          style={{
+            background: `
+              radial-gradient(ellipse 70% 55% at 18% 30%, rgba(138,79,188,0.45) 0%, transparent 60%),
+              radial-gradient(ellipse 60% 50% at 85% 25%, rgba(79,151,199,0.35) 0%, transparent 55%),
+              radial-gradient(ellipse 55% 45% at 60% 90%, rgba(242,177,52,0.16) 0%, transparent 60%),
+              linear-gradient(180deg, #0d1230 0%, #1a1e3a 55%, #2c2060 100%)
+            `,
+          }}
+        >
+          <div className="absolute inset-0" aria-hidden="true">
+            <div className="stars-small" />
+            <div className="stars-medium" />
           </div>
+          <div className="relative z-10 container mx-auto px-6 pt-28 pb-14 md:pt-36 md:pb-20 max-w-4xl w-full">
+            <FadeIn>
+              <Link
+                to="/blog"
+                className="inline-flex items-center gap-2 text-white/75 hover:text-white text-sm font-medium mb-6 transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                Back to Blog
+              </Link>
+              <div className="flex items-center gap-2 text-sm text-cosmic-gold mb-4">
+                <Calendar className="w-4 h-4" />
+                {post.date}
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-5">
+                <span className="bg-gradient-to-r from-[#ffe9a8] via-cosmic-gold to-[#e08a1e] bg-clip-text text-transparent">
+                  {post.title}
+                </span>
+              </h1>
+              <p className="text-white/75 text-lg">
+                By Allie, Founder of Ausome Heroes
+              </p>
+            </FadeIn>
+          </div>
+          <div className="absolute bottom-0 inset-x-0 h-12 bg-gradient-to-t from-white to-transparent" aria-hidden="true" />
         </div>
 
         {/* Article */}
         <article className="py-16 px-6">
           <div className="container mx-auto max-w-3xl">
             <FadeIn>
+              <figure className="mb-12">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full rounded-2xl shadow-lg"
+                />
+              </figure>
               <PostContent />
             </FadeIn>
           </div>
