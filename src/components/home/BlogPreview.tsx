@@ -33,7 +33,7 @@ const BlogPreview = () => (
                 A Morning of Magic at Apple Del Amo
               </h3>
               <p className="text-gray-600 mb-4">
-                Our Ausome Heroes explored creativity and technology at Apple's Today at Apple session — here's what we learned and why it mattered.
+                We spent the morning at Apple Del Amo with our Ausome Heroes, exploring creativity and technology together. Here's what the kids took away from it, and why it mattered.
               </p>
               <span className="inline-flex items-center gap-1 text-cosmic-purple font-medium">
                 Read more <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
