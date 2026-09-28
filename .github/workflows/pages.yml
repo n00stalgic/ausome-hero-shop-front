@@ -23,10 +23,10 @@ jobs:
           node-version: '22'
           cache: npm
       - run: npm ci
-      # Change this one base value to / when the custom domain is ready.
+      # Custom-domain build; Pages Settings controls the domain for Actions deployments.
       - run: VITE_BASE_PATH="$PAGES_BASE" npm run build && node scripts/pages-assets.mjs && cp dist/index.html dist/404.html
         env:
-          PAGES_BASE: /ausome-hero-shop-front/
+          PAGES_BASE: /
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
