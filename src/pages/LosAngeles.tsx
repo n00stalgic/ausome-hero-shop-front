@@ -4,6 +4,7 @@ import { CalendarDays, MapPin, Heart } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import DonateButton from "@/components/forms/DonateButton";
+import ResourceMap from "@/components/la/ResourceMap";
 import { usePageTitle } from "@/hooks/usePageTitle";
 
 const programs = [
@@ -61,6 +62,8 @@ const LosAngeles = () => {
           <DonateButton variant="blue" size="lg" text="Support Our LA Programs" />
         </div>
       </section>
+
+      <ResourceMap />
 
       {/* Volunteer CTA + Events */}
       <section className="py-16 px-6 bg-white">
