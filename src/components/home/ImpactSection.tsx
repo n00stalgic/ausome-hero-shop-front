@@ -1,4 +1,4 @@
-import { Heart, Calendar, Users, MapPin } from "lucide-react";
+import { Heart, Calendar, Users } from "lucide-react";
 import FadeIn from "@/components/motion/FadeIn";
 import StaggerChildren, { StaggerItem } from "@/components/motion/StaggerChildren";
 import CountUp from "@/components/motion/CountUp";
@@ -7,7 +7,6 @@ const stats = [
   { number: "150+", label: "Families Served", icon: Heart },
   { number: "25+", label: "Events Hosted", icon: Calendar },
   { number: "50+", label: "Volunteers", icon: Users },
-  { number: "5", label: "Cities", icon: MapPin },
 ];
 
 const ImpactSection = () => (
@@ -23,7 +22,7 @@ const ImpactSection = () => (
           Every number represents a family who felt seen, a child who felt celebrated, a volunteer who showed up.
         </p>
       </FadeIn>
-      <StaggerChildren className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto text-center" stagger={0.15}>
+      <StaggerChildren className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center" stagger={0.15}>
         {stats.map((s) => (
           <StaggerItem key={s.label}>
             <div className="flex flex-col items-center">
