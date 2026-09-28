@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { CalendarDays, MapPin, Heart } from "lucide-react";
+import { CalendarDays, MapPin, Heart, Zap, Compass, Sparkles } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import DonateButton from "@/components/forms/DonateButton";
@@ -13,21 +13,21 @@ const programs = [
     desc: "Inclusive, sensory-friendly superhero parties designed for neurodivergent children and their families. Every child gets to be the hero of their own story!",
     location: "Various locations across Los Angeles",
     schedule: "Monthly events. Check the calendar for details",
-    image: "/lovable-uploads/k1.webp",
+    icon: Zap,
   },
   {
     title: "Mindverse Adventure Days",
     desc: "Outdoor sensory fairs designed for exploration, fun, and learning. These adventures help children connect with their environment in a safe, supportive setting.",
     location: "Parks and outdoor spaces in Los Angeles",
     schedule: "Quarterly: Spring, Summer, Fall, Winter",
-    image: "/lovable-uploads/k2.webp",
+    icon: Compass,
   },
   {
     title: "Light Up the Galaxy Festival",
     desc: "Our annual celebration during Autism Acceptance Month. This festival brings together families, resources, and fun activities to celebrate neurodiversity.",
     location: "Grand Park, Los Angeles",
     schedule: "April (Autism Acceptance Month)",
-    image: "/lovable-uploads/k3.webp",
+    icon: Sparkles,
   },
 ];
 
@@ -89,7 +89,20 @@ const LosAngeles = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {programs.map((p) => (
               <div key={p.title} className="bg-cosmic-navy/5 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-                <img src={p.image} alt={p.title} className="h-48 w-full object-cover" />
+                <div
+                  className="relative h-48 overflow-hidden flex items-center justify-center"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse 80% 90% at 50% 110%, rgba(138,79,188,0.55) 0%, transparent 65%), linear-gradient(135deg, #121638 0%, #32246B 100%)",
+                  }}
+                >
+                  <div className="absolute inset-0" aria-hidden="true">
+                    <div className="stars-small opacity-70" />
+                  </div>
+                  <div className="relative w-20 h-20 rounded-full flex items-center justify-center ring-2 ring-cosmic-gold/70 bg-white/5 shadow-lg shadow-cosmic-gold/20">
+                    <p.icon size={38} className="text-cosmic-gold" strokeWidth={1.75} />
+                  </div>
+                </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-3">{p.title}</h3>
                   <p className="text-gray-600 mb-4">{p.desc}</p>
