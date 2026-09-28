@@ -12,7 +12,7 @@ const FounderSection = () => (
             transition={{ type: "spring", stiffness: 300 }}
           >
             <img
-              src="/lovable-uploads/founder-allie.jpeg"
+              src="/lovable-uploads/founder-allie.webp"
               alt="Allie, Founder of Ausome Heroes, with her son"
               className="w-full h-auto object-cover"
             />
@@ -43,7 +43,7 @@ const FounderSection = () => (
           transition={{ type: "spring", stiffness: 300 }}
         >
           <img
-            src="/lovable-uploads/f2d84322-71e9-4ca8-8dc3-fb8c4c3255cd.png"
+            src="/lovable-uploads/f2d84322-71e9-4ca8-8dc3-fb8c4c3255cd.webp"
             alt="Kadence the Harmonizer"
             className="w-full h-auto"
           />

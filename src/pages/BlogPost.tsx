@@ -68,7 +68,7 @@ const blogPostsData: Record<string, {
   "apple-del-amo-workshop-2025": {
     title: "A Morning of Magic at Apple Del Amo",
     date: "January 2025",
-    image: "/lovable-uploads/apple-ipad-workshop.png",
+    image: "/lovable-uploads/apple-del-amo-cover.svg",
     component: AppleDelAmoPost,
   },
 };
@@ -146,7 +146,7 @@ const BlogPost = () => {
                     alt={p.alt}
                     title={p.name}
                     loading="lazy"
-                    className="h-8 md:h-9 w-auto object-contain grayscale opacity-45 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                    className="h-9 md:h-11 w-auto object-contain transition-transform duration-300 hover:scale-105"
                   />
                 ))}
               </div>

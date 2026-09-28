@@ -12,21 +12,21 @@ const programs = [
     desc: "Inclusive, sensory-friendly superhero parties designed for neurodivergent children and their families. Every child gets to be the hero of their own story!",
     location: "Various locations across Los Angeles",
     schedule: "Monthly events — check calendar for details",
-    image: "/lovable-uploads/k1.png",
+    image: "/lovable-uploads/k1.webp",
   },
   {
     title: "Mindverse Adventure Days",
     desc: "Outdoor sensory fairs designed for exploration, fun, and learning. These adventures help children connect with their environment in a safe, supportive setting.",
     location: "Parks and outdoor spaces in Los Angeles",
     schedule: "Quarterly — Spring, Summer, Fall, Winter",
-    image: "/lovable-uploads/k2.png",
+    image: "/lovable-uploads/k2.webp",
   },
   {
     title: "Light Up the Galaxy Festival",
     desc: "Our annual celebration during Autism Acceptance Month. This festival brings together families, resources, and fun activities to celebrate neurodiversity.",
     location: "Grand Park, Los Angeles",
     schedule: "April (Autism Acceptance Month)",
-    image: "/lovable-uploads/k3.png",
+    image: "/lovable-uploads/k3.webp",
   },
 ];
 

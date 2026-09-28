@@ -19,7 +19,7 @@ const BlogPreview = () => (
           >
             <div className="md:w-1/3">
               <img
-                src="/lovable-uploads/apple-ipad-workshop.png"
+                src="/lovable-uploads/apple-del-amo-cover.svg"
                 alt="Apple Del Amo Workshop"
                 className="w-full h-48 md:h-full object-cover"
               />

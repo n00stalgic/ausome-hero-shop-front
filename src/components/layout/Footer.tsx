@@ -74,7 +74,7 @@ const Footer = () => (
               />
             </div>
             <p className="text-sm text-gray-400 mt-2 leading-relaxed">
-              A parent-owned record of your child's ABA journey. Every morning, a short story about the goals they're working on — written in your words, yours to keep.
+              A parent-owned record of your child's ABA journey. Every morning, a short story about the goals they're working on, written in your words and yours to keep.
             </p>
           </a>
         </div>

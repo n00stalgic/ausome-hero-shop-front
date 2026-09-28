@@ -16,7 +16,7 @@ const PartnerLogos = () => (
               alt={p.alt}
               title={p.name}
               loading="lazy"
-              className="h-9 md:h-11 w-auto object-contain grayscale opacity-45 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              className="h-10 md:h-12 w-auto object-contain transition-transform duration-300 hover:scale-105"
             />
           ))}
         </div>

@@ -15,7 +15,7 @@ const StorySection = () => (
           transition={{ type: "spring", stiffness: 300 }}
         >
           <img
-            src="/lovable-uploads/f2d84322-71e9-4ca8-8dc3-fb8c4c3255cd.png"
+            src="/lovable-uploads/f2d84322-71e9-4ca8-8dc3-fb8c4c3255cd.webp"
             alt="Kadence the Harmonizer"
             className="w-full h-auto"
           />
