@@ -13,6 +13,7 @@ const VolunteerFormPage = lazy(() => import("./pages/VolunteerForm"));
 const HeroSpotlight = lazy(() => import("./pages/HeroSpotlight"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
+const SampleHeroCard = lazy(() => import("./pages/SampleHeroCard"));
 
 const PageLoader = () => (
   <div className="flex min-h-[60vh] items-center justify-center bg-cosmic-navy">
@@ -39,6 +40,7 @@ const AnimatedRoutes = () => {
             <Route path="/los-angeles" element={<LosAngeles />} />
             <Route path="/volunteer" element={<VolunteerFormPage />} />
             <Route path="/hero-spotlight" element={<HeroSpotlight />} />
+            <Route path="/heroes/sample" element={<SampleHeroCard />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="*" element={<NotFound />} />
