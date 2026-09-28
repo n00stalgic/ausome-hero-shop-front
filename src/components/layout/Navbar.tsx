@@ -36,14 +36,17 @@ const Navbar = () => {
       <div className="relative container mx-auto flex justify-between items-center">
         <Link
           to="/"
-          className="flex items-center h-20 md:h-24 shrink-0 mr-4 md:mr-8"
+          aria-label="Ausome Heroes home"
+          className="group flex items-center gap-2.5 h-20 md:h-24 shrink-0 mr-4 md:mr-8"
         >
-          <span className="inline-flex items-center rounded-full bg-white pl-3 pr-5 py-1 md:py-1.5 shadow-lg shadow-black/40 ring-1 ring-cosmic-gold/60">
-            <img
-              src="/lovable-uploads/ausomelogo-cropped.webp"
-              alt="Ausome Heroes"
-              className="h-10 md:h-12 w-auto"
-            />
+          <img
+            src="/lovable-uploads/ausome-icon.webp"
+            alt=""
+            className="h-11 md:h-[52px] w-auto transition-transform duration-200 group-hover:scale-105 group-hover:-rotate-3"
+          />
+          <span className="font-logo text-[22px] md:text-[26px] font-extrabold leading-none tracking-tight whitespace-nowrap">
+            <span className="text-white">Ausome</span>{" "}
+            <span className="text-cosmic-gold">Heroes</span>
           </span>
         </Link>
 

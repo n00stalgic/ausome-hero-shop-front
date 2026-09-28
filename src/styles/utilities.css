@@ -7,3 +7,83 @@
   padding: 1rem;
   border-radius: 0.5rem;
 }
+
+/* LA resource map */
+.la-resource-marker {
+  background: transparent;
+  border: none;
+}
+
+.la-resource-marker svg {
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+  transition: transform 0.15s ease;
+}
+
+.la-resource-marker:hover svg {
+  transform: scale(1.2);
+}
+
+.la-popup-wrap .leaflet-popup-content-wrapper {
+  background: #141a3d;
+  color: #fff;
+  border: 1px solid rgba(232, 179, 75, 0.45);
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55);
+}
+
+.la-popup-wrap .leaflet-popup-content {
+  margin: 16px 18px;
+  line-height: 1.5;
+  font-family: inherit;
+}
+
+.la-popup-wrap .leaflet-popup-tip {
+  background: #141a3d;
+  border: 1px solid rgba(232, 179, 75, 0.45);
+}
+
+.la-popup-wrap .leaflet-popup-close-button {
+  color: rgba(255, 255, 255, 0.6) !important;
+  top: 8px !important;
+  right: 10px !important;
+}
+
+.la-popup-category {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #e8b34b;
+  margin-bottom: 6px;
+}
+
+.la-popup-name {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.la-popup-address {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 8px;
+}
+
+.la-popup-blurb {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 10px;
+}
+
+.la-popup-link {
+  font-size: 13px;
+  font-weight: 700;
+  color: #e8b34b;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Logo wordmark */
+.font-logo {
+  font-family: "Baloo 2", "Nunito", system-ui, sans-serif;
+}
