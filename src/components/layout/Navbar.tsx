@@ -40,7 +40,7 @@ const Navbar = () => {
           className="group flex items-center gap-2.5 h-20 md:h-24 shrink-0 mr-4 md:mr-8"
         >
           <img
-            src="/lovable-uploads/ausome-icon.webp"
+            src="/lovable-uploads/ausome-nav-emblem.png"
             alt=""
             className="h-11 md:h-[52px] w-auto transition-transform duration-200 group-hover:scale-105 group-hover:-rotate-3"
           />
