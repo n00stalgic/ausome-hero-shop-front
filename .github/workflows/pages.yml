@@ -1,0 +1,35 @@
+name: Deploy Ausome Heroes to GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      # Change this one base value to / when the custom domain is ready.
+      - run: VITE_BASE_PATH="$PAGES_BASE" npm run build && node scripts/pages-assets.mjs && cp dist/index.html dist/404.html
+        env:
+          PAGES_BASE: /ausome-hero-shop-front/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - id: deployment
+        uses: actions/deploy-pages@v4
