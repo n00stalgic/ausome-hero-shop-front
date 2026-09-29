@@ -14,6 +14,9 @@ const heroes: Hero[] = [
   { name: "Fenn", epithet: "Why Collector", image: "fenn-fox", alt: "A curious copper fox kit exploring glowing fireflies and a garden notebook", story: "Fenn has questions about everything. Why do fireflies glow? Where do seeds sleep? He keeps each answer in his little explorer's notebook, and asks another. His curiosity opens doors in the garden that nobody knew were there.", powers: ["Why collector", "Wonder keeper", "Question finder"] },
   { name: "Sage", epithet: "Own Pace", image: "sage-snail", alt: "A smiling teal snail with an intricate glowing shell on a mossy path", story: "Sage carries a cozy home wherever they go. They stop to notice dew on the ferns and the shape of each pebble. The path never tells Sage to hurry. They always arrive with a story about something beautiful everyone else walked past.", powers: ["Own pace", "Little details", "Home anywhere"] },
   { name: "Ash", epithet: "Team Lifter", image: "ash-ant", alt: "A terracotta ant and friends carrying a glowing seed through the garden", story: "Ash found a seed too big to carry alone. So they asked two friends to walk beside them. One steadied it, one led the way, and Ash kept everyone together. By moonrise, they had planted something wonderful. Ash knows that asking for help is a power too.", powers: ["Team lifter", "Friend finder", "Growing together"] },
+  { name: "Bramble", epithet: "Guard Down", image: "bramble-hedgehog", alt: "A small hedgehog steps from a leafy shelter to greet a glowing snail beside a moonlit pond", story: "Bramble has a safe little place beneath the leaves. When the garden grows busy, they curl up there and listen until they feel ready. One evening, a snail waits quietly nearby. Bramble peeks out, then steps into the lantern light. A hello feels easier when nobody makes it a race.", powers: ["Safe shelter", "Ready hello", "Gentle courage"] },
+  { name: "Lumen", epithet: "Signal Finder", image: "lumen-firefly", alt: "A golden firefly on a flowering branch sends gentle light signals to a friend under the moon", story: "Lumen does not always use words to say hello. From the jasmine branch, they blink once, pause, then blink twice. Across the pond, a friend flashes the pattern back. Soon the garden has a new way to keep in touch, one small light at a time.", powers: ["Light language", "Own rhythm", "Connection spark"] },
+  { name: "Pip", epithet: "Small Noticer", image: "pip-mouse", alt: "A brown mouse with a teal notebook points to a tiny sprout beneath a dew-covered leaf", story: "The garden crew almost walks past a new green sprout. Pip stops and points beneath the big dewy leaf. The others kneel down to see what Pip found, then move their tools so the little plant has room to grow. Pip knows that small things can change the whole path.", powers: ["Tiny details", "Careful eyes", "Growing room"] },
 ];
 
 export default function SampleHeroCard() {
@@ -104,11 +107,11 @@ export default function SampleHeroCard() {
           <img src="/heroes/pocket-heroes-wordmark.svg" className="hc-logo-intro" alt="Pocket Heroes" />
           <span className="hc-eyebrow"><Sparkles size={14} aria-hidden="true" /> THE QUIET GARDEN · FIRST EDITION</span>
           <h1>Every way of seeing<br /><em>is a superpower.</em></h1>
-          <p>Meet the first edition of Pocket Heroes. Seven garden friends, each with a different way of making the world brighter. Pick one to open their card.</p>
+          <p>Meet the first edition of Pocket Heroes. {heroes.length} garden friends, each with a different way of making the world brighter. Pick one to open their card.</p>
           <div className="hc-rule" aria-hidden="true" />
           <div className="hc-instructions"><span className="hc-instruction-number">01</span><span>Pick a hero</span><ArrowRight size={16} aria-hidden="true"/><span className="hc-instruction-number">02</span><span>Open and flip</span></div>
           <p className="hc-note"><VolumeX size={16} aria-hidden="true" /> No sound or flashing. Tilt is always your choice.</p>
-          <p className="hc-roster-hint">Choose a hero <span>· Swipe to see all seven →</span></p>
+          <p className="hc-roster-hint">Choose a hero <span>· Swipe to see all {heroes.length} →</span></p>
           <div className="hc-roster" aria-label="Choose a Pocket Hero">
             {heroes.map((entry, index) => <button key={entry.name} className={`hc-roster-item${selected === index ? " is-selected" : ""}`} onClick={() => chooseHero(index)} aria-pressed={selected === index} type="button">
               <img src={`/heroes/${entry.image}.webp`} alt="" loading={index < 3 ? "eager" : "lazy"} />
