@@ -98,7 +98,8 @@ export default function SampleHeroCard() {
       </header>
       <main className="hc-layout">
         <div className="hc-intro">
-          <span className="hc-eyebrow"><Sparkles size={14} aria-hidden="true" /> POCKET HEROES · THE QUIET GARDEN</span>
+          <img src="/heroes/pocket-heroes-wordmark.svg" className="hc-logo-intro" alt="Pocket Heroes" />
+          <span className="hc-eyebrow"><Sparkles size={14} aria-hidden="true" /> THE QUIET GARDEN · FIRST EDITION</span>
           <h1>Every way of seeing<br /><em>is a superpower.</em></h1>
           <p>Meet the first edition of Pocket Heroes. Seven made-up garden friends, each with a different way of making the world brighter. Pick one to open their card.</p>
           <div className="hc-rule" aria-hidden="true" />
@@ -117,7 +118,7 @@ export default function SampleHeroCard() {
           {!revealed ? (
             <button key={hero.name} className="hc-pack" onClick={() => setRevealed(true)} aria-label={`Open ${hero.name}'s hero card pack`}>
               <span className="hc-pack-star" aria-hidden="true">✦</span>
-              <span className="hc-pack-brand">POCKET<br/>HEROES</span>
+              <img src="/heroes/pocket-heroes-wordmark.svg" className="hc-logo-pack" alt="Pocket Heroes" />
               <span className="hc-pack-line" aria-hidden="true" />
               <span className="hc-pack-title">{hero.name} is waiting.</span>
               <span className="hc-pack-open">TAP TO OPEN <ArrowRight size={17} aria-hidden="true" /></span>
@@ -128,14 +129,14 @@ export default function SampleHeroCard() {
               <button type="button" className={`hc-card${flipped ? " is-flipped" : ""}${motion ? " has-motion" : ""}`} style={cardStyle} onClick={() => setFlipped((v) => !v)} aria-label={`${hero.name} hero card, ${flipped ? "story side" : "portrait side"}. Tap to ${flipped ? "see portrait" : "read story"}`} aria-pressed={flipped}>
                 <span className="hc-card-rotator">
                   <span className="hc-card-face hc-front">
-                    <span className="hc-card-top"><span>POCKET <b>✦</b> HEROES</span><span>NO. {number}</span></span>
+                    <span className="hc-card-top"><img className="hc-card-wordmark" src="/heroes/pocket-heroes-wordmark.svg" alt="Pocket Heroes" /><span>NO. {number}</span></span>
                     <img src={`/heroes/${hero.image}.webp`} alt={hero.alt} className="hc-portrait" />
                     <span className="hc-card-gradient" aria-hidden="true" />
                     <span className="hc-foil" aria-hidden="true" />
                     <span className="hc-card-bottom"><span className="hc-card-type">THE QUIET GARDEN COLLECTION</span><strong>{hero.name.toUpperCase()}</strong><span className="hc-card-subtitle">{hero.epithet}</span><span className="hc-card-stats"><span>✦ {hero.powers[0].toUpperCase()}</span><span>✦ {hero.powers[1].toUpperCase()}</span></span></span>
                   </span>
                   <span className="hc-card-face hc-back">
-                    <span className="hc-back-top"><span>POCKET ✦ HEROES</span><span>NO. {number}</span></span>
+                    <span className="hc-back-top"><img className="hc-card-wordmark" src="/heroes/pocket-heroes-wordmark.svg" alt="Pocket Heroes" /><span>NO. {number}</span></span>
                     <span className="hc-back-emblem" aria-hidden="true">✦</span>
                     <span className="hc-back-kicker">THE STORY BEHIND THE CARD</span>
                     <strong>{hero.name.toUpperCase()}</strong>
