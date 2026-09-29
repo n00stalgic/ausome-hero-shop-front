@@ -168,3 +168,9 @@
 .hc-saved-shelf button {border:1px solid #e6c18288;border-radius:20px;background:#21374b;color:#ffdf9c;padding:5px 10px;font:700 12px 'Baloo 2',sans-serif;cursor:pointer}
 .hc-saved-shelf button:focus-visible,.hc-save:focus-visible {outline:3px solid #fff;outline-offset:3px}
 .hc-save {background:#213d45;color:#ffdf9c;border:1px solid #e6c182}
+
+.hc-editions {display:flex;align-items:center;gap:8px;max-width:1410px;margin:0 auto 12px}
+.hc-editions button {border:1px solid #e5c28180;border-radius:24px;background:#1b3346;color:#ffe0a4;padding:6px 14px;font:800 11px 'Baloo 2',sans-serif;letter-spacing:.09em;text-transform:uppercase;cursor:pointer}
+.hc-editions button[aria-current="page"] {background:#f3cf88;color:#102039;cursor:default}
+.hc-editions button:focus-visible {outline:3px solid #fff;outline-offset:3px}
+@media(max-width:800px) {.hc-editions {margin-top:12px;margin-bottom:2px}}

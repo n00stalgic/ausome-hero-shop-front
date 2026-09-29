@@ -20,13 +20,13 @@ if (base !== '/') {
 const appHtml = await readFile('dist/index.html', 'utf8');
 const cardHtml = appHtml
   .replace('<title>Ausome Heroes | Community for Neurodivergent Families</title>', '<title>The Quiet Garden | Pocket Heroes | Ausome Heroes</title>')
-  .replace('content="Sensory-friendly events, useful resources, and a community where neurodivergent children and their families can feel at home."', 'content="Meet seven fictional Pocket Heroes in the Quiet Garden Collection. Open a pack, flip a card, and read their stories."')
-  .replace('property="og:title" content="Ausome Heroes"', 'property="og:title" content="The Quiet Garden | Pocket Heroes"')
-  .replace('content="A place where kids can just be kids. Explore our events and community for neurodivergent families."', 'content="Meet seven fictional Pocket Heroes from the Quiet Garden Collection."')
-  .replaceAll('content="/meta-image.png"', 'content="https://www.ausomeheroes.com/heroes/quiet-garden-share.jpg"')
+  .replace('content="Sensory-friendly events, useful resources, and a community where neurodivergent children and their families can feel at home."', 'content="Meet the 27 fictional heroes in the Quiet Garden first edition. Every way of seeing is a superpower. Open a card and read its story."')
+  .replace('property="og:title" content="Ausome Heroes"', 'property="og:title" content="Pocket Heroes | The Quiet Garden - 27 Heroes"')
+  .replace('content="A place where kids can just be kids. Explore our events and community for neurodivergent families."', 'content="Meet the 27 fictional heroes in the Quiet Garden first edition. Every way of seeing is a superpower."')
+  .replaceAll('content="/meta-image.png"', 'content="https://www.ausomeheroes.com/heroes/quiet-garden-share.jpg?v=2"')
   .replace('content="2400"', 'content="1200"')
   .replace('content="1260"', 'content="630"')
-  .replace('</head>', '<meta property="og:url" content="https://www.ausomeheroes.com/heroes/" />\n    <link rel="canonical" href="https://www.ausomeheroes.com/heroes/" />\n  </head>');
+  .replace('</head>', '<meta property="og:image:alt" content="Pocket Heroes painted logo beside three Quiet Garden heroes; Every way of seeing is a superpower. First edition, 27 heroes." />\n    <meta name="twitter:title" content="Pocket Heroes | The Quiet Garden - 27 Heroes" />\n    <meta name="twitter:description" content="Meet the 27 fictional heroes in the Quiet Garden first edition. Every way of seeing is a superpower." />\n    <meta property="og:url" content="https://www.ausomeheroes.com/heroes/" />\n    <link rel="canonical" href="https://www.ausomeheroes.com/heroes/" />\n  </head>');
 await mkdir('dist/heroes', { recursive: true });
 await writeFile('dist/heroes/index.html', cardHtml);
 // GitHub Pages ignores _redirects. Keep the old shared URL functional with a static redirect.
