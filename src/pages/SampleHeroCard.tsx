@@ -50,6 +50,20 @@ export default function SampleHeroCard() {
   const shareUrl = () => `${window.location.origin}/heroes/`;
 
   useEffect(() => {
+    // Route-scoped preloads avoid fetching card art on unrelated Ausome Heroes pages.
+    const links = ["mariposa", "echo-bat", "wren-dawn-bird"].map((image) => {
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "image";
+      link.href = `/heroes/${image}-440.webp`;
+      link.setAttribute("fetchpriority", "high");
+      document.head.appendChild(link);
+      return link;
+    });
+    return () => links.forEach((link) => link.remove());
+  }, []);
+
+  useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
     const update = () => {
       prefersReduced.current = query.matches;
@@ -185,7 +199,7 @@ export default function SampleHeroCard() {
         </div>
         <div className="hc-carousel" ref={carouselRef} tabIndex={0} role="region" aria-label="All Pocket Heroes; use left and right arrow keys to browse" onKeyDown={carouselKeyDown} onPointerDown={carouselPointerDown} onPointerMove={carouselPointerMove} onPointerUp={carouselPointerUp} onPointerCancel={() => { drag.current = null; }} onClickCapture={(event) => { if (suppressClick.current) { event.stopPropagation(); event.preventDefault(); suppressClick.current = false; } }}>
           {heroes.map((entry, index) => <button type="button" key={entry.name} className={`hc-carousel-card${selected === index ? " is-selected" : ""}`} onClick={() => chooseHero(index, true)} aria-label={`Open ${entry.name}'s card, number ${String(index + 1).padStart(3, "0")}`} aria-pressed={selected === index}>
-            <img src={`/heroes/${entry.image}.webp`} alt="" loading={index < 5 ? "eager" : "lazy"} />
+            <img src={`/heroes/${entry.image}-440.webp`} srcSet={`/heroes/${entry.image}-440.webp 440w, /heroes/${entry.image}-720.webp 720w`} sizes="(max-width: 800px) 150px, (max-width: 1425px) 16vw, 228px" alt="" loading={index < 6 ? "eager" : "lazy"} fetchPriority={index < 3 ? "high" : "auto"} decoding="async" />
             <span className="hc-carousel-shade" aria-hidden="true" />
             <span className="hc-carousel-number">NO. {String(index + 1).padStart(3, "0")}</span>
             <span className="hc-carousel-label"><strong>{entry.name}</strong><small>{entry.epithet}</small></span>
@@ -225,7 +239,7 @@ export default function SampleHeroCard() {
                 <span className="hc-card-rotator">
                   <span className="hc-card-face hc-front">
                     <span className="hc-card-top"><img className="hc-card-wordmark" src="/heroes/pocket-heroes-wordmark.svg" alt="Pocket Heroes" /><span>NO. {number}</span></span>
-                    <img src={`/heroes/${hero.image}.webp`} alt={hero.alt} className="hc-portrait" />
+                    <img src={`/heroes/${hero.image}-720.webp`} srcSet={`/heroes/${hero.image}-440.webp 440w, /heroes/${hero.image}-720.webp 720w`} sizes="(max-width: 390px) 318px, (max-width: 800px) 350px, 335px" alt={hero.alt} className="hc-portrait" loading="lazy" decoding="async" />
                     <span className="hc-card-gradient" aria-hidden="true" />
                     <span className="hc-foil" aria-hidden="true" />
                     <span className="hc-card-bottom"><span className="hc-card-type">THE QUIET GARDEN COLLECTION</span><strong>{hero.name.toUpperCase()}</strong><span className="hc-card-subtitle">{hero.epithet}</span><span className="hc-card-stats"><span>✦ {hero.powers[0].toUpperCase()}</span><span>✦ {hero.powers[1].toUpperCase()}</span></span></span>
