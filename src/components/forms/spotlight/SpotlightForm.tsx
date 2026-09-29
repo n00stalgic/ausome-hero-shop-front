@@ -65,7 +65,7 @@ const SpotlightForm = () => {
       if (error) throw error;
       
       toast.success("Hero Nomination Submitted! 🌟", {
-        description: `Thank you for nominating ${values.hero_name}. We'll review the submission and be in touch soon.`,
+        description: `Thank you for nominating ${values.hero_name}. The nomination is private. No card will be published without separate family consent and Bianca's approval.`,
         duration: 5000,
       });
       

@@ -66,7 +66,7 @@ const StoryStep = ({ form }: StoryStepProps) => {
             </FormControl>
             <div className="space-y-1 leading-none">
               <FormLabel className="text-cosmic-light">
-                I have permission from the parent/guardian to nominate this child
+                I have permission from the parent/guardian to send this private nomination. This is not consent to publish a card, name, photo or story.
               </FormLabel>
               <FormMessage />
             </div>
