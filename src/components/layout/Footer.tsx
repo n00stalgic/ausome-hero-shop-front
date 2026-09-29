@@ -77,6 +77,13 @@ const Footer = () => (
               A parent-owned record of your child's ABA journey.
             </p>
           </a>
+          <Link to="/heroes/" className="group block pt-5">
+            <div className="flex items-center gap-2">
+              <span className="text-gray-200 group-hover:text-white font-semibold transition-colors">Pocket Heroes</span>
+              <ArrowUpRight size={14} className="text-gray-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+            </div>
+            <p className="text-sm text-gray-400 mt-2 leading-relaxed">Meet the Quiet Garden collection.</p>
+          </Link>
         </div>
 
         {/* Local Services */}
