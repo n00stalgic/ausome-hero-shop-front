@@ -77,3 +77,12 @@
 .hc-roster-item strong {font-size:15px;line-height:1.15;color:#ffdc91}
 .hc-roster-item small {font-size:11px;line-height:1.18;color:#e1e5ee}
 @media(max-width:800px) {.hc-roster-hint {margin-top:18px}.hc-roster-hint span {display:inline}.hc-roster {display:flex;width:calc(100vw - 36px);max-width:none;overflow-x:auto;scroll-snap-type:x proximity;gap:9px;padding:4px 3px 11px;margin:4px auto 0;text-align:left;-webkit-overflow-scrolling:touch}.hc-roster-item {flex:0 0 145px;scroll-snap-align:center;min-height:64px}.hc-roster-item img {width:49px;height:49px}.hc-roster-item strong {font-size:14px}.hc-roster-item small {font-size:10px}}
+
+.hc-logo-intro {display:block;width:min(440px,100%);height:auto;max-height:205px;margin:0 0 10px;object-fit:contain;object-position:left center}
+.hc-logo-pack {display:block;width:94%;height:166px;object-fit:contain;margin:3px auto 0}
+.hc-logo-pack + .hc-pack-line {margin:7px 0 16px}
+@media(max-width:800px) {.hc-logo-intro {width:295px;max-height:137px;margin:0 auto 4px}.hc-logo-pack {width:92%;height:137px}}
+
+/* The vector wordmark doubles as a legible small card stamp. */
+.hc-card-wordmark {display:block;width:91px;height:45px;object-fit:contain;flex:0 0 auto;margin:-11px 0 -10px -3px}
+.hc-back-top {align-items:center}
