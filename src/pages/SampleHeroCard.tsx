@@ -36,8 +36,17 @@ const heroes: Hero[] = [
   { name: "Quill", epithet: "Night Song", image: "quill-cricket", alt: "A small brown cricket sings from a moonlit leaf among white blossoms while the garden sleeps", story: "After the garden grows quiet, Quill begins a soft song from his favorite leaf. It is not the loudest sound of the day, but a sleepy friend recognizes its rhythm and settles in. Quill sings again tomorrow night, a small promise the garden can count on.", powers: ["Night song", "Soft rhythm", "Familiar promise"] },
 ];
 
+type Edition = { id: string; label: string; subtitle: string; heroNames: readonly string[]; status: "published" | "draft" };
+// Future drops are registry entries, not a hard-coded numbering ceiling. Draft entries
+// never render publicly. Only approved, published heroes belong in this list.
+const editions: readonly Edition[] = [
+  { id: "quiet-garden-first", label: "The Quiet Garden", subtitle: "First Edition", status: "published", heroNames: heroes.map((hero) => hero.name) },
+];
+const publishedEditions = editions.filter((edition) => edition.status === "published");
+
 export default function SampleHeroCard() {
   usePageTitle("The Quiet Garden | Pocket Heroes");
+  const [editionId, setEditionId] = useState(publishedEditions[0].id);
   const [selected, setSelected] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [flipped, setFlipped] = useState(false);
@@ -59,8 +68,20 @@ export default function SampleHeroCard() {
   const detailRef = useRef<HTMLElement>(null);
   const drag = useRef<{ x: number; scroll: number; active: boolean } | null>(null);
   const suppressClick = useRef(false);
+  const edition = publishedEditions.find((entry) => entry.id === editionId) ?? publishedEditions[0];
+  const editionHeroes = edition.heroNames.flatMap((name) => {
+    const found = heroes.find((entry) => entry.name === name);
+    return found ? [found] : [];
+  });
   const hero = heroes[selected];
   const number = String(selected + 1).padStart(3, "0");
+  function chooseEdition(id: string) {
+    const next = publishedEditions.find((entry) => entry.id === id);
+    if (!next) return;
+    setEditionId(next.id);
+    chooseHero(heroes.findIndex((entry) => entry.name === next.heroNames[0]));
+    carouselRef.current?.scrollTo({ left: 0, behavior: "instant" });
+  }
   const shareUrl = () => `${window.location.origin}/heroes/`;
   const isSaved = savedNames.includes(hero.name);
   function toggleSaved() {
@@ -143,7 +164,8 @@ export default function SampleHeroCard() {
     const cards = carouselRef.current?.querySelectorAll<HTMLButtonElement>(".hc-carousel-card");
     if (!cards?.length) return;
     const focused = document.activeElement instanceof HTMLButtonElement ? Array.from(cards).indexOf(document.activeElement) : -1;
-    const next = Math.max(0, Math.min(cards.length - 1, (focused < 0 ? selected : focused) + direction));
+    const current = editionHeroes.findIndex((entry) => entry.name === hero.name);
+    const next = Math.max(0, Math.min(cards.length - 1, (focused < 0 ? current : focused) + direction));
     cards[next].focus({ preventScroll: true });
     cards[next].scrollIntoView({ behavior: prefersReduced.current ? "instant" : "smooth", block: "nearest", inline: "center" });
   }
@@ -207,7 +229,7 @@ export default function SampleHeroCard() {
     <div className="hc-page">
       <header className="hc-header">
         <Link to="/" className="hc-home" aria-label="Ausome Heroes home"><ArrowLeft size={18} /> <img src="/lovable-uploads/ausome-painted-wordmark.png" alt="" className="hc-parent-logo" /></Link>
-        <span className="hc-preview">THE QUIET GARDEN <span aria-hidden="true">✦</span> FIRST EDITION</span>
+        <span className="hc-preview">{edition.label.toUpperCase()} <span aria-hidden="true">✦</span> {edition.subtitle.toUpperCase()}</span>
       </header>
       <section className="hc-discovery" aria-label="Browse the Quiet Garden hero cards">
         <div className="hc-discovery-heading">
@@ -217,20 +239,23 @@ export default function SampleHeroCard() {
             <p>Meet the Quiet Garden. Pick a card to open its story.</p>
           </div>
           <div className="hc-carousel-controls">
-            <span>{String(selected + 1).padStart(2, "0")} / {heroes.length}</span>
+            <span>{String(selected + 1).padStart(2, "0")} / {editionHeroes.length}</span>
             <button type="button" aria-label="Previous cards" onClick={() => moveCarousel(-1)}><ChevronLeft size={22} aria-hidden="true" /></button>
             <button type="button" aria-label="Next cards" onClick={() => moveCarousel(1)}><ChevronRight size={22} aria-hidden="true" /></button>
           </div>
         </div>
+        {publishedEditions.length > 1 && <nav className="hc-editions" aria-label="Pocket Heroes editions">
+          {publishedEditions.map((entry) => <button key={entry.id} type="button" onClick={() => chooseEdition(entry.id)} aria-current={entry.id === editionId ? "page" : undefined} disabled={entry.id === editionId}>{entry.label} · {entry.subtitle}</button>)}
+        </nav>}
         <div className="hc-carousel" ref={carouselRef} tabIndex={0} role="region" aria-label="All Pocket Heroes; use left and right arrow keys to browse" onKeyDown={carouselKeyDown} onPointerDown={carouselPointerDown} onPointerMove={carouselPointerMove} onPointerUp={carouselPointerUp} onPointerCancel={() => { drag.current = null; }} onClickCapture={(event) => { if (suppressClick.current) { event.stopPropagation(); event.preventDefault(); suppressClick.current = false; } }}>
-          {heroes.map((entry, index) => <button type="button" key={entry.name} className={`hc-carousel-card${selected === index ? " is-selected" : ""}`} onClick={() => chooseHero(index, true)} aria-label={`Open ${entry.name}'s card, number ${String(index + 1).padStart(3, "0")}`} aria-pressed={selected === index}>
+          {editionHeroes.map((entry) => { const index = heroes.indexOf(entry); return <button type="button" key={entry.name} className={`hc-carousel-card${selected === index ? " is-selected" : ""}`} onClick={() => chooseHero(index, true)} aria-label={`Open ${entry.name}'s card, number ${String(index + 1).padStart(3, "0")}`} aria-pressed={selected === index}>
             <img src={`/heroes/${entry.image}-440.webp`} srcSet={`/heroes/${entry.image}-440.webp 440w, /heroes/${entry.image}-720.webp 720w`} sizes="(max-width: 800px) 150px, (max-width: 1425px) 16vw, 228px" alt="" loading={index < 6 ? "eager" : "lazy"} fetchPriority={index < 3 ? "high" : "auto"} decoding="async" />
             <span className="hc-carousel-shade" aria-hidden="true" />
             <span className="hc-carousel-number">NO. {String(index + 1).padStart(3, "0")}</span>
             <span className="hc-carousel-label"><strong>{entry.name}</strong><small>{entry.epithet}</small></span>
-          </button>)}
+          </button>; })}
         </div>
-        <p className="hc-carousel-hint">Swipe, drag, or use the arrow keys to see all {heroes.length} heroes. Choose one to read the story.</p>
+        <p className="hc-carousel-hint">Swipe, drag, or use the arrow keys to see all {editionHeroes.length} heroes. Choose one to read the story.</p>
         {savedNames.length > 0 && <div className="hc-saved-shelf" aria-label="Saved heroes on this device">
           <span>SAVED ON THIS DEVICE · {savedNames.length}</span>
           {savedNames.map((name) => <button type="button" key={name} onClick={() => chooseHero(heroes.findIndex((entry) => entry.name === name), true)}>{name}</button>)}
@@ -238,7 +263,7 @@ export default function SampleHeroCard() {
       </section>
       <main className="hc-layout">
         <div className="hc-intro">
-          <span className="hc-eyebrow"><Sparkles size={14} aria-hidden="true" /> THE QUIET GARDEN · FIRST EDITION</span>
+          <span className="hc-eyebrow"><Sparkles size={14} aria-hidden="true" /> {edition.label.toUpperCase()} · {edition.subtitle.toUpperCase()}</span>
           <h2>Meet {hero.name}.</h2>
           <p>{hero.epithet}. Open the pack, flip the card, and read the story. There is no rush.</p>
           <div className="hc-rule" aria-hidden="true" />
@@ -271,7 +296,7 @@ export default function SampleHeroCard() {
                     <img src={`/heroes/${hero.image}-720.webp`} srcSet={`/heroes/${hero.image}-440.webp 440w, /heroes/${hero.image}-720.webp 720w`} sizes="(max-width: 390px) 318px, (max-width: 800px) 350px, 335px" alt={hero.alt} className="hc-portrait" loading="lazy" decoding="async" />
                     <span className="hc-card-gradient" aria-hidden="true" />
                     <span className="hc-foil" aria-hidden="true" />
-                    <span className="hc-card-bottom"><span className="hc-card-type">THE QUIET GARDEN COLLECTION</span><strong>{hero.name.toUpperCase()}</strong><span className="hc-card-subtitle">{hero.epithet}</span><span className="hc-card-stats"><span>✦ {hero.powers[0].toUpperCase()}</span><span>✦ {hero.powers[1].toUpperCase()}</span></span></span>
+                    <span className="hc-card-bottom"><span className="hc-card-type">{edition.label.toUpperCase()} COLLECTION</span><strong>{hero.name.toUpperCase()}</strong><span className="hc-card-subtitle">{hero.epithet}</span><span className="hc-card-stats"><span>✦ {hero.powers[0].toUpperCase()}</span><span>✦ {hero.powers[1].toUpperCase()}</span></span></span>
                   </span>
                   <span className="hc-card-face hc-back">
                     <span className="hc-back-top"><img className="hc-card-wordmark" src="/heroes/pocket-heroes-wordmark.svg" alt="Pocket Heroes" /><span>NO. {number}</span></span>
@@ -281,7 +306,7 @@ export default function SampleHeroCard() {
                     <span className="hc-back-story">{hero.story}</span>
                     <span className="hc-powers-title">THEIR POWERS</span>
                     <span className="hc-powers">{hero.powers.map((power) => <span key={power}>{power}</span>)}</span>
-                    <span className="hc-back-foot">EVERY HERO BELONGS · FIRST EDITION</span>
+                    <span className="hc-back-foot">EVERY HERO BELONGS · {edition.subtitle.toUpperCase()}</span>
                   </span>
                 </span>
               </button>
