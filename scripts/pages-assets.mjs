@@ -26,6 +26,9 @@ const cardHtml = appHtml
   .replaceAll('content="/meta-image.png"', 'content="https://www.ausomeheroes.com/heroes/quiet-garden-share.jpg"')
   .replace('content="2400"', 'content="1200"')
   .replace('content="1260"', 'content="630"')
-  .replace('</head>', '<meta property="og:url" content="https://www.ausomeheroes.com/heroes/sample/" />\n    <meta name="robots" content="noindex,nofollow" />\n  </head>');
+  .replace('</head>', '<meta property="og:url" content="https://www.ausomeheroes.com/heroes/" />\n    <link rel="canonical" href="https://www.ausomeheroes.com/heroes/" />\n  </head>');
+await mkdir('dist/heroes', { recursive: true });
+await writeFile('dist/heroes/index.html', cardHtml);
+// GitHub Pages ignores _redirects. Keep the old shared URL functional with a static redirect.
 await mkdir('dist/heroes/sample', { recursive: true });
-await writeFile('dist/heroes/sample/index.html', cardHtml);
+await writeFile('dist/heroes/sample/index.html', `<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Pocket Heroes has moved</title><link rel="canonical" href="https://www.ausomeheroes.com/heroes/"/><meta http-equiv="refresh" content="0;url=/heroes/"/><script>location.replace('/heroes/' + location.search + location.hash)</script></head><body><p>Pocket Heroes has moved to <a href="/heroes/">the Quiet Garden collection</a>.</p></body></html>`);

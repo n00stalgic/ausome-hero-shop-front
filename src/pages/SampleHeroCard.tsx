@@ -30,7 +30,7 @@ export default function SampleHeroCard() {
   const prefersReduced = useRef(false);
   const hero = heroes[selected];
   const number = String(selected + 1).padStart(3, "0");
-  const shareUrl = () => `${window.location.origin}/heroes/sample/`;
+  const shareUrl = () => `${window.location.origin}/heroes/`;
 
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
