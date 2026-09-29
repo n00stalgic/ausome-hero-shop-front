@@ -94,3 +94,48 @@
 .hc-qr-panel a {display:block;font-size:11px;overflow-wrap:anywhere;color:#124e5b}
 .hc-qr-close {position:absolute;right:12px;top:11px;border:0;background:transparent;color:#124e5b;font:700 12px 'Baloo 2',sans-serif;text-decoration:underline;cursor:pointer;padding:5px}
 .hc-qr-close:focus-visible {outline:3px solid #124e5b}
+
+/* Art-first discovery: all heroes live in one keyboard-operable, horizontal shelf. */
+.hc-discovery {max-width:1500px;margin:0 auto;padding:20px 38px 10px}
+.hc-discovery-heading {display:flex;justify-content:space-between;align-items:end;gap:24px;max-width:1410px;margin:0 auto 16px}
+.hc-discovery-logo {display:block;width:185px;height:68px;object-fit:contain;object-position:left center}
+.hc-discovery h1 {font-size:clamp(26px,3.2vw,43px);line-height:1.08;letter-spacing:-.035em;margin:0;color:#fff4d9}
+.hc-discovery h1 em {font-style:normal;color:#ffd58d}
+.hc-discovery-heading p {color:#cbd2e4;font-size:15px;line-height:1.25;margin:5px 0 0}
+.hc-carousel-controls {display:flex;align-items:center;gap:9px;flex-shrink:0;color:#edd3a0;font-size:13px;font-weight:800}
+.hc-carousel-controls span {margin-right:10px;font-variant-numeric:tabular-nums}
+.hc-carousel-controls button {width:39px;height:39px;border:1px solid #eac27f88;border-radius:50%;background:#182941;color:#ffe0a1;display:grid;place-items:center;cursor:pointer}
+.hc-carousel-controls button:hover {background:#29435a}
+.hc-carousel-controls button:focus-visible,.hc-carousel-card:focus-visible {outline:3px solid #fff;outline-offset:4px}
+.hc-carousel {display:flex;gap:14px;width:100%;max-width:1410px;margin:auto;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:thin;scrollbar-color:#bca777 #152540;padding:3px 2px 15px;-webkit-overflow-scrolling:touch}
+.hc-carousel-card {flex:0 0 clamp(172px,16vw,228px);aspect-ratio:.78;position:relative;overflow:hidden;border:2px solid #b79862a0;border-radius:17px;background:#11243b;color:#fff;cursor:pointer;text-align:left;scroll-snap-align:start;box-shadow:0 12px 22px #0007;transition:transform .22s,border-color .22s,box-shadow .22s}
+.hc-carousel-card:hover {transform:translateY(-4px);border-color:#ffdf9c;box-shadow:0 16px 26px #0009}
+.hc-carousel-card.is-selected {border-color:#ffdb8e;box-shadow:0 0 0 2px #ffdb8e70,0 14px 24px #0009}
+.hc-carousel-card>img {display:block;width:100%;height:100%;object-fit:cover}
+.hc-carousel-shade {position:absolute;inset:38% 0 0;background:linear-gradient(transparent,#071226e8 70%,#06101eef)}
+.hc-carousel-number {position:absolute;top:11px;right:11px;padding:3px 6px;border-radius:5px;background:#08172bbd;color:#ffe0a1;font-size:10px;letter-spacing:.1em;font-weight:800}
+.hc-carousel-label {position:absolute;left:13px;right:10px;bottom:12px;display:flex;flex-direction:column;text-shadow:0 2px 6px #000}
+.hc-carousel-label strong {color:#ffdc91;font-size:clamp(21px,2vw,28px);line-height:1.05}
+.hc-carousel-label small {font-size:12px;line-height:1.1;color:#fff4dd}
+.hc-carousel-hint {max-width:1410px;margin:1px auto 0;color:#c2c8d9;font-size:12px}
+.hc-layout {min-height:auto;max-width:1280px;padding:45px 38px 85px;align-items:start;gap:clamp(28px,5vw,75px)}
+.hc-intro {padding-top:14px}
+.hc-intro h2 {font-size:clamp(35px,4vw,58px);line-height:1.05;letter-spacing:-.035em;color:#ffdc91;margin:12px 0 14px}
+.hc-stage {scroll-margin-top:28px}
+@media (max-width:800px) {
+  .hc-discovery {padding:16px 18px 8px}
+  .hc-discovery-heading {align-items:start;gap:8px}
+  .hc-discovery-logo {width:140px;height:52px}
+  .hc-discovery h1 {font-size:clamp(23px,6vw,32px)}
+  .hc-discovery-heading p {font-size:13px}
+  .hc-carousel-controls {align-self:end;gap:4px}
+  .hc-carousel-controls span {display:none}
+  .hc-carousel-controls button {width:35px;height:35px}
+  .hc-carousel {gap:9px;margin-top:13px}
+  .hc-carousel-card {flex-basis:150px;border-radius:13px}
+  .hc-carousel-label strong {font-size:21px}
+  .hc-carousel-label small {font-size:10px}
+  .hc-layout {padding:22px 18px 70px}
+  .hc-intro h2 {font-size:33px}
+}
+@media (prefers-reduced-motion:reduce) {.hc-carousel-card {transition:none}.hc-carousel-card:hover {transform:none}}

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, RotateCcw, Share2, Sparkles, VolumeX } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, RotateCcw, Share2, Sparkles, VolumeX } from "lucide-react";
 import { usePageTitle } from "@/hooks/usePageTitle";
 import { PocketHeroQr } from "@/components/PocketHeroQr";
 import "./SampleHeroCard.css";
@@ -21,6 +21,12 @@ const heroes: Hero[] = [
   { name: "Moss", epithet: "Deep Root", image: "moss-tortoise", alt: "A moss-shelled tortoise shelters a white flower from wind in a moonlit garden", story: "When the wind starts rattling every branch, Moss plants their feet beside a small flower. They hold steady and make a quiet space beneath their shell. Friends visit one at a time, and together they watch the gusts pass. Moss knows calm can be something you build and share.", powers: ["Steady ground", "Quiet shelter", "Patient strength"] },
   { name: "Nix", epithet: "Fresh Start", image: "nix-newt", alt: "An orange newt plants a seedling beside a broken flowerpot under a greenhouse lantern", story: "A flowerpot falls and breaks beside Nix. They gather the soil and the little plant, then find a new patch beneath the greenhouse window. Nix asks a friend to help hold the stem while they settle its roots. By morning, the leaves have turned toward the light again.", powers: ["Fresh start", "Careful repair", "Growing again"] },
   { name: "Cinder", epithet: "Fast Lane", image: "cinder-dragonfly", alt: "A copper and turquoise dragonfly loops over lily pads leaving a trail of golden lights", story: "Cinder spots three ways across the pond before the others see one. They zip over the lilies, circle back, and draw a glowing trail so everyone can follow at their own speed. Quick thoughts are Cinder's gift; sharing the path is their favorite part.", powers: ["Fast thoughts", "Bright trail", "Circle back"] },
+  { name: "Tilly", epithet: "Rain Caller", image: "tilly-toad", alt: "A green toad in a yellow rain cape catches a raindrop beside a moonlit pond", story: "When soft rain begins, Tilly steps out in her yellow cape and holds up one hand. A drop lands on her palm. She listens to the patter on leaves, then invites anyone who likes rain to join her. Those who prefer to watch from shelter still get to share the moment.", powers: ["Rain joy", "Open invitation", "Patter listener"] },
+  { name: "Birch", epithet: "Dam Builder", image: "birch-beaver", alt: "A young brown beaver in a teal tool belt sets a twig across a small garden stream", story: "Birch studies the stream before placing a single twig. Then comes another, angled just so the water can still pass. A friend asks why Birch checks every piece. Birch points to the little crossing taking shape. Careful steps can make a path for everyone.", powers: ["One stick at a time", "Flow finder", "Thoughtful builder"] },
+  { name: "Vesper", epithet: "Hush Keeper", image: "vesper-nightjar", alt: "A mottled nightjar rests on an ivy branch above a lantern by a moonlit pond", story: "Vesper rests on an ivy branch as the garden settles. They hear a quiet call from the far side of the pond and answer with a soft note. Soon another friend joins the gentle exchange. Vesper knows that listening can be a way of finding each other.", powers: ["Hush keeper", "Far-off listener", "Soft reply"] },
+  { name: "Juno", epithet: "Song Collector", image: "juno-jay", alt: "A blue jay holds a small songbook among white blossoms and glowing musical shapes", story: "Juno remembers the tune Wren sang at dawn and the one rain tapped on the greenhouse roof. She keeps each in her little songbook. When a friend misses a familiar sound, Juno sings it back, and the garden feels like home again.", powers: ["Song memory", "Sound keeper", "Familiar tune"] },
+  { name: "Fen", epithet: "Leap Counter", image: "fen-frog", alt: "A green frog leaps across three lily pads in a lantern-lit garden pond", story: "Fen likes the little pattern across the pond: one pad, then two, then three. They hop the sequence and grin at the ripples. A friend tries it another way, and together they invent a new game with a rhythm all its own.", powers: ["Leap counter", "Pattern joy", "New rhythm"] },
+  { name: "Hazel", epithet: "Dream Archivist", image: "hazel-dormouse", alt: "A brown dormouse in a cozy tree hollow holds a flower-tied story scroll under moonlight", story: "Hazel keeps the garden's stories in a small drawer beneath an old tree. One tells of the first flower after winter; another remembers a friend's brave hello. At night, Hazel picks a story to share, then tucks it away so it is still there when someone needs it tomorrow.", powers: ["Story keeper", "Dream drawer", "Remembered joy"] },
 ];
 
 export default function SampleHeroCard() {
@@ -35,6 +41,8 @@ export default function SampleHeroCard() {
   const [showQr, setShowQr] = useState(false);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const prefersReduced = useRef(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const detailRef = useRef<HTMLElement>(null);
   const hero = heroes[selected];
   const number = String(selected + 1).padStart(3, "0");
   const shareUrl = () => `${window.location.origin}/heroes/`;
@@ -73,13 +81,18 @@ export default function SampleHeroCard() {
     } catch { setPermission("denied"); }
   }
 
-  function chooseHero(index: number) {
+  function chooseHero(index: number, open = false) {
     setSelected(index);
-    setRevealed(false);
+    setRevealed(open);
     setFlipped(false);
     setTilt({ x: 0, y: 0 });
     setShared("");
     setShowQr(false);
+    if (open) requestAnimationFrame(() => detailRef.current?.scrollIntoView({ behavior: prefersReduced.current ? "instant" : "smooth", block: "start" }));
+  }
+
+  function moveCarousel(direction: -1 | 1) {
+    carouselRef.current?.scrollBy({ left: direction * 245 * 3, behavior: prefersReduced.current ? "instant" : "smooth" });
   }
 
   async function share() {
@@ -106,25 +119,41 @@ export default function SampleHeroCard() {
         <Link to="/" className="hc-home" aria-label="Ausome Heroes home"><ArrowLeft size={18} /> <span>Ausome Heroes</span></Link>
         <span className="hc-preview">THE QUIET GARDEN <span aria-hidden="true">✦</span> FIRST EDITION</span>
       </header>
+      <section className="hc-discovery" aria-label="Browse the Quiet Garden hero cards">
+        <div className="hc-discovery-heading">
+          <div>
+            <img src="/heroes/pocket-heroes-wordmark.svg" className="hc-discovery-logo" alt="Pocket Heroes" />
+            <h1>Every way of seeing <em>is a superpower.</em></h1>
+            <p>Meet the Quiet Garden. Pick a card to open its story.</p>
+          </div>
+          <div className="hc-carousel-controls">
+            <span>{String(selected + 1).padStart(2, "0")} / {heroes.length}</span>
+            <button type="button" aria-label="Previous cards" onClick={() => moveCarousel(-1)}><ChevronLeft size={22} aria-hidden="true" /></button>
+            <button type="button" aria-label="Next cards" onClick={() => moveCarousel(1)}><ChevronRight size={22} aria-hidden="true" /></button>
+          </div>
+        </div>
+        <div className="hc-carousel" ref={carouselRef} aria-label="All Pocket Heroes, scroll to browse">
+          {heroes.map((entry, index) => <button type="button" key={entry.name} className={`hc-carousel-card${selected === index ? " is-selected" : ""}`} onClick={() => chooseHero(index, true)} aria-label={`Open ${entry.name}'s card, number ${String(index + 1).padStart(3, "0")}`} aria-pressed={selected === index}>
+            <img src={`/heroes/${entry.image}.webp`} alt="" loading={index < 5 ? "eager" : "lazy"} />
+            <span className="hc-carousel-shade" aria-hidden="true" />
+            <span className="hc-carousel-number">NO. {String(index + 1).padStart(3, "0")}</span>
+            <span className="hc-carousel-label"><strong>{entry.name}</strong><small>{entry.epithet}</small></span>
+          </button>)}
+        </div>
+        <p className="hc-carousel-hint">Swipe or use the arrows to see all {heroes.length} heroes. Choose one to read the story.</p>
+      </section>
       <main className="hc-layout">
         <div className="hc-intro">
-          <img src="/heroes/pocket-heroes-wordmark.svg" className="hc-logo-intro" alt="Pocket Heroes" />
           <span className="hc-eyebrow"><Sparkles size={14} aria-hidden="true" /> THE QUIET GARDEN · FIRST EDITION</span>
-          <h1>Every way of seeing<br /><em>is a superpower.</em></h1>
-          <p>Meet the first edition of Pocket Heroes. {heroes.length} garden friends, each with a different way of making the world brighter. Pick one to open their card.</p>
+          <h2>Meet {hero.name}.</h2>
+          <p>{hero.epithet}. Open the pack, flip the card, and read the story. There is no rush.</p>
           <div className="hc-rule" aria-hidden="true" />
           <div className="hc-instructions"><span className="hc-instruction-number">01</span><span>Pick a hero</span><ArrowRight size={16} aria-hidden="true"/><span className="hc-instruction-number">02</span><span>Open and flip</span></div>
           <p className="hc-note"><VolumeX size={16} aria-hidden="true" /> No sound or flashing. Tilt is always your choice.</p>
-          <p className="hc-roster-hint">Choose a hero <span>· Swipe to see all {heroes.length} →</span></p>
-          <div className="hc-roster" aria-label="Choose a Pocket Hero">
-            {heroes.map((entry, index) => <button key={entry.name} className={`hc-roster-item${selected === index ? " is-selected" : ""}`} onClick={() => chooseHero(index)} aria-pressed={selected === index} type="button">
-              <img src={`/heroes/${entry.image}.webp`} alt="" loading={index < 3 ? "eager" : "lazy"} />
-              <span><strong>{entry.name}</strong><small>{entry.epithet}</small></span>
-            </button>)}
-          </div>
+
         </div>
 
-        <section className="hc-stage" aria-label={`${hero.name} digital hero card`}>
+        <section ref={detailRef} className="hc-stage" aria-label={`${hero.name} digital hero card`}>
           {!revealed ? (
             <button key={hero.name} className="hc-pack" onClick={() => setRevealed(true)} aria-label={`Open ${hero.name}'s hero card pack`}>
               <span className="hc-pack-star" aria-hidden="true">✦</span>
