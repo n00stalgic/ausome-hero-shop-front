@@ -25,6 +25,7 @@ const HeroSpotlight = () => {
           <p className="text-lg text-cosmic-light max-w-2xl mx-auto">
             Help us celebrate the everyday superheroes in the Mindverse! Nominate an autistic child
             or young adult who inspires others through their bravery, creativity, or growth.
+            A nomination is private and does not create or publish a Pocket Heroes card.
           </p>
         </motion.div>
 
