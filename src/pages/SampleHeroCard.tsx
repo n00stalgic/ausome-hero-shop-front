@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, RotateCcw, Share2, Sparkles, VolumeX } from "lucide-react";
 import { usePageTitle } from "@/hooks/usePageTitle";
@@ -43,6 +43,8 @@ export default function SampleHeroCard() {
   const prefersReduced = useRef(false);
   const carouselRef = useRef<HTMLDivElement>(null);
   const detailRef = useRef<HTMLElement>(null);
+  const drag = useRef<{ x: number; scroll: number; active: boolean } | null>(null);
+  const suppressClick = useRef(false);
   const hero = heroes[selected];
   const number = String(selected + 1).padStart(3, "0");
   const shareUrl = () => `${window.location.origin}/heroes/`;
@@ -95,6 +97,55 @@ export default function SampleHeroCard() {
     carouselRef.current?.scrollBy({ left: direction * 245 * 3, behavior: prefersReduced.current ? "instant" : "smooth" });
   }
 
+  function carouselKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    event.preventDefault();
+    const direction = event.key === "ArrowRight" ? 1 : -1;
+    const cards = carouselRef.current?.querySelectorAll<HTMLButtonElement>(".hc-carousel-card");
+    if (!cards?.length) return;
+    const focused = document.activeElement instanceof HTMLButtonElement ? Array.from(cards).indexOf(document.activeElement) : -1;
+    const next = Math.max(0, Math.min(cards.length - 1, (focused < 0 ? selected : focused) + direction));
+    cards[next].focus({ preventScroll: true });
+    cards[next].scrollIntoView({ behavior: prefersReduced.current ? "instant" : "smooth", block: "nearest", inline: "center" });
+  }
+
+  useEffect(() => {
+    const shelf = carouselRef.current;
+    if (!shelf) return;
+    const onWheel = (event: globalThis.WheelEvent) => {
+      if (shelf.scrollWidth <= shelf.clientWidth || Math.abs(event.deltaX) >= Math.abs(event.deltaY)) return;
+      // At either end, keep normal page scrolling. Within the shelf, let a two-finger
+      // vertical gesture advance cards without moving the entire page.
+      if ((event.deltaY < 0 && shelf.scrollLeft <= 0) || (event.deltaY > 0 && shelf.scrollLeft >= shelf.scrollWidth - shelf.clientWidth - 1)) return;
+      event.preventDefault();
+      shelf.scrollLeft += event.deltaY * (event.deltaMode === 1 ? 16 : 1);
+    };
+    shelf.addEventListener("wheel", onWheel, { passive: false });
+    return () => shelf.removeEventListener("wheel", onWheel);
+  }, []);
+
+  function carouselPointerDown(event: PointerEvent<HTMLDivElement>) {
+    if (event.pointerType !== "mouse" || event.button !== 0) return;
+    drag.current = { x: event.clientX, scroll: event.currentTarget.scrollLeft, active: false };
+  }
+  function carouselPointerMove(event: PointerEvent<HTMLDivElement>) {
+    if (!drag.current || event.pointerType !== "mouse") return;
+    const distance = event.clientX - drag.current.x;
+    if (!drag.current.active && Math.abs(distance) > 6) {
+      drag.current.active = true;
+      event.currentTarget.setPointerCapture(event.pointerId);
+    }
+    if (drag.current.active) event.currentTarget.scrollLeft = drag.current.scroll - distance;
+  }
+  function carouselPointerUp(event: PointerEvent<HTMLDivElement>) {
+    if (!drag.current) return;
+    if (drag.current.active) {
+      suppressClick.current = true;
+      if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+    drag.current = null;
+  }
+
   async function share() {
     const url = shareUrl();
     try {
@@ -116,7 +167,7 @@ export default function SampleHeroCard() {
   return (
     <div className="hc-page">
       <header className="hc-header">
-        <Link to="/" className="hc-home" aria-label="Ausome Heroes home"><ArrowLeft size={18} /> <span>Ausome Heroes</span></Link>
+        <Link to="/" className="hc-home" aria-label="Ausome Heroes home"><ArrowLeft size={18} /> <img src="/lovable-uploads/ausome-painted-wordmark.png" alt="" className="hc-parent-logo" /></Link>
         <span className="hc-preview">THE QUIET GARDEN <span aria-hidden="true">✦</span> FIRST EDITION</span>
       </header>
       <section className="hc-discovery" aria-label="Browse the Quiet Garden hero cards">
@@ -132,7 +183,7 @@ export default function SampleHeroCard() {
             <button type="button" aria-label="Next cards" onClick={() => moveCarousel(1)}><ChevronRight size={22} aria-hidden="true" /></button>
           </div>
         </div>
-        <div className="hc-carousel" ref={carouselRef} aria-label="All Pocket Heroes, scroll to browse">
+        <div className="hc-carousel" ref={carouselRef} tabIndex={0} role="region" aria-label="All Pocket Heroes; use left and right arrow keys to browse" onKeyDown={carouselKeyDown} onPointerDown={carouselPointerDown} onPointerMove={carouselPointerMove} onPointerUp={carouselPointerUp} onPointerCancel={() => { drag.current = null; }} onClickCapture={(event) => { if (suppressClick.current) { event.stopPropagation(); event.preventDefault(); suppressClick.current = false; } }}>
           {heroes.map((entry, index) => <button type="button" key={entry.name} className={`hc-carousel-card${selected === index ? " is-selected" : ""}`} onClick={() => chooseHero(index, true)} aria-label={`Open ${entry.name}'s card, number ${String(index + 1).padStart(3, "0")}`} aria-pressed={selected === index}>
             <img src={`/heroes/${entry.image}.webp`} alt="" loading={index < 5 ? "eager" : "lazy"} />
             <span className="hc-carousel-shade" aria-hidden="true" />
@@ -140,7 +191,7 @@ export default function SampleHeroCard() {
             <span className="hc-carousel-label"><strong>{entry.name}</strong><small>{entry.epithet}</small></span>
           </button>)}
         </div>
-        <p className="hc-carousel-hint">Swipe or use the arrows to see all {heroes.length} heroes. Choose one to read the story.</p>
+        <p className="hc-carousel-hint">Swipe, drag, or use the arrow keys to see all {heroes.length} heroes. Choose one to read the story.</p>
       </section>
       <main className="hc-layout">
         <div className="hc-intro">
@@ -150,7 +201,12 @@ export default function SampleHeroCard() {
           <div className="hc-rule" aria-hidden="true" />
           <div className="hc-instructions"><span className="hc-instruction-number">01</span><span>Pick a hero</span><ArrowRight size={16} aria-hidden="true"/><span className="hc-instruction-number">02</span><span>Open and flip</span></div>
           <p className="hc-note"><VolumeX size={16} aria-hidden="true" /> No sound or flashing. Tilt is always your choice.</p>
-
+          <div className="hc-story-preview" aria-live="polite">
+            <span className="hc-story-label">BEHIND THE CARD · NO. {number}</span>
+            <p>{hero.story}</p>
+            <span className="hc-story-label">THEIR POWERS</span>
+            <div className="hc-story-powers">{hero.powers.map((power) => <span key={power}>✦ {power}</span>)}</div>
+          </div>
         </div>
 
         <section ref={detailRef} className="hc-stage" aria-label={`${hero.name} digital hero card`}>
