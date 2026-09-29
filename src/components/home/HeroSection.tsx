@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => (
   <section
-    className="relative overflow-hidden pt-24 text-white"
+    className="relative overflow-hidden pt-20 text-white"
     style={{
       background: `
         radial-gradient(ellipse 70% 55% at 18% 30%, rgba(138,79,188,0.45) 0%, transparent 60%),
@@ -17,8 +17,8 @@ const HeroSection = () => (
       <div className="stars-medium" />
     </div>
 
-    <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-6 py-12 md:gap-14 md:py-20 lg:grid-cols-[1.06fr_0.94fr]">
-      <div className="max-w-2xl">
+    <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-10 px-6 py-10 md:gap-14 md:py-12 lg:grid-cols-[1.06fr_0.94fr]">
+      <div className="max-w-2xl lg:-translate-y-8">
         <p className="mb-5 text-sm font-bold uppercase tracking-[0.22em] text-cosmic-gold">
           A community for neurodivergent families
         </p>
