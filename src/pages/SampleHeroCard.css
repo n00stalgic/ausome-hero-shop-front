@@ -139,3 +139,26 @@
   .hc-intro h2 {font-size:33px}
 }
 @media (prefers-reduced-motion:reduce) {.hc-carousel-card {transition:none}.hc-carousel-card:hover {transform:none}}
+
+/* A smaller card and its story make the second act one balanced composition. */
+.hc-layout {position:relative;isolation:isolate;grid-template-columns:minmax(0,1fr) minmax(300px,390px);gap:clamp(35px,6vw,85px);align-items:center}
+.hc-layout::before {content:"";position:absolute;z-index:-1;inset:6% -7% 3%;pointer-events:none;opacity:.16;background:radial-gradient(ellipse 11% 28% at 10% 70%,#80a892 0 24%,transparent 75%),radial-gradient(ellipse 8% 24% at 23% 63%,#8b9d7b 0 23%,transparent 74%),radial-gradient(ellipse 7% 20% at 38% 76%,#91ab88 0 21%,transparent 70%),radial-gradient(ellipse 10% 29% at 81% 85%,#80a892 0 21%,transparent 74%);filter:blur(17px)}
+.hc-card-shell,.hc-card,.hc-pack {width:min(100%,335px)}
+.hc-pack {padding:23px}
+.hc-logo-pack {height:132px}
+.hc-pack-star {font-size:65px}
+.hc-pack-line {margin:15px 0}
+.hc-pack-open {margin-top:16px}
+.hc-pack-serial {margin-top:20px}
+.hc-story-preview {max-width:585px;margin-top:28px;padding:21px 25px 23px;background:linear-gradient(115deg,#1a39429c,#1b294a50);border-left:2px solid #e9ba72;border-radius:0 18px 18px 0;box-shadow:0 13px 30px #050d2150}
+.hc-story-label {font-size:11px;color:#f6d18d;letter-spacing:.16em;font-weight:800}
+.hc-story-preview p {font-size:17px;line-height:1.42;margin:9px 0 17px;color:#f3ebdd}
+.hc-story-powers {display:flex;flex-wrap:wrap;gap:7px;margin-top:9px}
+.hc-story-powers span {font-size:12px;color:#f5e6c6;padding:5px 10px;border:1px solid #e1c18677;border-radius:40px}
+.hc-carousel {cursor:grab}
+.hc-carousel:active {cursor:grabbing}
+.hc-carousel:focus-visible {outline:3px solid #fff;outline-offset:4px}
+@media(max-width:800px) {.hc-layout {display:flex;gap:26px}.hc-story-preview {margin-top:20px;text-align:left}.hc-story-preview p {font-size:15px}.hc-card-shell,.hc-card,.hc-pack {width:min(100%,350px)}}
+@media(max-width:390px) {.hc-card-shell,.hc-card,.hc-pack {width:min(100%,318px)}}
+
+.hc-parent-logo {width:clamp(144px,18vw,205px);height:auto;display:block}

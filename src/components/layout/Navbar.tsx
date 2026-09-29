@@ -40,14 +40,10 @@ const Navbar = () => {
           className="group flex items-center gap-2.5 h-20 md:h-24 shrink-0 mr-4 md:mr-8"
         >
           <img
-            src="/lovable-uploads/ausome-nav-emblem.png"
-            alt=""
-            className="h-11 md:h-[52px] w-auto transition-transform duration-200 group-hover:scale-105 group-hover:-rotate-3"
+            src="/lovable-uploads/ausome-painted-wordmark.png"
+            alt="Ausome Heroes"
+            className="w-[176px] sm:w-[220px] md:w-[255px] h-auto object-contain"
           />
-          <span className="font-logo text-[22px] md:text-[26px] font-extrabold leading-none tracking-tight whitespace-nowrap">
-            <span className="text-white">Ausome</span>{" "}
-            <span className="text-cosmic-gold">Heroes</span>
-          </span>
         </Link>
 
         {/* Desktop */}
