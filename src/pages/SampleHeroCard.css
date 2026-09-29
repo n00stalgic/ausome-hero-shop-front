@@ -162,3 +162,9 @@
 @media(max-width:390px) {.hc-card-shell,.hc-card,.hc-pack {width:min(100%,318px)}}
 
 .hc-parent-logo {width:clamp(144px,18vw,205px);height:auto;display:block}
+
+.hc-saved-shelf {max-width:1410px;margin:16px auto 0;display:flex;flex-wrap:wrap;align-items:center;gap:7px;color:#f3d48e;font-size:11px;letter-spacing:.08em;font-weight:800}
+.hc-saved-shelf span {margin-right:6px}
+.hc-saved-shelf button {border:1px solid #e6c18288;border-radius:20px;background:#21374b;color:#ffdf9c;padding:5px 10px;font:700 12px 'Baloo 2',sans-serif;cursor:pointer}
+.hc-saved-shelf button:focus-visible,.hc-save:focus-visible {outline:3px solid #fff;outline-offset:3px}
+.hc-save {background:#213d45;color:#ffdf9c;border:1px solid #e6c182}

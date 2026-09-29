@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, RotateCcw, Share2, Sparkles, VolumeX } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, RotateCcw, Share2, Sparkles, VolumeX, Bookmark, BookmarkCheck } from "lucide-react";
 import { usePageTitle } from "@/hooks/usePageTitle";
 import { PocketHeroQr } from "@/components/PocketHeroQr";
 import "./SampleHeroCard.css";
@@ -39,6 +39,13 @@ export default function SampleHeroCard() {
   const [permission, setPermission] = useState<"unknown" | "denied" | "granted">("unknown");
   const [shared, setShared] = useState("");
   const [showQr, setShowQr] = useState(false);
+  const [savedNames, setSavedNames] = useState<string[]>(() => {
+    try {
+      const stored = JSON.parse(localStorage.getItem("pocket-heroes:collection:v1") || "[]");
+      return Array.isArray(stored) ? stored.filter((name): name is string => typeof name === "string" && heroes.some((entry) => entry.name === name)) : [];
+    } catch { return []; }
+  });
+  const [storageNotice, setStorageNotice] = useState("");
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const prefersReduced = useRef(false);
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -48,6 +55,17 @@ export default function SampleHeroCard() {
   const hero = heroes[selected];
   const number = String(selected + 1).padStart(3, "0");
   const shareUrl = () => `${window.location.origin}/heroes/`;
+  const isSaved = savedNames.includes(hero.name);
+  function toggleSaved() {
+    const next = isSaved ? savedNames.filter((name) => name !== hero.name) : [...savedNames, hero.name];
+    try {
+      localStorage.setItem("pocket-heroes:collection:v1", JSON.stringify(next));
+      setSavedNames(next);
+      setStorageNotice(isSaved ? `${hero.name} removed from this device's collection.` : `${hero.name} saved on this device.`);
+    } catch {
+      setStorageNotice("This browser could not save cards. Check that site storage is enabled.");
+    }
+  }
 
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -192,6 +210,10 @@ export default function SampleHeroCard() {
           </button>)}
         </div>
         <p className="hc-carousel-hint">Swipe, drag, or use the arrow keys to see all {heroes.length} heroes. Choose one to read the story.</p>
+        {savedNames.length > 0 && <div className="hc-saved-shelf" aria-label="Saved heroes on this device">
+          <span>SAVED ON THIS DEVICE · {savedNames.length}</span>
+          {savedNames.map((name) => <button type="button" key={name} onClick={() => chooseHero(heroes.findIndex((entry) => entry.name === name), true)}>{name}</button>)}
+        </div>}
       </section>
       <main className="hc-layout">
         <div className="hc-intro">
@@ -246,6 +268,7 @@ export default function SampleHeroCard() {
             </div>
           )}
           <div className="hc-controls">
+            <button type="button" className="hc-save" onClick={toggleSaved} aria-pressed={isSaved}>{isSaved ? <BookmarkCheck size={16} aria-hidden="true" /> : <Bookmark size={16} aria-hidden="true" />}{isSaved ? "Saved on this device" : `Save ${hero.name}`}</button>
             <button type="button" className="hc-share" onClick={share}><Share2 size={16} aria-hidden="true" /> Share collection</button>
             <button type="button" className="hc-motion" aria-expanded={showQr} onClick={() => setShowQr((value) => !value)}>{showQr ? "Hide QR" : "Show QR"}</button>
             {revealed && (motion ? <button type="button" className="hc-motion" onClick={() => { setMotion(false); setTilt({ x: 0, y: 0 }); }}>Turn off tilt</button> : <button type="button" className="hc-motion" onClick={enableMotion} disabled={systemReduced} title={systemReduced ? "Your device prefers reduced motion" : undefined}>{systemReduced ? "Tilt off (device setting)" : "Enable gentle tilt"}</button>)}
@@ -253,6 +276,7 @@ export default function SampleHeroCard() {
           {showQr && <PocketHeroQr url={shareUrl()} heroName={hero.name} onClose={() => setShowQr(false)} />}
           {permission === "denied" && <p role="status" className="hc-status">Tilt isn't available here. Every card still works with tap.</p>}
           {shared && <p role="status" className="hc-status">{shared}</p>}
+          <p role="status" className="hc-status" aria-live="polite">{storageNotice || "Saved cards stay in this browser on this device. They do not sync across devices."}</p>
           <p className="hc-footnote">These heroes are fictional. No real child's name, photo, or story is used.</p>
         </section>
       </main>
