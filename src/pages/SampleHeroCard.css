@@ -86,3 +86,11 @@
 /* The vector wordmark doubles as a legible small card stamp. */
 .hc-card-wordmark {display:block;width:91px;height:45px;object-fit:contain;flex:0 0 auto;margin:-11px 0 -10px -3px}
 .hc-back-top {align-items:center}
+
+.hc-qr-panel {position:relative;width:min(100%,350px);margin:18px auto 0;padding:20px;border:1px solid #e8bd70;border-radius:18px;background:#fff8e9;color:#14243d;text-align:center;box-shadow:0 15px 30px #0006}
+.hc-qr-panel strong {display:block;font-size:19px;line-height:1.2;padding-right:37px}
+.hc-qr-panel p {font-size:13px;line-height:1.4;margin:10px auto}
+.hc-qr-panel img {display:block;width:220px;height:220px;margin:12px auto;image-rendering:pixelated}
+.hc-qr-panel a {display:block;font-size:11px;overflow-wrap:anywhere;color:#124e5b}
+.hc-qr-close {position:absolute;right:12px;top:11px;border:0;background:transparent;color:#124e5b;font:700 12px 'Baloo 2',sans-serif;text-decoration:underline;cursor:pointer;padding:5px}
+.hc-qr-close:focus-visible {outline:3px solid #124e5b}

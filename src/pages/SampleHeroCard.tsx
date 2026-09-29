@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, RotateCcw, Share2, Sparkles, VolumeX } from "lucide-react";
 import { usePageTitle } from "@/hooks/usePageTitle";
+import { PocketHeroQr } from "@/components/PocketHeroQr";
 import "./SampleHeroCard.css";
 
 type Hero = { name: string; epithet: string; image: string; alt: string; story: string; powers: string[] };
@@ -24,6 +25,7 @@ export default function SampleHeroCard() {
   const [systemReduced, setSystemReduced] = useState(false);
   const [permission, setPermission] = useState<"unknown" | "denied" | "granted">("unknown");
   const [shared, setShared] = useState("");
+  const [showQr, setShowQr] = useState(false);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const prefersReduced = useRef(false);
   const hero = heroes[selected];
@@ -70,6 +72,7 @@ export default function SampleHeroCard() {
     setFlipped(false);
     setTilt({ x: 0, y: 0 });
     setShared("");
+    setShowQr(false);
   }
 
   async function share() {
@@ -94,14 +97,14 @@ export default function SampleHeroCard() {
     <div className="hc-page">
       <header className="hc-header">
         <Link to="/" className="hc-home" aria-label="Ausome Heroes home"><ArrowLeft size={18} /> <span>Ausome Heroes</span></Link>
-        <span className="hc-preview">EXPERIENCE PROTOTYPE <span aria-hidden="true">✦</span> FICTIONAL HEROES</span>
+        <span className="hc-preview">THE QUIET GARDEN <span aria-hidden="true">✦</span> FIRST EDITION</span>
       </header>
       <main className="hc-layout">
         <div className="hc-intro">
           <img src="/heroes/pocket-heroes-wordmark.svg" className="hc-logo-intro" alt="Pocket Heroes" />
           <span className="hc-eyebrow"><Sparkles size={14} aria-hidden="true" /> THE QUIET GARDEN · FIRST EDITION</span>
           <h1>Every way of seeing<br /><em>is a superpower.</em></h1>
-          <p>Meet the first edition of Pocket Heroes. Seven made-up garden friends, each with a different way of making the world brighter. Pick one to open their card.</p>
+          <p>Meet the first edition of Pocket Heroes. Seven garden friends, each with a different way of making the world brighter. Pick one to open their card.</p>
           <div className="hc-rule" aria-hidden="true" />
           <div className="hc-instructions"><span className="hc-instruction-number">01</span><span>Pick a hero</span><ArrowRight size={16} aria-hidden="true"/><span className="hc-instruction-number">02</span><span>Open and flip</span></div>
           <p className="hc-note"><VolumeX size={16} aria-hidden="true" /> No sound or flashing. Tilt is always your choice.</p>
@@ -122,7 +125,7 @@ export default function SampleHeroCard() {
               <span className="hc-pack-line" aria-hidden="true" />
               <span className="hc-pack-title">{hero.name} is waiting.</span>
               <span className="hc-pack-open">TAP TO OPEN <ArrowRight size={17} aria-hidden="true" /></span>
-              <span className="hc-pack-serial">QUIET GARDEN · {number} / 007</span>
+              <span className="hc-pack-serial">QUIET GARDEN · NO. {number}</span>
             </button>
           ) : (
             <div className="hc-card-shell">
@@ -152,11 +155,13 @@ export default function SampleHeroCard() {
           )}
           <div className="hc-controls">
             <button type="button" className="hc-share" onClick={share}><Share2 size={16} aria-hidden="true" /> Share collection</button>
+            <button type="button" className="hc-motion" aria-expanded={showQr} onClick={() => setShowQr((value) => !value)}>{showQr ? "Hide QR" : "Show QR"}</button>
             {revealed && (motion ? <button type="button" className="hc-motion" onClick={() => { setMotion(false); setTilt({ x: 0, y: 0 }); }}>Turn off tilt</button> : <button type="button" className="hc-motion" onClick={enableMotion} disabled={systemReduced} title={systemReduced ? "Your device prefers reduced motion" : undefined}>{systemReduced ? "Tilt off (device setting)" : "Enable gentle tilt"}</button>)}
           </div>
+          {showQr && <PocketHeroQr url={shareUrl()} heroName={hero.name} onClose={() => setShowQr(false)} />}
           {permission === "denied" && <p role="status" className="hc-status">Tilt isn't available here. Every card still works with tap.</p>}
           {shared && <p role="status" className="hc-status">{shared}</p>}
-          <p className="hc-footnote">Prototype only. No child's name, photo, or story is used here.</p>
+          <p className="hc-footnote">These heroes are fictional. No real child's name, photo, or story is used.</p>
         </section>
       </main>
     </div>
